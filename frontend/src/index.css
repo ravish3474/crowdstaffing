@@ -1,0 +1,155 @@
+.colBackLightBlue{
+	background:  #ecf4ff
+}
+.backImg{
+    background: url('./assets/images/Starting-Full-Image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.margtp{
+    margin-top: 200px;
+}
+.bg_blue{
+    background: #00adef;
+}
+.dsp_P{
+    display: flex;
+    justify-content: space-between;
+}
+.colBlu{
+    color: #00adef;
+}
+.W45{
+    width: 45%;
+}
+.OUJPP{
+    font-weight: 400;
+    font-size: 35px;
+}
+.OUJPP strong{
+    font-weight: 600;
+}
+.btn_tras{
+    border: 1px solid #00adef !important;
+    border-radius: 30px !important;
+    
+    padding: 8px 22px !important;
+}
+.btn_tras:hover{
+    border: 1px solid #00adef !important;
+    border-radius: 30px !important;
+ box-shadow: 0px 0px 5px 1px #00adef;   
+    padding: 8px 22px !important;
+}
+.font20{
+    font-size: 20px !important;
+}
+.btnbckBlu{
+    background:  #00adef !important;
+    color: white !important;
+    border-radius: 30px ;
+    font-weight: 600 !important;
+    padding: 7px 10px !important;
+
+}
+.List_p{
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 0px !important;
+    color: white;
+}
+.List_p li{
+    margin: 1px 5px;
+}
+.List_p li a{
+    cursor:pointer;
+}
+.W20{
+    width: 20%;
+}
+.bg_lightBlu{
+    background: #ecf4ff;
+}
+.colBlk{
+    color:#1a1a1a;
+}
+.adIN{
+    color:#1a1a1a;
+    font-size: 14px;
+}
+.adIN:hover{
+    text-decoration: none;
+ 
+    color: #00adef;
+    font-size: 14px;
+}
+.colGry{
+	    color: #808080d9;
+}
+.fnt500{
+	font-weight: 500
+}
+.Fnte span{
+	font-weight: 500;
+	 color: #808080d9;
+}
+.LONpp li a{
+	 color: #808080d9;
+
+}
+.LONpp li a:hover{
+	 color:  #00adef;
+	 text-decoration: none;
+}
+.HIssqq{
+	    padding-top: 96px;
+}
+.HIssqq h1{
+	font-size: 56px;
+	font-weight: 700;
+}
+.bnlurrt{
+	
+       background: #00adef;
+    color: white;
+   
+    padding: 2px 33px;
+    font-weight: 500;
+    border-radius: 18px;
+    margin-top: 30px;
+
+}
+.fnt24{
+	 font-size: 24px;
+}
+.ht20{
+	height: 20px
+}
+.fnt14{
+	font-size: 14px
+}
+.ptTT{
+	padding-top: 130px;
+}
+.nav-link{
+	font-size: 18px !important;
+    font-weight: 500;
+}
+.padT{
+	    padding: 0px 74px;
+	}
+.bordRAD0{
+	border-radius: 0px !important;
+}
+.POsrt{
+	position: relative;
+}
+.POsrt span{
+	position: absolute;
+    top: 5px;
+    left: 4px;
+}
+.POsrt input{
+	padding-left: 32px;
+}
