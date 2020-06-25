@@ -21,11 +21,11 @@ router.route('/register').post((req, res)=>{
     const full_name=req.body.full_name;
     const email=req.body.email;
     const pass_code=req.body.password;
-
-    const newUser = new JobSeeker({full_name, email, pass_code});
+    const phone_= req.body.phone;
+    const newUser = new JobSeeker({full_name, email, pass_code,phone_});
 
     newUser.save()
-            .then(()=> res.json('Registered Successfully'))
+            .then(()=> res.json({'code':1,'msg':'Registered Successfully'}))
             .catch(err => res.json('Error: '+ err));
 });
 

@@ -1,8 +1,73 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import swal from 'react-bootstrap-sweetalert';
 import {Link} from 'react-router-dom';
 import FooterLog from '../shared/FooterLog'
 
 class Register extends Component {
+    constructor(props){
+        super(props);
+
+        this.onChangeFullname = this.onChangeFullname.bind(this);
+        this.onChangeEmail  = this.onChangeEmail.bind(this);
+        this.onChangePhone = this.onChangePhone.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+
+        this.state = {
+            username : '',
+        }
+    }
+    onChangeFullname(e){
+        this.setState({
+            full_name: e.target.value
+        });
+    }
+    onChangeEmail(e){
+        this.setState({
+            email: e.target.value
+        });
+    }
+    onChangePassword(e){
+        this.setState({
+            password: e.target.value
+        })
+    }
+    onChangePhone(e){
+        this.setState({
+            phone:e.target.value
+        });
+    }
+    onSubmit(e){
+        e.preventDefault();
+
+        const user = {
+            full_name: this.state.full_name,
+            email: this.state.email,
+            phone:  this.state.phone,
+            password: this.state.password
+        }
+        console.log(user);
+        axios.post('http://localhost:5000/jobSeeker/register',user)
+            .then((res) => {
+                    if(res.data.code === 1){
+                        console.log("eeeeee");
+                        swal("Thanks..!", 'Registered Sucessfully', "success");
+                    }
+                // if(res.data.code==1){
+                //     swal("Thanks..!", `Registered Sucessfully`, "success");
+                // }else{
+                //     console.log("eeeee");
+                // }
+                   
+            });
+        this.setState({
+            full_name: '',
+            email: '',
+            phone:  '',
+            password: ''
+        })
+    }
     render() {
         return <div className="bg_lightBlu">
             
@@ -20,20 +85,20 @@ class Register extends Component {
                                     <h3 className="mb-1 text-center">Sign Up</h3>
                                     
                                     <div className="mt-4">
-                                        <form>
+                                        <form onSubmit={this.onSubmit}>
                                             <div className="form-group">
-                                                <input type="text" className="form-control" name="" placeholder="Full Name" required/>
+                                                <input type="text" className="form-control" name="" value={this.state.full_name} onChange={this.onChangeFullname} placeholder="Full Name" required/>
                                             
                                             </div>
                                             <div className="form-group">
-                                                <input type="text" className="form-control" name="" placeholder="Email Address" required/>
+                                                <input type="text" className="form-control" value={this.state.email} onChange={this.onChangeEmail} name="" placeholder="Email Address" required/>
                                             </div>
                                             <div className="form-group">
-                                                <input type="text" className="form-control" name="" placeholder="Phone Number" required/>
+                                                <input type="text" className="form-control" name="" value={this.state.phone} onChange={this.onChangePhone} placeholder="Phone Number" required/>
                                             </div>
 
                                             <div className="form-group">
-                                                <input type="password" className="form-control" name="" placeholder="Password" required/>
+                                                <input type="password" className="form-control" name="" value={this.state.password} onChange={this.onChangePassword} placeholder="Password" required/>
                                             </div>
                                             <div className="form-group">
                                                 <input type="password" className="form-control" name="" placeholder="Confirm Password" required/>
