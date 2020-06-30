@@ -1,0 +1,104 @@
+import React, { Component } from 'react';
+import $ from 'jquery';
+
+class Sidebar extends Component {
+    render() {
+        return  <nav id="sidebar">
+                    <div class="sidebar-header">
+                        <h3>SYOLO</h3>
+                        <strong>S</strong>
+                    </div>
+                    <button type="button" id="sidebarCollapse" class="btn btn-info" onClick={ this.onBtnClick }>
+                        <i class="fas fa-align-left"></i>
+                        <span></span>
+                    </button>
+                    <ul class="list-unstyled components">
+                        <li class="active">
+                            {/* <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                <i class="fas fa-home"></i>
+                                Home
+                            </a>
+                            <ul class="collapse list-unstyled" id="homeSubmenu">
+                                <li>
+                                    <a href="#">Home 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Home 2</a>
+                                </li>
+                                <li>
+                                    <a href="#">Home 3</a>
+                                </li>
+                            </ul> */}
+                            <a href="#">
+                                <i class="fas fa-briefcase"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-briefcase"></i>
+                                Company Profile
+                            </a>
+                            {/* <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                <i class="fas fa-copy"></i>
+                                Pages
+                            </a>
+                            <ul class="collapse list-unstyled" id="pageSubmenu">
+                                <li>
+                                    <a href="#">Page 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Page 2</a>
+                                </li>
+                                <li>
+                                    <a href="#">Page 3</a>
+                                </li>
+                            </ul> */}
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-image"></i>
+                                Post New Job
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-question"></i>
+                                Manage Jobs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-paper-plane"></i>
+                                Shortlisted Resumes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-unlock"></i>
+                                Change Password
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <i class="far fa-trash-alt"></i>
+                                Delete Profile
+                            </a>
+                        </li>
+                    </ul>
+
+                    
+                </nav>
+       
+    }
+    onBtnClick() {
+        $('#sidebar').toggleClass('active');
+    }
+}
+export default Sidebar;
