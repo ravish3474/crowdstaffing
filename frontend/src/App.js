@@ -10,11 +10,15 @@ import RecoverPassword from './components/RecoverPassword';
 import OtpVerify from './components/OtpVerify';
 import BusinessPage from './components/BusinessPage';
 import Agencies from './components/Agencies';
+import Employee from './admin/components/Dashboard';
+import Employeer from './MainAdmin/components/MainDashboard';
 
 function App() {
     return (
       <BrowserRouter>
       <Route path="/" exact={true} component={Splash} />
+      <Route path="/Employee" component={Employee} />
+      <Route path="/Employeer" component={Employeer} />
       <Route path="/home" component={Home} />
       <Route path="/login" component={LoginFormat} />
       <Route path="/register" component={Register} />

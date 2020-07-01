@@ -51,7 +51,8 @@ class Register extends Component {
         axios.post('http://localhost:5000/jobSeeker/register',user)
             .then((res) => {
                     if(res.data.code === 1){
-                        console.log(res.data.msg);
+                        // console.log(res.data.msg);
+                        alert("Registered Sucessfully")
                         // swal("Thanks..!", 'Registered Sucessfully', "success");
                     }
                 // if(res.data.code==1){
