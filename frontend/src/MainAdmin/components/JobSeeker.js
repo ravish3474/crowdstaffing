@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import '../css/Admin.css';
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
+import {Link} from 'react-router-dom';
 
 class JobSeeker extends Component {
     render() {
@@ -58,7 +59,7 @@ class JobSeeker extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <div className="m-3 text-right">
-                                                <a className="btn btn-default border px-3 py-2">Edit Profile</a>
+                                                <Link to="/profile" className="btn btn-default border px-3 py-2">Edit Profile</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -96,7 +97,7 @@ class JobSeeker extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <div className="m-3 text-right">
-                                                <a className="btn btn-default border px-3 py-2">Edit Profile</a>
+                                                <Link to="/profile" className="btn btn-default border px-3 py-2">Edit Profile</Link>
                                             </div>
                                         </div>
                                     </div>

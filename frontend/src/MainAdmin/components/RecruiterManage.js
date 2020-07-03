@@ -32,7 +32,7 @@ class RecruiterManage extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <div className="">
-                                                <h6 className="mb-0">Lori Ramos</h6>
+                                                <Link to="/profile"><h6 className="mb-0">Lori Ramos</h6></Link>
                                                 <span className="colGry">UX/UI Designer</span><br/>
                                                 <span className="colGry"><i class="fas fa-map-marker-alt"></i> <span>England</span></span> 
                                                
@@ -53,7 +53,7 @@ class RecruiterManage extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <div className="">
-                                                <h6 className="mb-0">Lori Ramos</h6>
+                                            <Link to="/profile"><h6 className="mb-0">Lori Ramos</h6></Link>
                                                 <span className="colGry">UX/UI Designer</span><br/>
                                                 <span className="colGry"><i class="fas fa-map-marker-alt"></i> <span>England</span></span> 
                                             </div>

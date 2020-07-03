@@ -41,7 +41,7 @@ class MainDashboard extends Component {
                                         </div>
                                         <div className="col-md-2">
                                             <div className="text-center">
-                                                <button className="btn btn-default border">Manage</button>
+                                                <Link to="/jobseeker" className="btn btn-default border">Manage</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -70,7 +70,7 @@ class MainDashboard extends Component {
                                         </div>
                                         <div className="col-md-2">
                                             <div className="text-center">
-                                                <button className="btn btn-default border">Manage</button>
+                                                <Link to="/recruiter" className="btn btn-default border">Manage</Link>
                                             </div>
                                         </div>
                                     </div>
