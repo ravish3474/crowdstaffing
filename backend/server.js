@@ -25,13 +25,13 @@ const jobseekerRouter = require('./routes/jobseeker');
 const categoryRouter = require('./routes/category');
 const jobTypeRouter = require('./routes/jobType');
 const skillRouter = require('./routes/skills');
-const resumeRouter = require('./routes/resume');
+//const resumeRouter = require('./routes/resume');
 // app.use('/jobs',jobsRouter);
 app.use('/jobSeeker',jobseekerRouter);
 app.use('/category',categoryRouter);
 app.use('/jobType',jobTypeRouter);
 app.use('/skill',skillRouter);
-app.use('/resume',resumeRouter);
+//app.use('/resume',resumeRouter);
 
 app.listen(port,()=>{
     console.log(`Server is runnig at: ${port}`);
