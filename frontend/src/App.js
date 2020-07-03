@@ -18,10 +18,16 @@ import JobSeekerProfile from './MainAdmin/components/JobSeekerProfile';
 import RecruiterManage from './MainAdmin/components/RecruiterManage';
 import RecruiterProfile from './MainAdmin/components/RecruiterProfile';
 
+import Employee from './admin/components/Dashboard';
+import Employeer from './MainAdmin/components/MainDashboard';
+
+
 function App() {
     return (
       <BrowserRouter>
       <Route path="/" exact={true} component={Splash} />
+      <Route path="/Employee" component={Employee} />
+      <Route path="/Employeer" component={Employeer} />
       <Route path="/home" component={Home} />
       <Route path="/login" component={LoginFormat} />
       <Route path="/register" component={Register} />
