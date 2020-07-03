@@ -4,11 +4,12 @@ import {Link} from 'react-router-dom';
 import '../css/Admin.css';
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
+import {Link} from 'react-router-dom';
 
 class RecruiterManage extends Component {
     render() {
         return <section>
-                    <div class="wrapper">
+                    <div className="wrapper">
                 
                         <Sidebar/>
 
@@ -19,7 +20,7 @@ class RecruiterManage extends Component {
                             <h5>Recruiter Manage</h5>
                                 <div className="dsaIcon w-50 m-auto">
                                     <input type="text" placeholder="" className="form-control "/> 
-                                    <span class=" IconSE"><i class="fas fa-search"></i></span>
+                                    <span className=" IconSE"><i className="fas fa-search"></i></span>
                                 </div>
                             <div className="mt-3 p-5 colBlk bg-white bordRad_2">
                                 
@@ -33,9 +34,9 @@ class RecruiterManage extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <div className="">
-                                                <Link to="/profile"><h6 className="mb-0">Lori Ramos</h6></Link>
+                                                <Link to="/admin-panel/recruiter/profile"><h6 className="mb-0">Lori Ramos</h6></Link>
                                                 <span className="colGry">UX/UI Designer</span><br/>
-                                                <span className="colGry"><i class="fas fa-map-marker-alt"></i> <span>England</span></span> 
+                                                <span className="colGry"><i className="fas fa-map-marker-alt"></i> <span>England</span></span> 
                                                
                                             </div>
                                         </div>
@@ -54,9 +55,9 @@ class RecruiterManage extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <div className="">
-                                            <Link to="/profile"><h6 className="mb-0">Lori Ramos</h6></Link>
+                                            <Link to="/admin-panel/recruiter/profile"><h6 className="mb-0">Lori Ramos</h6></Link>
                                                 <span className="colGry">UX/UI Designer</span><br/>
-                                                <span className="colGry"><i class="fas fa-map-marker-alt"></i> <span>England</span></span> 
+                                                <span className="colGry"><i className="fas fa-map-marker-alt"></i> <span>England</span></span> 
                                             </div>
                                         </div>
                                         <div className="col-md-5">

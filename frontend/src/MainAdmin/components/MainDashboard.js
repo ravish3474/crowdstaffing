@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
 class MainDashboard extends Component {
     render() {
         return <section>
-                    <div class="wrapper">
+                    <div className="wrapper">
                 
                         <Sidebar/>
 
@@ -42,7 +42,7 @@ class MainDashboard extends Component {
                                         </div>
                                         <div className="col-md-2">
                                             <div className="text-center">
-                                                <Link to="/jobseeker" className="btn btn-default border">Manage</Link>
+                                                <Link to="/admin-panel/jobseeker" className="btn btn-default border">Manage</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@ class MainDashboard extends Component {
                                         </div>
                                         <div className="col-md-2">
                                             <div className="text-center">
-                                                <Link to="/recruiter" className="btn btn-default border">Manage</Link>
+                                                <Link to="/admin-panel/recruiter" className="btn btn-default border">Manage</Link>
                                             </div>
                                         </div>
                                     </div>

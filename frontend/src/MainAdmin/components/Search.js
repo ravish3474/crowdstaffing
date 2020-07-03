@@ -7,7 +7,7 @@ import Header from '../shared/Header';
 class Search extends Component {
     render() {
         return <section>
-                    <div class="wrapper">
+                    <div className="wrapper">
                 
                         <Sidebar/>
 

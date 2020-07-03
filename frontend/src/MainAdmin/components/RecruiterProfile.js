@@ -8,7 +8,7 @@ import Header from '../shared/Header';
 class RecruiterProfile extends Component {
     render() {
         return <section>
-                <div class="wrapper">
+                <div className="wrapper">
        
         <Sidebar/>
 
@@ -26,7 +26,7 @@ class RecruiterProfile extends Component {
                    <div className="m-3">
                        <h6 className="mb-0">A D Holiday Ltd</h6>
                        <small className="colGry">Education Training</small><br/>
-                       <small className="colGry"><i class="fas fa-map-marker-alt"></i> <span>England</span></small> 
+                       <small className="colGry"><i className="fas fa-map-marker-alt"></i> <span>England</span></small> 
                    </div> 
                </div>
                <form className=" UJUFom">
