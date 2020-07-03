@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import '../css/Admin.css';
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
-import {Link} from 'react-router-dom';
 
 class RecruiterManage extends Component {
     render() {

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 let JobSeeker = require('../models/jobseekers.model');
 const multer = require('multer');
+import { getToken } from '../util';
 
 const storage = multer.diskStorage({
     destination : function(req, file, cb){
@@ -16,6 +17,24 @@ router.route('/').get((req, res)=>{
         .then(jobSeeker => res.json(jobSeeker))
         .catch(err => res.json('Error: '+ err));
 });
+
+router.post('/signin', async (req, res) =>{
+    const signinUser = await JobSeeker.findOne({
+        email : req.body.email,
+        pass_code: req.body.pass_code
+    });
+    if(signinUser){
+        res.send({
+            _id:signinUser.id,
+            name:signinUser.full_name,
+            email:signinUser.email,
+            token:getToken(signinUser)
+        })
+    }
+    else{
+        res.status(401).send({msg:'Invalid Email or Password'});
+    }
+})
 
 router.route('/register').post((req, res)=>{
     const full_name=req.body.full_name;
