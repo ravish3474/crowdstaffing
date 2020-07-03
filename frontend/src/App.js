@@ -10,8 +10,17 @@ import RecoverPassword from './components/RecoverPassword';
 import OtpVerify from './components/OtpVerify';
 import BusinessPage from './components/BusinessPage';
 import Agencies from './components/Agencies';
+import MainDashboard from './MainAdmin/components/MainDashboard';
+import RecentJobs from './MainAdmin/components/RecentJobs';
+import Search from './MainAdmin/components/Search';
+import JobSeeker from './MainAdmin/components/JobSeeker';
+import JobSeekerProfile from './MainAdmin/components/JobSeekerProfile';
+import RecruiterManage from './MainAdmin/components/RecruiterManage';
+import RecruiterProfile from './MainAdmin/components/RecruiterProfile';
+
 import Employee from './admin/components/Dashboard';
 import Employeer from './MainAdmin/components/MainDashboard';
+
 
 function App() {
     return (
@@ -26,6 +35,19 @@ function App() {
       <Route path="/otp-verify" component={OtpVerify} />
       <Route path="/for-business" component={BusinessPage} />
       <Route path="/for-staffing-agencies" component={Agencies} />
+
+      {/* Main Admin */}
+
+      <Route path="/admin-panel" component={ MainDashboard } />   
+      <Route path="/admin-panel/jobseeker" component={ JobSeeker } />  
+      <Route path="/admin-panel/jobseeker/profile" component={ JobSeekerProfile } />  
+      <Route path="/admin-panel/recent-jobs" component={ RecentJobs } />   
+      <Route path="/admin-panel/search" component={ Search } />   
+        
+      <Route path="/admin-panel/recruiter" component={ RecruiterManage } />   
+      <Route path="/admin-panel/recruiter/profile" component={ RecruiterProfile } />   
+
+
       </BrowserRouter>
     );
 }

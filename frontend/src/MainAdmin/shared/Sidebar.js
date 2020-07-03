@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import {Link} from 'react-router-dom';
 
 class Sidebar extends Component {
     render() {
@@ -29,16 +30,16 @@ class Sidebar extends Component {
                                     <a href="#">Home 3</a>
                                 </li>
                             </ul> */}
-                            <a href="#">
+                            <Link to="/admin-panel">
                                 <i class="fas fa-briefcase"></i>
                                 Dashboard
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#">
+                            <Link to="#">
                                 <i class="fas fa-briefcase"></i>
                                 Send Messages
-                            </a>
+                            </Link>
                             {/* <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                                 <i class="fas fa-copy"></i>
                                 Pages
@@ -56,40 +57,40 @@ class Sidebar extends Component {
                             </ul> */}
                         </li>
                         <li>
-                            <a href="#">
+                            <Link to="#">
                                 <i class="fas fa-image"></i>
                                Role and Authentication
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#">
+                            <Link to="#">
                                 <i class="fas fa-question"></i>
                                 Send Notifications
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#">
+                            <Link to="#">
                                 <i class="fas fa-paper-plane"></i>
                                 Recent Jobs
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#">
+                            <Link to="#">
                                 <i class="fas fa-unlock"></i>
                                 Category Job Postings
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#">
+                            <Link to="#">
                                 <i class="fas fa-sign-out-alt"></i>
                                 Search
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#">
-                            <i class="far fa-trash-alt"></i>
+                            <Link to="#">
+                                <i class="far fa-trash-alt"></i>
                                Generate Report
-                            </a>
+                            </Link>
                         </li>
                     </ul>
 
