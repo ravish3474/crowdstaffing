@@ -7,7 +7,7 @@ import Header from '../shared/Header';
 class RecentJobs extends Component {
     render() {
         return <section>
-                    <div class="wrapper">
+                    <div className="wrapper">
                 
                         <Sidebar/>
 
@@ -37,7 +37,7 @@ class RecentJobs extends Component {
                                                     <div className="col-md-4">
                                                         <div className="">
                                                            
-                                                            <small className="colGry"><i class="fas fa-map-marker-alt"></i> <span>England</span></small> 
+                                                            <small className="colGry"><i className="fas fa-map-marker-alt"></i> <span>England</span></small> 
                                                         </div>
                                                     </div>
                                                     <div className="col-md-4">

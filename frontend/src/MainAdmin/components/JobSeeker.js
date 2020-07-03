@@ -7,8 +7,9 @@ import {Link} from 'react-router-dom';
 
 class JobSeeker extends Component {
     render() {
+        
         return <section>
-                    <div class="wrapper">
+                    <div className="wrapper">
                 
                         <Sidebar/>
 
@@ -19,7 +20,7 @@ class JobSeeker extends Component {
                             <h5>Job Seeker</h5>
                                 <div className="dsaIcon w-50 m-auto">
                                     <input type="text" placeholder="" className="form-control "/> 
-                                    <span class=" IconSE"><i class="fas fa-search"></i></span>
+                                    <span className=" IconSE"><i className="fas fa-search"></i></span>
                                 </div>
                             <div className="mt-3 p-5 colBlk bg-white bordRad_2">
                                 
@@ -39,7 +40,7 @@ class JobSeeker extends Component {
                                                     <div className="col-md-4">
                                                         <div className="">
                                                             <small className="fnt500">Location</small><br/>
-                                                            <small className="colGry"><i class="fas fa-map-marker-alt"></i> <span>England</span></small> 
+                                                            <small className="colGry"><i className="fas fa-map-marker-alt"></i> <span>England</span></small> 
                                                         </div>
                                                     </div>
                                                     <div className="col-md-4">
@@ -59,7 +60,7 @@ class JobSeeker extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <div className="m-3 text-right">
-                                                <Link to="/profile" className="btn btn-default border px-3 py-2">Edit Profile</Link>
+                                                <Link to="/admin-panel/jobseeker/profile" className="btn btn-default border px-3 py-2">Edit Profile</Link>
                                             </div>
                                         </div>
                                     </div>
@@ -77,7 +78,7 @@ class JobSeeker extends Component {
                                                     <div className="col-md-4">
                                                         <div className="">
                                                             <small className="fnt500">Location</small><br/>
-                                                            <small className="colGry"><i class="fas fa-map-marker-alt"></i> <span>England</span></small> 
+                                                            <small className="colGry"><i className="fas fa-map-marker-alt"></i> <span>England</span></small> 
                                                         </div>
                                                     </div>
                                                     <div className="col-md-4">
@@ -97,7 +98,7 @@ class JobSeeker extends Component {
                                         </div>
                                         <div className="col-md-6">
                                             <div className="m-3 text-right">
-                                                <Link to="/profile" className="btn btn-default border px-3 py-2">Edit Profile</Link>
+                                                <Link to="/admin-panel/jobseeker/profile" className="btn btn-default border px-3 py-2">Edit Profile</Link>
                                             </div>
                                         </div>
                                     </div>

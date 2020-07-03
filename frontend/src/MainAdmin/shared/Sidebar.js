@@ -5,21 +5,21 @@ import {Link} from 'react-router-dom';
 class Sidebar extends Component {
     render() {
         return  <nav id="sidebar">
-                    <div class="sidebar-header">
+                    <div className="sidebar-header">
                         <h3>SYOLO</h3>
                         <strong>S</strong>
                     </div>
-                    <button type="button" id="sidebarCollapse" class="btn btn-info" onClick={ this.onBtnClick }>
-                        <i class="fas fa-align-left"></i>
+                    <button type="button" id="sidebarCollapse" className="btn btn-info" onClick={ this.onBtnClick }>
+                        <i className="fas fa-align-left"></i>
                         <span></span>
                     </button>
-                    <ul class="list-unstyled components">
-                        <li class="active">
-                            {/* <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                <i class="fas fa-home"></i>
+                    <ul className="list-unstyled components">
+                        <li className="active">
+                            {/* <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">
+                                <i className="fas fa-home"></i>
                                 Home
                             </a>
-                            <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <ul className="collapse list-unstyled" id="homeSubmenu">
                                 <li>
                                     <a href="#">Home 1</a>
                                 </li>
@@ -31,20 +31,20 @@ class Sidebar extends Component {
                                 </li>
                             </ul> */}
                             <Link to="/admin-panel">
-                                <i class="fas fa-briefcase"></i>
+                                <i className="fas fa-briefcase"></i>
                                 Dashboard
                             </Link>
                         </li>
                         <li>
                             <Link to="#">
-                                <i class="fas fa-briefcase"></i>
+                                <i className="fas fa-briefcase"></i>
                                 Send Messages
                             </Link>
-                            {/* <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                <i class="fas fa-copy"></i>
+                            {/* <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">
+                                <i className="fas fa-copy"></i>
                                 Pages
                             </a>
-                            <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <ul className="collapse list-unstyled" id="pageSubmenu">
                                 <li>
                                     <a href="#">Page 1</a>
                                 </li>
@@ -58,37 +58,37 @@ class Sidebar extends Component {
                         </li>
                         <li>
                             <Link to="#">
-                                <i class="fas fa-image"></i>
+                                <i className="fas fa-image"></i>
                                Role and Authentication
                             </Link>
                         </li>
                         <li>
                             <Link to="#">
-                                <i class="fas fa-question"></i>
+                                <i className="fas fa-question"></i>
                                 Send Notifications
                             </Link>
                         </li>
                         <li>
-                            <Link to="#">
-                                <i class="fas fa-paper-plane"></i>
+                            <Link to="/admin-panel/recent-jobs">
+                                <i className="fas fa-paper-plane"></i>
                                 Recent Jobs
                             </Link>
                         </li>
                         <li>
                             <Link to="#">
-                                <i class="fas fa-unlock"></i>
+                                <i className="fas fa-unlock"></i>
                                 Category Job Postings
                             </Link>
                         </li>
                         <li>
-                            <Link to="#">
-                                <i class="fas fa-sign-out-alt"></i>
+                            <Link to="/admin-panel/search">
+                                <i className="fas fa-sign-out-alt"></i>
                                 Search
                             </Link>
                         </li>
                         <li>
                             <Link to="#">
-                                <i class="far fa-trash-alt"></i>
+                                <i className="far fa-trash-alt"></i>
                                Generate Report
                             </Link>
                         </li>

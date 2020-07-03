@@ -38,7 +38,7 @@ function App() {
 
       {/* Main Admin */}
 
-      <Route path="/admin-panel" component={ MainDashboard } />   
+      <Route path="/admin-panel" exact={true} component={ MainDashboard } />   
       <Route path="/admin-panel/jobseeker" component={ JobSeeker } />  
       <Route path="/admin-panel/jobseeker/profile" component={ JobSeekerProfile } />  
       <Route path="/admin-panel/recent-jobs" component={ RecentJobs } />   
