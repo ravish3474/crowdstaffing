@@ -29,7 +29,7 @@ const categoryRouter = require('./routes/category');
 const jobTypeRouter = require('./routes/jobtype');
 const skillRouter = require('./routes/skills');
 //const resumeRouter = require('./routes/resume');
-// app.use('/jobs',jobsRouter);
+// app.use('/jobs',jobsRoute;
 app.use('/jobSeeker',jobseekerRouter);
 app.use('/category',categoryRouter);
 app.use('/jobType',jobTypeRouter);
