@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --watch backend --exec babel-node backend/server.js",
-    "dev": "nodeidon -w backend/server.js -d \"node backend/server.js\" \"npm run start\""
+    "build": "babel backend/server.js --out-file server.compiled.js"
   },
   "author": "",
   "license": "ISC",
