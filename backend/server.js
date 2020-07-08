@@ -1,5 +1,6 @@
 const express= require('express');
 const cors= require('cors');
+import path from 'path';
 // const { Mongoose } = require('mongoose');
 const mongoose = require('mongoose');
 
@@ -7,6 +8,8 @@ require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+app.use(express.static(path.join(__dirname, '../frontend', 'build')));
 
 const uri="mongodb+srv://mongo_root:mongo_root@cluster0-wqbxq.gcp.mongodb.net/cluster0?retryWrites=true&w=majority";
 mongoose.connect(uri,{
