@@ -15,7 +15,7 @@ require('dotenv').config();
 
 var app = express();
 var port = process.env.PORT || 5000;
-app.use(express["static"](_path["default"].join(__dirname, 'frontend', 'build')));
+app.use(express["static"](_path["default"].join(__dirname, '../frontend', 'build')));
 var uri = "mongodb+srv://mongo_root:mongo_root@cluster0-wqbxq.gcp.mongodb.net/cluster0?retryWrites=true&w=majority";
 mongoose.connect(uri, {
   useNewUrlParser: true,
@@ -28,13 +28,13 @@ mongoose.connect(uri, {
 app.use(cors());
 app.use(express.json()); // const jobsRouter = require('./routes/jobs');
 
-var jobseekerRouter = require('./backend/routes/jobseeker');
+var jobseekerRouter = require('./routes/jobseeker');
 
-var categoryRouter = require('./backend//routes/category');
+var categoryRouter = require('./routes/category');
 
-var jobTypeRouter = require('./backend/routes/jobType');
+var jobTypeRouter = require('./routes/jobType');
 
-var skillRouter = require('./backend/routes/skills'); //const resumeRouter = require('./routes/resume');
+var skillRouter = require('./routes/skills'); //const resumeRouter = require('./routes/resume');
 // app.use('/jobs',jobsRouter);
 
 
