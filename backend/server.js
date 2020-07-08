@@ -24,10 +24,10 @@ app.use(cors());
 app.use(express.json());
 
 // const jobsRouter = require('./routes/jobs');
-const jobseekerRouter = require('../backend/routes/jobseeker');
-const categoryRouter = require('../backend/routes/category');
-const jobTypeRouter = require('../backend/routes/jobType');
-const skillRouter = require('../backend/routes/skills');
+const jobseekerRouter = require('./routes/jobseeker');
+const categoryRouter = require('./routes/category');
+const jobTypeRouter = require('./routes/jobType');
+const skillRouter = require('./routes/skills');
 //const resumeRouter = require('./routes/resume');
 // app.use('/jobs',jobsRouter);
 app.use('/jobSeeker',jobseekerRouter);
