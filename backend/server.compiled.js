@@ -32,7 +32,7 @@ var jobseekerRouter = require('./routes/jobseeker');
 
 var categoryRouter = require('./routes/category');
 
-var jobTypeRouter = require('./routes/jobType');
+var jobTypeRouter = require('./routes/jobtype');
 
 var skillRouter = require('./routes/skills'); //const resumeRouter = require('./routes/resume');
 // app.use('/jobs',jobsRouter);
