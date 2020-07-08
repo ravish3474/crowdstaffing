@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --watch backend --exec babel-node backend/server.js",
+    "start": "babel-node backend/server.compiled.js",
     "build": "babel src -d build"
   },
   "author": "",
