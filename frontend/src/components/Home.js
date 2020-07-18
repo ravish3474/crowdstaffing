@@ -1,8 +1,40 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import axios from 'axios';
 import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
+
+import Categories from '../components/JobCategories';
+
 class Home extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+          cate_goires:[]
+        };
+    }
+    componentDidMount(){
+      // this.setState({
+      //   cate_goires:["sfds","sdfsd"]
+      // })
+        axios.get('http://localhost:5000/category')
+        .then(response =>{
+              // console.log("Res Length: "+response.data.length);
+              // this.setState({
+              //     cate_goires: response.data.map(category =>category)
+              // })
+            if(response.data.length > 0){
+              // console.log(response.data);
+                this.setState({
+                    cate_goires: response.data.map(category =>category)
+                })
+            
+            }else{
+
+            }
+        }).catch(err => console.log(err))
+        // console.log(this.state.category);
+    }
     render() {
         return <section className="mainDiv">
         <section className=" colBackLightBlue">
@@ -65,16 +97,14 @@ class Home extends Component {
       <div className="col-md-9">
         <div className="">
             <div className="row m-0">
-              <div className="col-md-3 mt-3">
-                <div className="p-3 text-center Fnte">
-                    <div className="">
-                      <img src={require("../assets/images/Accountancy.png")} className="img-fluid"/>
-                    </div>
-                    <h5><strong>Accountancy</strong></h5>
-                    <span >301 Open Position</span>
-                </div>
-              </div>
-              <div className="col-md-3 mt-3">
+              {
+                this.state.cate_goires.map(function(category){
+                return <Categories category={category}/>
+                })
+              }
+              {/* <Categories category_name={JSON.stringify(this.state.category)}/> */}
+              
+              {/*<div className="col-md-3 mt-3">
                 <div className="p-3 text-center Fnte">
                     <div className="">
                       <img src={require("../assets/images/Accountancy.png")} className="img-fluid"/>
@@ -128,15 +158,15 @@ class Home extends Component {
                     <span >301 Open Position</span>
                 </div>
               </div>
-              <div className="col-md-3 mt-3">
-                <div className="p-3 text-center Fnte">
+              <div className="col-md-3 mt-3"> */}
+                {/* <div className="p-3 text-center Fnte">
                     <div className="">
                       <img src={require("../assets/images/Accountancy.png")} className="img-fluid"/>
                     </div>
                     <h5><strong>Legal</strong></h5>
                     <span >301 Open Position</span>
                 </div>
-              </div>
+              </div> */}
             </div>
         </div>
       </div>
