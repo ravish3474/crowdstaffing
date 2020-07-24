@@ -30,15 +30,15 @@ class Sidebar extends Component {
                                     <a href="#">Home 3</a>
                                 </li>
                             </ul> */}
-                            <Link to='/company-panel'>
+                            <Link to='/user-panel'>
                                 <i class="fas fa-briefcase"></i>
                                 Dashboard
                             </Link>
                         </li>
                         <li>
-                            <Link to='/company-panel/company-profile'>
+                            <Link to='/user-panel/user-profile'>
                                 <i class="fas fa-briefcase"></i>
-                                Company Profile
+                                 Profile
                             </Link>
                             {/* <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                                 <i class="fas fa-copy"></i>
@@ -57,25 +57,46 @@ class Sidebar extends Component {
                             </ul> */}
                         </li>
                         <li>
-                            <Link to='/company-panel/post-new-job'>
+                            <Link to='/user-panel/resume'>
                                 <i class="fas fa-image"></i>
-                                Post New Job
+                                Resume
                             </Link>
                         </li>
                         <li>
-                            <Link to='/company-panel/manage-jobs'>
+                            <Link to='/user-panel/applied-jobs'>
                                 <i class="fas fa-question"></i>
-                                Manage Jobs
+                                Applied Jobs
                             </Link>
                         </li>
                         <li>
-                            <Link to='/company-panel/shortlisted-resume'>
+                            <Link to='/user-panel/cv-manager'>
                                 <i class="fas fa-paper-plane"></i>
-                                Shortlisted Resumes
+                                CV Manager
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/user-panel/favorite-jobs'>
+                            <i class="far fa-star"></i>
+                                Favorite Jobs
                             </Link>
                         </li>
                         <li>
                             <Link to=''>
+                                <i class="far fa-envelope"></i>
+                                Messages
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to=''>
+                                <i class="far fa-list-alt"></i>
+                                
+                                Reviews
+                            </Link>
+                        </li>
+                        
+                        
+                        <li>
+                            <Link to='/user-panel/change-password'>
                                 <i class="fas fa-unlock"></i>
                                 Change Password
                             </Link>
