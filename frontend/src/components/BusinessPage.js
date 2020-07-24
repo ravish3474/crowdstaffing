@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 import Header from '../layouts/Header';
 
@@ -20,7 +21,7 @@ class BusinessPage extends Component {
 
                                 <span>Automated staffing supplier management and AI-enhanced job distribution supported by a built-in network of qualified recruiters ready to help you hire.</span>
                                 <br></br>
-                                <button className="btn bnlurrt py-2 px-3 bordRAD0">Request Demo</button>
+                                <Link to="/company-panel"><button className="btn bnlurrt py-2 px-3 bordRAD0">Request Demo</button></Link>
                             </div>
                         </div>
                         <div className="col-md-6">
