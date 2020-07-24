@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import $ from 'jquery';
-
+import PostJob from  '../components/PostNewJob';
 class Sidebar extends Component {
     render() {
         return  <nav id="sidebar">
@@ -29,6 +30,7 @@ class Sidebar extends Component {
                                     <a href="#">Home 3</a>
                                 </li>
                             </ul> */}
+                            
                             <a href="#">
                                 <i class="fas fa-briefcase"></i>
                                 Dashboard
@@ -56,10 +58,8 @@ class Sidebar extends Component {
                             </ul> */}
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fas fa-image"></i>
-                                Post New Job
-                            </a>
+                        <Link to={`/PostJob`} activeClassName="active">Post New Job</Link>
+                          
                         </li>
                         <li>
                             <a href="#">

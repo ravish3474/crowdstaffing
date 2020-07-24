@@ -17,7 +17,7 @@ import JobSeeker from './MainAdmin/components/JobSeeker';
 import JobSeekerProfile from './MainAdmin/components/JobSeekerProfile';
 import RecruiterManage from './MainAdmin/components/RecruiterManage';
 import RecruiterProfile from './MainAdmin/components/RecruiterProfile';
-
+import PostNewJob from './admin/components/PostNewJob';
 import Employee from './admin/components/Dashboard';
 import Employeer from './MainAdmin/components/MainDashboard';
 
@@ -46,8 +46,9 @@ function App() {
         
       <Route path="/admin-panel/recruiter" component={ RecruiterManage } />   
       <Route path="/admin-panel/recruiter/profile" component={ RecruiterProfile } />   
+      {/* Admin Pannel */}
 
-
+      <Route path="/user-panel" exact={true} component={ PostNewJob } />   
       </BrowserRouter>
     );
 }

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const skills= require('../models/skills.model');
-const Skill = require('../models/skills.model');
+// const Ski/ll = require('../models/skills.model');
 router.route('/').get((req, res)=>{
     skills.find()
             .then(skill => res.json(skill))

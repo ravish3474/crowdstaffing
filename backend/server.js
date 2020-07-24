@@ -23,13 +23,13 @@ mongoose.connect(uri,{
 app.use(cors());
 app.use(express.json());
 
-// const jobsRouter = require('./routes/jobs');
+const jobsRouter = require('./routes/jobs');
 const jobseekerRouter = require('./routes/jobseeker');
 const categoryRouter = require('./routes/category');
 const jobTypeRouter = require('./routes/jobtype');
 const skillRouter = require('./routes/skills');
 //const resumeRouter = require('./routes/resume');
-// app.use('/jobs',jobsRoute;
+app.use('/jobs',jobsRouter);
 app.use('/jobSeeker',jobseekerRouter);
 app.use('/category',categoryRouter);
 app.use('/jobType',jobTypeRouter);
