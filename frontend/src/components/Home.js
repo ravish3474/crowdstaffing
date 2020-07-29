@@ -20,7 +20,7 @@ class Home extends Component {
       // this.setState({
       //   cate_goires:["sfds","sdfsd"]
       // })
-        axios.get('http://localhost:5000/category')
+        axios.get('/category')
         .then(response =>{
               // console.log("Res Length: "+response.data.length);
               // this.setState({
@@ -37,7 +37,7 @@ class Home extends Component {
             }
         }).catch(err => console.log(err))
         // console.log(this.state.category);
-        axios.get('http://localhost:5000/jobs/getLatestJobs')
+        axios.get('/jobs/getLatestJobs')
                 .then(response =>{
                   if(response.data.jobs.length >0){
                       this.setState({
@@ -47,7 +47,7 @@ class Home extends Component {
                   }
                 })
                 .catch(error => console.log("Error Found While Fetching Recent Jobs: "+error));
-        axios.get('http://127.0.0.1:5000/jobs/getAllJobs')
+        axios.get('/jobs/getAllJobs')
         .then(response =>{
           if(response.data.data.length >0){
             this.setState({
