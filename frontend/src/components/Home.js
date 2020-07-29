@@ -47,7 +47,7 @@ class Home extends Component {
                   }
                 })
                 .catch(error => console.log("Error Found While Fetching Recent Jobs: "+error));
-        axios.get('http://localhost:5000/jobs/getAllJobs')
+        axios.get('http://127.0.0.1:5000/jobs/getAllJobs')
         .then(response =>{
           if(response.data.data.length >0){
             this.setState({
