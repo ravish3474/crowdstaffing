@@ -5,12 +5,15 @@ import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
 
 import Categories from '../components/JobCategories';
+import LatestJobs from './Job_Latest';
 
 class Home extends Component {
     constructor(props){
         super(props);
         this.state={
-          cate_goires:[]
+          cate_goires:[],
+          latestjobs:[],
+          total_jobs:0
         };
     }
     componentDidMount(){
@@ -34,6 +37,27 @@ class Home extends Component {
             }
         }).catch(err => console.log(err))
         // console.log(this.state.category);
+        axios.get('http://localhost:5000/jobs/getLatestJobs')
+                .then(response =>{
+                  if(response.data.jobs.length >0){
+                      this.setState({
+                          latestjobs:response.data.jobs.map(latest_jobs => latest_jobs)
+                      })
+                      console.log(this.state.latestjobs);
+                  }
+                })
+                .catch(error => console.log("Error Found While Fetching Recent Jobs: "+error));
+        axios.get('http://localhost:5000/jobs/getAllJobs')
+        .then(response =>{
+          if(response.data.data.length >0){
+            this.setState({
+              total_jobs:response.data.data.length
+            })
+           
+            
+          }
+        })
+        .catch(error => console.log("Error Found While Fetching All Jobs: "+error));
     }
     render() {
         return <section className="mainDiv">
@@ -189,50 +213,27 @@ class Home extends Component {
     <section className="container py-5">
     <h4>Jobs You May Be Interested In</h4>
     <div className="">
+    
         <div className="row m-0">
-          <div className="col-md-6">
-            <div className="row m-0">
-                <div className="col-md-3">
-                  <div className="">
-                    <img src={require("../assets/images/client1.png")} className="img-fluid"/>
-                  </div>
-                </div>
-                <div className="col-md-7">
-                  <div className="">
-                    <h5>Post Room Operative</h5>
-                    <small className="colGry">via <span className="colBlu">Trout Design Ltd</span></small>
-                    <small className="colGry">Wellesley Rd, London</small>
-                    <br/>
-                    <small className="colGry">Accountancy</small><small className="ml-2 colBlu">Freelance</small>
-                  </div>
-                </div>
-                <div className="col-md-2">
-                  <div className="">
-                    <div className="border rounded-circle p-1">
-                      <img src={require("../assets/images/Heart.png")} className="img-fluid"/>
-                    </div>
-                    
-                    <div className="mt-2">
-                        <small className="colGry">
-                          <span><img src={require("../assets/images/time-icon.png")} className="img-fluid"/></span> 
-                          1H ago
-                        </small>
-
-                    </div>
-                  </div>
-                </div>
-            </div>
-          </div>
+          {
+            this.state.latestjobs.map(function(latesJob){
+              return <LatestJobs latestJob={latesJob}/>
+            })
+          }
+          
+          {/* fsf */}
+              
+          {/* sdfsd */}
 
         </div>
-
+              
     </div>
 </section>    
 <section className="container py-5"> 
   <div className="row">
     <div className="col-md-6">
       <div className="HIssqq ">
-        <h1>7000+ <span className="colBlu"> Browse Jobs</span></h1>
+        <h1>{this.state.total_jobs -1}+ <span className="colBlu"> Browse Jobs</span></h1>
         <h4 className="fnt500">Search all the open positions on the web.</h4>
 
         <button className="btn bnlurrt fnt24">SEARCH JOBS</button>

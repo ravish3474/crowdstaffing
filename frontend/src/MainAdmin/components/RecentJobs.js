@@ -1,10 +1,34 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import axios from 'axios';
+import Recent_job_comp from '../components/Recent_Job_Component';
 import '../css/Admin.css';
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
 
 class RecentJobs extends Component {
+
+    constructor(props){
+        super(props);
+        this.state ={
+            latestjobs:[]
+        }
+
+    }
+    componentDidMount(){
+        axios.get('http://localhost:5000/jobs/getLatestJobs')
+        .then(response =>{
+            if(response.data.jobs.length >0){
+                this.setState({
+                    latestjobs:response.data.jobs.map(latest_jobs => latest_jobs)
+                })
+                console.log(this.state.latestjobs);
+            }
+        }).catch(err => {
+            console.log("Error: "+err);
+        });
+    }
+    
     render() {
         return <section>
                     <div className="wrapper">
@@ -21,37 +45,14 @@ class RecentJobs extends Component {
                                 
 
                                 <div className="">
-                                    <div className="row mt-3 shadow p-3 mx-0">
-                                        <div className="col-md-1 px-0">
-                                            <div className="border ">
-                                                <img src={require("../../assets/images/client2.png")} className="img-fluid w-100 DSFG"/>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <div className="">
-                                                <span className="colBlu">Full Time</span>
-                                                <h6 className="mb-0">Lori Ramos</h6>
-                                                <span><span className="colGry">Posted 23 August by </span>&nbsp;
-                                                <span className="colBlu"> Robert Half Finance & Accounting</span></span>
-                                                <div className="row mx-0">
-                                                    <div className="col-md-4">
-                                                        <div className="">
-                                                           
-                                                            <small className="colGry"><i className="fas fa-map-marker-alt"></i> <span>England</span></small> 
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-md-4">
-                                                        <div className="">
-                                                            
-                                                            <small className="colGry"> <span>$12.00 hour</span></small> 
-                                                        </div>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
+                                    {/* one Job */}
+                                    {
+                                        this.state.latestjobs.map(function(job){
+                                            return <Recent_job_comp job={job}/>
+                                        })
+                                    }
+                                    
+                                    
                                     
                                 </div>
                             </div>

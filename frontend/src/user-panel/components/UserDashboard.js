@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-
+import {Link} from 'react-router-dom';
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
 
-class Dashboard extends Component {
-    // constructor(props){
-
-    // }
+class UserDashboard extends Component {
     render() {
-        if(localStorage.getItem('company_data')==null){
-            console.log('Erororororororo');
-        }else{
-            console.log(localStorage.getItem('company_data'));
-        }
         return <section>
                 <div class="wrapper">
        
@@ -39,7 +31,7 @@ class Dashboard extends Component {
                                     <div className="WeBN text-right">
                                         <h4 className="mb-0">5249</h4>
                                         <span className="">
-                                            Posted
+                                            Applied
                                         </span>
                                     </div>
                                 </div>
@@ -56,7 +48,7 @@ class Dashboard extends Component {
                                     <div className="WeBN text-right">
                                         <h4 className="mb-0">249</h4>
                                         <span className="">
-                                            Review
+                                            Favorite
                                         </span>
                                     </div>
                                 </div>
@@ -74,7 +66,7 @@ class Dashboard extends Component {
                                     <div className="WeBN text-right">
                                         <h4 className="mb-0">549</h4>
                                         <span className="">
-                                            Shortlist Resumes
+                                            Alerts
                                         </span>
                                     </div>
                                 </div>
@@ -91,7 +83,7 @@ class Dashboard extends Component {
                                     <div className="WeBN text-right">
                                         <h4 className="mb-0">249</h4>
                                         <span className="">
-                                            Meeting
+                                            Latest Packages
                                         </span>
                                     </div>
                                 </div>
@@ -105,26 +97,34 @@ class Dashboard extends Component {
            <div className="row mt-4">
                <div className="col-md-8">
                     <div className="HirD bckloGry">
-                        <h5>Latest Application</h5>
+                        <div className="row mx-0">
+                            <div className="col-md-6">
+                                <h5>Recent Apply Jobs</h5>
+                            </div>
+                            <div className="col-md-6">
+                                <Link to=''> <span className="text-success">Browse All Jobs</span></Link>
+                            </div>
+                        </div>
                         <div className="pt-2">
                             <div className="row m-0 mt-3 py-3 border-bottom">
-                                <div className="col-md-2">
-                                    <div className="text-center">
-                                        <img src={require("../../assets/images/client1.png")} className="img-fluid rounded-circle DSFG"/>
-                                    </div>
-                                </div>
-                                <div className="col-md-8">
+                                
+                                <div className="col-md-6">
                                     <div className="mt-2 OOuN">
                                         <h6 className="mb-0">Rahim Malik</h6>
                                         <small className="colGry">App Designer</small><br/>
-                                        <small className="colGry"><i class="fas fa-map-marker-alt"></i> Location</small>
+                                       
 
                                     </div>
                                 </div>
-                            
-                                <div className="col-md-2">
-                                    <div className="">
-                                        <button className="btn bnlurrt w-100 py-2 px-3 bordRAD0">Hire</button>
+                                <div className="col-md-3">
+                                    <div className="text-center">
+                                        <small className="colGry"><i class="fas fa-map-marker-alt"></i> Location</small>
+                                    </div>
+                                </div>
+                                <div className="col-md-3">
+                                    <div className="text-center mt-3">
+                                        <span className="Pnk py-1 px-2 ml-2 rounded" title="Edit"><small><i class="fas fa-pencil-alt"></i></small></span>
+                                        <span className="PBJ py-1 px-2 ml-2 rounded" title="Delete"><small><i class="far fa-trash-alt"></i></small></span>
                                     </div>
                                 </div>
                             </div>
@@ -146,4 +146,4 @@ class Dashboard extends Component {
    
 }
 
-export default Dashboard;
+export default UserDashboard;

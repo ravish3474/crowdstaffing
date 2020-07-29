@@ -1,11 +1,32 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import '../css/Admin.css';
+import axios from 'axios';
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
 import {Link} from 'react-router-dom';
 
 class MainDashboard extends Component {
+    constructor(props){
+        super(props);
+        
+        this.state={
+            jobseeker:0
+        }
+        
+    }
+    componentDidMount(){
+        axios.get('http://localhost:5000/jobSeeker/')
+                    .then(response =>{
+                        if(response.data.jobseeker.length >0){
+                            // console.log("Array Count: "+response.data.jobseeker.length);
+                            this.setState({
+                                jobseeker:response.data.jobseeker.length
+                            })
+                        }
+                    })
+                    .catch(err => console.log("Error found: "+err));
+    }
     render() {
         return <section>
                     <div className="wrapper">
@@ -25,7 +46,7 @@ class MainDashboard extends Component {
                                         <div className="col-md-4">
                                             <div className="text-center">
                                                 <small>Total Job Seeker</small>
-                                                <h3 className="colBlu">12</h3>
+                                                <h3 className="colBlu">{this.state.jobseeker}</h3>
                                             </div>
                                         </div>
                                         <div className="col-md-3">

@@ -75,4 +75,9 @@ router.route('/deleteJob/:id').delete((req,res)=>{
                                         .then(()=>res.json({"code":1,"msg":"Deleted Successfully."}))
                                         .catch(err=>res.json({"code":0,"msg":"Failed To Delete", "error":err}));
 });
+router.route('/getLatestJobs').get((req,res)=>{
+    Jobs.find({}).sort({$natural:-1}).limit(4)
+        .then(jobs => res.json({'code':1,'jobs':jobs}))
+        .catch(err => res.json({'code':0,'err':err}));
+})
 module.exports= router;

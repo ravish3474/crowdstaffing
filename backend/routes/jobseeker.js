@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let JobSeeker = require('../models/jobseekers.model');
+const jobSeeker = require('../models/jobseekers.model');
 const multer = require('multer');
 import { getToken } from '../util';
 
@@ -13,13 +13,13 @@ const storage = multer.diskStorage({
 });
 const upload = multer({storage:storage});
 router.route('/').get((req, res)=>{
-    JobSeeker.find()
-        .then(jobSeeker => res.json(jobSeeker))
+    jobSeeker.find()
+        .then(jobSeeker => res.json({'code':1,'jobseeker':jobSeeker}))
         .catch(err => res.json('Error: '+ err));
 });
 
 router.post('/signin', async (req, res) =>{
-    const signinUser = await JobSeeker.findOne({
+    const signinUser = await jobSeeker.findOne({
         email : req.body.email,
         pass_code: req.body.pass_code
     });
@@ -49,19 +49,38 @@ router.route('/register').post((req, res)=>{
 });
 
 router.route('/updateData/:id').post((req, res)=>{
+
     // console.log('Edited File Name: '+req.file.filename);
     jobSeeker.findById(req.params.id)
         .then(dataToUpdate => {
-            dataToUpdate.basic_introduction = req.body.basic_introduction;
-            dataToUpdate.nationality_ = req.body.nationality;
+            console.log(dataToUpdate);
+            dataToUpdate.full_name = req.body.full_name;
             dataToUpdate.phone_ = req.body.phone;
-            dataToUpdate.skill_ids = req.body.skill_ids;
-            dataToUpdate.dob = req.body.dob;
+            dataToUpdate.job_title = req.body.job_title;
+            dataToUpdate.website = req.body.website;
+            dataToUpdate.current_sal = req.body.current_sal;
+            dataToUpdate.expected_sal = req.body.exp_sal;
+            dataToUpdate.exp_year = req.body.exp_year;
+            dataToUpdate.exp_month = req.body.exp_month;
             dataToUpdate.gender = req.body.gender;
-            dataToUpdate.address = req.body.address;
+            dataToUpdate.education= req.body.education_level;
+            dataToUpdate.dob = req.body.dob;
+            dataToUpdate.basic_introduction = req.body.description;
+            // social
+            dataToUpdate.facebook_id = req.body.facebook_id;
+            dataToUpdate.twitter_id = req.body.twitter;
+            dataToUpdate.linked_in_id= req.body.linkedin;
+            dataToUpdate.google_plus_id= req.body.google_plus;
+            // addresss
+            dataToUpdate.country_=req.body.country;
+            dataToUpdate.city_=req.body.city_;
+            dataToUpdate.full_address = req.body.full_address;
+            dataToUpdate.lat_= req.body.lat;
+            dataToUpdate.long_= req.body.long;           
+            
             dataToUpdate.save()
-                    .then(()=>res.json("Updated Successfully"))
-                    .catch(err => res.json('Error : '+err))
+                    .then(()=>res.json({'code':1,'msg':"Updated Successfully"}))
+                    .catch(err => res.json({'code':0,'msg':err}))
         })
         .catch(err =>  res.json('Error : '+err));
 });
