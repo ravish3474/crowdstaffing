@@ -63,6 +63,12 @@ class Sidebar extends Component {
                             </Link>
                         </li>
                         <li>
+                            <Link to='/user-panel/apply-jobs'>
+                                <i class="fas fa-question"></i>
+                                ApplyJobs
+                            </Link>
+                        </li>
+                        <li>
                             <Link to='/user-panel/applied-jobs'>
                                 <i class="fas fa-question"></i>
                                 Applied Jobs
@@ -81,7 +87,7 @@ class Sidebar extends Component {
                             </Link>
                         </li>
                         <li>
-                            <Link to=''>
+                            <Link  to='/user-panel/inbox'>
                                 <i class="far fa-envelope"></i>
                                 Messages
                             </Link>

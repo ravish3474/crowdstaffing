@@ -312,6 +312,10 @@ a.article:hover {
     color: #4d4b4b;
 
 }
+.W12PX{
+    width: 120px;
+    height: 120px;
+}
 .fnt12{
     font-size: 12px;
     color: #808080d9;
@@ -364,4 +368,85 @@ a.article:hover {
 }
 .ASd3ee:hover{
     box-shadow: 0px 0px 3px 3px #7386d538;
+}
+
+
+
+.fnt600{
+    font-weight: 600;
+}
+.ht_W{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.mesgList{
+    height: 400px;
+    overflow-y: auto;
+}
+.mesgList li{
+    padding: 10px 7px;
+    border-bottom: 1px solid #8080807d;
+    margin-bottom: 0px;
+}
+.chatmsg li .msg{
+    line-height: 1.5;
+}
+.lftchat{
+    background: #28a745b0;
+   color: white;
+    border-radius: 0px;
+    font-size: 12px;
+    padding: 9px;
+}
+.rgtchat{
+    
+    background: #8080802e;
+    border-radius: 0px;
+    font-size: 12px;
+    color: grey;
+    padding: 9px;
+}
+.rghtmsg{
+    text-align: right;
+}
+/* .rghtmsg small{
+    float: right;
+} */
+.msgchat{
+    height: 400px;
+    overflow-y:auto;
+}
+.posRel{
+    position: relative;
+}
+.posRel .Ingpy{
+    padding-right: 30px;
+}
+.posRel .PosAB{
+    position: absolute;
+    top: 2px;
+    right: 1px;
+}
+.Mradg{
+    width: 75%;
+    margin-right: auto;
+}
+.spNGrn{
+    background: #aac425;
+    padding: 1px 14px;
+    border-radius: 25px;
+    color: white;
+}
+
+@media only screen and (max-width:1100px){
+    .Mradg{
+        width: 100%;
+        margin-right: auto;
+    }
+}
+
+
+.borderRad30{
+    border-radius:30px ;
 }

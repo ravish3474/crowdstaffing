@@ -236,6 +236,14 @@ class Profile extends Component {
    
            <div className=" mt-4 HirD ">
                <form className=" UJUFom" onSubmit={this.onSubmit}>
+                   <div className="text-right px-2">
+                       <div className="">
+                       <label for="upldimg" className="btn-info btn"><small>Upload Image</small></label>
+                       <input type ="file" name="" className="d-none" id="upldimg"/>
+                            <img src={require("../../assets/images/user-dummy.png")} className="img-fluid W12PX border ml-2" />
+                            
+                       </div>
+                   </div>
                     <div className="row mx-0">
                        <div className="col-md-6 pl-0">
                             <div className="form-group">

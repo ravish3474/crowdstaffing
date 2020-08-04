@@ -38,6 +38,9 @@ import MyResume from './user-panel/components/MyResume';
 import AppliedJobs from './user-panel/components/AppliedJobs';
 import FavoriteJobs from './user-panel/components/FavoriteJobs';
 import UserChangePassword from './user-panel/components/UserChangePassword';
+import ApplyJobs from './user-panel/components/ApplyJobs';
+import ApplyJobsDetails from './user-panel/components/ApplyJobsDetails';
+import userInbox from './user-panel/components/userInbox';
 
 function App() {
     return (
@@ -87,7 +90,13 @@ function App() {
       <Route path="/user-panel/resume" exact={true} component={ MyResume } />   
       <Route path="/user-panel/applied-jobs" exact={true} component={ AppliedJobs } />   
       <Route path="/user-panel/Favorite-jobs" exact={true} component={ FavoriteJobs } />  
-      <Route path="/user-panel/change-password" exact={true} component={ UserChangePassword } />   
+      <Route path="/user-panel/change-password" exact={true} component={ UserChangePassword } />  
+
+      <Route path="/user-panel/apply-jobs" exact={true} component={ ApplyJobs } />   
+      <Route path="/user-panel/apply-jobs/apply-jobs-details" exact={true} component={ ApplyJobsDetails } />  
+
+      <Route path="/user-panel/inbox" exact={true} component={ userInbox } />  
+      <Route path="/user-panel/apply-jobs/apply-jobs-details" exact={true} component={ ApplyJobsDetails } />  
       </BrowserRouter>
     );
 }
