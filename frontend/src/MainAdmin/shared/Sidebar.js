@@ -63,7 +63,7 @@ class Sidebar extends Component {
                             </Link>
                         </li>
                         <li>
-                            <Link to="#">
+                            <Link to="/admin-panel/send-notifications">
                                 <i className="fas fa-question"></i>
                                 Send Notifications
                             </Link>

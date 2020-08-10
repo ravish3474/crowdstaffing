@@ -43,6 +43,7 @@ import ApplyJobsDetails from './user-panel/components/ApplyJobsDetails';
 import userInbox from './user-panel/components/userInbox';
 import AddJobCategory from './MainAdmin/components/AddJobCategory';
 import SearchCategory from './MainAdmin/components/SearchCategory';
+import SendNotifications from './MainAdmin/components/SendNotifications';
 
 function App() {
     return (
@@ -73,6 +74,7 @@ function App() {
       <Route path="/admin-panel/recruiter/profile" component={ RecruiterProfile } />   
       <Route path="/admin-panel/add-job-category" component={ AddJobCategory } /> 
       <Route path="/admin-panel/search-category" component={ SearchCategory } /> 
+      <Route path="/admin-panel/send-notifications" component={ SendNotifications } /> 
 
       {/* Admin Pannel */}
 
