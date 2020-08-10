@@ -41,6 +41,8 @@ import UserChangePassword from './user-panel/components/UserChangePassword';
 import ApplyJobs from './user-panel/components/ApplyJobs';
 import ApplyJobsDetails from './user-panel/components/ApplyJobsDetails';
 import userInbox from './user-panel/components/userInbox';
+import AddJobCategory from './MainAdmin/components/AddJobCategory';
+import SearchCategory from './MainAdmin/components/SearchCategory';
 
 function App() {
     return (
@@ -69,10 +71,8 @@ function App() {
 
       <Route path="/admin-panel/recruiter" component={ RecruiterManage } />   
       <Route path="/admin-panel/recruiter/profile" component={ RecruiterProfile } />   
-      {/* Admin Pannel */}
-
-      <Route path="/admin-panel/recruiter" exact={true} component={ RecruiterManage } />   
-      <Route path="/admin-panel/recruiter/profile" exact={true} component={ RecruiterProfile } />   
+      <Route path="/admin-panel/add-job-category" component={ AddJobCategory } /> 
+      <Route path="/admin-panel/search-category" component={ SearchCategory } /> 
 
       {/* Admin Pannel */}
 

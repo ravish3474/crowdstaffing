@@ -75,9 +75,9 @@ class Sidebar extends Component {
                             </Link>
                         </li>
                         <li>
-                            <Link to="#">
+                            <Link to="/admin-panel/add-job-category">
                                 <i className="fas fa-unlock"></i>
-                                Category Job Postings
+                               Job Category
                             </Link>
                         </li>
                         <li>
