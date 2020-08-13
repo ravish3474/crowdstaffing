@@ -1,11 +1,31 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
-
+import Jobs from './JobComponent';
 
 class ApplyJobs extends Component {
+    constructor(props){
+        super(props);
+        this.state ={
+            total_jobs:[]
+        }
+    }
+    componentDidMount(){
+        axios.get('/jobs/getAllJobs')
+        .then(response =>{
+          if(response.data.data.length >0){
+            this.setState({
+              total_jobs:response.data.data
+            })
+           
+            
+          }
+        })
+        .catch(error => console.log("Error Found While Fetching All Jobs: "+error));
+    }
     render() {
         return <section>
                 <div class="wrapper">
@@ -20,7 +40,13 @@ class ApplyJobs extends Component {
            
            <div className=" mt-4 bckloGry p-4">
                 <div className="row mx-0">
-                    <div className="col-md-6 mt-3">
+                    {
+                        this.state.total_jobs.map(function(jobss){
+                                return <Jobs jobss={jobss}/>
+                        })
+                    }
+                    
+                    {/* <div className="col-md-6 mt-3">
                         <div className="row mx-0 border p-2 ASd3ee">
                             <div className="col-md-3 px-0">
                                 <div className="mt-3 text-center">
@@ -51,8 +77,8 @@ class ApplyJobs extends Component {
                             </div>
                         </div>
                         
-                    </div>
-                    <div className="col-md-6 mt-3">
+                    </div> */}
+                    {/* <div className="col-md-6 mt-3">
                         <div className="row mx-0 border p-2 ASd3ee">
                             <div className="col-md-3 px-0">
                                 <div className="mt-3 text-center">
@@ -83,7 +109,7 @@ class ApplyJobs extends Component {
                             </div>
                         </div>
                         
-                    </div>
+                    </div> */}
                 </div>
            </div>
         

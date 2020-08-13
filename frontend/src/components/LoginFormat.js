@@ -12,7 +12,7 @@ import FooterLog from '../shared/FooterLog'
     
         useEffect(() => {
             if(userInfo){
-                props.history.push("/admin-panel");
+                props.history.push("/user-panel");
             }
             return () => {
     
