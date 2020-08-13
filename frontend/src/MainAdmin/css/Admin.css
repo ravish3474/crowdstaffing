@@ -395,3 +395,24 @@ a.article:hover {
 .dsaIcon{
     position: relative;
 }
+.PosuT{
+    position: absolute;
+    right: 16px;
+    top: -3px;
+}
+.W50{
+    width: 50%;
+}
+@media only screen and (max-width:600px){
+    .W50{
+        width: 100%;
+    }
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.Pnk {
+    background: #c494e999;
+}

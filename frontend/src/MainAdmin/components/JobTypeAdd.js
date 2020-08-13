@@ -6,7 +6,7 @@ import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
 
 
-class DeleteJobType extends Component {
+class JobTypeAdd extends Component {
     
    
     render() {
@@ -20,7 +20,7 @@ class DeleteJobType extends Component {
 
                             <Header/>
 
-                            <h5>Delete Job Type</h5>
+                            <h5>Add Job Type</h5>
                                
                             <div className="mt-3 p-5 colBlk bg-white bordRad_2">
                                 
@@ -30,16 +30,16 @@ class DeleteJobType extends Component {
                             </div>
                                 <form className="mt-4">
                                     <div className=" form-group">
-                                        <label>Search Category</label>
-                                        <div className="d-flex">
+                                        <label>Type Job Name</label>
+                                        <div className="">
                                             <input type="text" name="" className="form-control" placeholder="Web Developer" />
-                                            <button className="btn btn-danger">Delete</button>    
+                                             
                                         </div>
                                     </div>    
                                    
 
                                     <div className="">
-                                        <button className="btn btn-info">Save</button>    
+                                        <button className="btn btn-info">Save & Submit</button>    
                                         <button className="ml-3 border btn btn-default" type="button">Cancel</button>
                                     </div>  
                                 </form>
@@ -52,4 +52,4 @@ class DeleteJobType extends Component {
    
 }
 
-export default DeleteJobType;
+export default JobTypeAdd;
