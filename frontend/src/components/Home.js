@@ -26,10 +26,10 @@ class Home extends Component {
               // this.setState({
               //     cate_goires: response.data.map(category =>category)
               // })
-            if(response.data.length > 0){
+            if(response.data.data.length > 0){
               // console.log(response.data);
                 this.setState({
-                    cate_goires: response.data.map(category =>category)
+                    cate_goires: response.data.data.map(category =>category)
                 })
             
             }else{
