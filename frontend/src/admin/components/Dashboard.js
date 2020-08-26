@@ -23,7 +23,7 @@ class Dashboard extends Component {
 
         <Header/>
 
-            <h5>Dashboard</h5>
+            <h4>Dashboard</h4>
            
            <div className="mt-3">
                <div className="">

@@ -272,7 +272,7 @@ class PostNewJob extends Component {
 
             <Header/>
 
-            <h5>Post New Job</h5>
+            <h4>Post New Job</h4>
            
            <div className="mt-3">
                <div className="">

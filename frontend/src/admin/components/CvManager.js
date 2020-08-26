@@ -16,7 +16,7 @@ class CvManager extends Component {
 
             <Header/>
 
-            <h5>CV Manager</h5>
+            <h4>CV Manager</h4>
            
            <div className=" mt-4 bckloGry p-3">
                <div className="row border p-3">

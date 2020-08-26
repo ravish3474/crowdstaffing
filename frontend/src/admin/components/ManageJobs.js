@@ -16,7 +16,7 @@ class ManageJobs extends Component {
 
             <Header/>
 
-            <h5>Manage Jobs</h5>
+            <h4>Manage Jobs</h4>
            
            <div className="mt-3">
                <div className="">

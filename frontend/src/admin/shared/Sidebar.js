@@ -77,6 +77,30 @@ class Sidebar extends Component {
                             </Link>
                         </li>
                         <li>
+                            <Link to='/company-panel/job-applications-list'>
+                                <i class="fas fa-paper-plane"></i>
+                               Job Applications
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/company-panel/job-interviews'>
+                                <i class="fas fa-paper-plane"></i>
+                               Job Interviews
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/company-panel/job-seeker'>
+                                <i class="fas fa-paper-plane"></i>
+                               Job Seeker
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/company-panel/skills-list'>
+                                <i class="fas fa-paper-plane"></i>
+                                Skills List
+                            </Link>
+                        </li>
+                        <li>
                             <Link to=''>
                                 <i class="fas fa-unlock"></i>
                                 Change Password
