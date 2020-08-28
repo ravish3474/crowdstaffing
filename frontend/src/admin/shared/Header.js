@@ -1,12 +1,39 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import {Link, Redirect} from 'react-router-dom'
 import '../css/Admin.css';
 class Header extends Component {
+    constructor(props){
+        super(props);
+        const compToken= localStorage.getItem('company_token');
+        let loggedIn= true;
+        if(compToken==null){
+            loggedIn=false;
+        }
+        this.state={
+            loggedIn
+        }
+        this.onClickLogout= this.onClickLogout.bind(this);
+    }
+    componentDidMount(){
+            if(this.state.loggedIn){
+                // axio.get();
+            }
+    }
+    onClickLogout(e){
+       
+        this.setState({
+            loggedIn:false
+        })
+    }
     render() {
+        if(this.state.loggedIn==false){
+            return <Redirect to="/company-login"/>
+        }
+        
         return <nav className="navbar_b">
         <div className="container-fluid">
-
-           
+        <input type="submit" value="Log Out" onClick={this.onClickLogout}/>
             {/* <button className="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i className="fas fa-align-justify"></i>
             </button> */}

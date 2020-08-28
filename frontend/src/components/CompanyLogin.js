@@ -3,6 +3,7 @@ import {Link, Redirect} from 'react-router-dom';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { signin } from '../actions/userActions';
 import FooterLog from '../shared/FooterLog'
+import jwt_decode from 'jwt-decode';
 import Axios from 'axios';
 //     function LoginFormat(props) {
 //         const dispatch = useDispatch();
@@ -30,10 +31,12 @@ import Axios from 'axios';
 class CompanyLogin extends Component{
     constructor(props){
         super(props);
+        let loggIn= false;
         this.state={
             email:'',
             password:'',
-            error:''
+            error:'',
+            loggIn
         }
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
@@ -57,17 +60,29 @@ class CompanyLogin extends Component{
         }
         Axios.post('http://localhost:5000/company/companyLoginValidate',login_data)
                 .then(response =>{
-                    if(response.data.code==1){
-                        localStorage.setItem('company_data',JSON.stringify(response.data.company_data));
-                        console.log('Login Successfull');
-                        this.props.history.push("/company-panel");
+                    // if(response.data.length>0){
+                        console.log(response);
+                        if(response.status==200){
+                            const tokenData= jwt_decode(response.data.token);
+                            // console.log(tokenData);
+                            localStorage.setItem('company_token',JSON.stringify(tokenData));
+                            this.setState({
+                                    loggIn:true
+                                })
+                            this.props.history.push("/company-panel");
+                        }
+                        // 
+                        // localStorage.setItem('company_token',response.data.company_data._id);
+                        // console.log('Login Successfull');
+                        //
+                        // this.props.history.push("/company-panel");
                         // console.log(localStorage.getItem('company_data'));
-                    }else{
-                        this.setState({
-                            error:'Invalid Email or Password'
-                        })
-                        console.log('something went wring');
-                    }
+                    // }else{
+                    //     this.setState({
+                    //         error:'Invalid Email or Password'
+                    //     })
+                    //     console.log('something went wring');
+                    // }
                 })
         // if(this.state.email==="A" && this.state.password==="B"){
         //     this.props.history.push("/company-panel");
@@ -81,6 +96,9 @@ class CompanyLogin extends Component{
         // <Redirect to="/company-panel"/>
     }
     render(){
+        if(this.state.loggIn){
+            return <Redirect to="/company-panel"/>
+        }
         return <div className="bg_lightBlu">
             
                     <div className="container pt-3 ">

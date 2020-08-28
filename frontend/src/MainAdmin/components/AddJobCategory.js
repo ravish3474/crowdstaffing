@@ -22,17 +22,15 @@ class AddJobCategory extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
     componentDidMount(){
-        axios.get('http://localhost:5000/category/')
+        axios.get('/category')
         .then(response =>{
             console.log(response);
-          if(response.data.data.length >0){
-            this.setState({
-                categories:response.data.data
-            })
-           
-            
-          }
-          console.log(this.state.categories);
+            if(response.data.data.length >0){
+                this.setState({
+                    categories:response.data.data
+                }) 
+            }
+            console.log(this.state.categories);
         })
         .catch(error => console.log("Error Found While Fetching All Category : "+error));
     }
@@ -69,7 +67,7 @@ class AddJobCategory extends Component {
         formdata.append('image',this.state.image_file);
         // console.log(formdata);
         axios({
-            url:'http://localhost:5000/category/add',
+            url:'/category/add',
             method:"post",
             data:formdata
 
@@ -110,6 +108,7 @@ class AddJobCategory extends Component {
                             </div> */}
                                 <form className="mt-4" onSubmit={this.onSubmit} enctype="mulitpart/form-data" method="post">
                                 <div className=" form-group">
+                                    <label>Category Image</label>
                                     <img src={this.state.image} width='150px'/>
                                     <input type="file" name="image_file" onChange={this.onImageChange} />
                                 </div>
@@ -117,7 +116,7 @@ class AddJobCategory extends Component {
                                     <div className=" form-group">
                                     
                                         <label>Category Name</label>
-                                        <input type="text" name=""  value={this.state.new_cat_name} onChange={this.onChangeNewCategory} className="form-control" placeholder="Web Developer" />
+                                        <input type="text" name=""  value={this.state.new_cat_name} onChange={this.onChangeNewCategory} className="form-control" placeholder="Example: Web Developer" />
                                     </div>    
                                     {/* <div className=" form-group">
                                         <label>Category Field</label>
@@ -134,12 +133,16 @@ class AddJobCategory extends Component {
                                     <table className="table  table-bordered">
                                         <thead>
                                             <th>S.No</th>
+                                            <th>Category Name</th>
+                                            <th>Category Image</th>
                                         </thead>
                                         <tbody>
                                             {
-                                                this.state.categories.map(function(cat){
+                                                this.state.categories.map(function(cat,index){
                                                     return <tr>
-                                                                <td>{cat}</td>
+                                                                <td>{index+1}</td>
+                                                                <td>{cat.categoryName}</td>
+                                                                <td><img src={require('../../../../backend/categoryPicture/'+cat.categoryImage)} width="50px" height="50px" /></td>
                                                             </tr>
                                                 })
                                             }

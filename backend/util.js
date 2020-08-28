@@ -12,6 +12,16 @@ const getToken = (user) => {
   })
 }
 
+const companyToken =(company)=>{
+  return jwt.sign({
+    _id: company._id,
+    company_name: company.company_name,
+    comp_email: company.comp_email,
+    comp_phone: company.comp_phone
+  }, config.JWT_SECRET, {
+    expiresIn: '48h'
+  })
+}
 const isAuth = (req, res, next) => {
   const token = req.headers.authorization;
   if(token){
@@ -36,5 +46,5 @@ const isAdmin = (req, res, next) => {
 }
 
 export {
-    getToken, isAuth, isAdmin
+    getToken, isAuth, isAdmin, companyToken
 }

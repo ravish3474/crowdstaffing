@@ -72,7 +72,7 @@ function App() {
 
       <Route path="/admin-panel/recruiter" component={ RecruiterManage } />   
       <Route path="/admin-panel/recruiter/profile" component={ RecruiterProfile } />   
-      <Route path="/admin-panel/add-job-category" component={ AddJobCategory } /> 
+      <Route path="/admin-panel/add-job-category" component={ AddJobCategory } />  {/*Done */}
       <Route path="/admin-panel/search-category" component={ SearchCategory } /> 
       <Route path="/admin-panel/send-notifications" component={ SendNotifications } /> 
 
@@ -80,7 +80,7 @@ function App() {
 
       <Route path="/company-panel" exact={true} component={ Dashboard } />   
       <Route path="/company-panel/company-profile" exact={true} component={ CompanyProfile } />   
-      <Route path="/company-panel/post-new-job" exact={true} component={ PostNewJob } />   
+      <Route path="/company-panel/post-new-job" exact={true} component={ PostNewJob } />   {/*Done */}
       <Route path="/company-panel/manage-jobs" exact={true} component={ ManageJobs } />   
       <Route path="/company-panel/shortlisted-resume" exact={true} component={ ShortlistedResumes } />   
       <Route path="/company-panel/change-password" component={ ChangePassword } />   
