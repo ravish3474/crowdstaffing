@@ -44,6 +44,15 @@ import userInbox from './user-panel/components/userInbox';
 import AddJobCategory from './MainAdmin/components/AddJobCategory';
 import SearchCategory from './MainAdmin/components/SearchCategory';
 import SendNotifications from './MainAdmin/components/SendNotifications';
+import JobApplications from './admin/components/JobApplications';
+import JobInteviews from './admin/components/JobInteviews';
+import JobSeekerCompany from './admin/components/JobSeekerCompany';
+import JobApplicationList from './admin/components/JobApplicationList';
+import UpdateSkillsComapny from './admin/components/UpdateSkillsComapny';
+import JobDescriptionPage from './admin/components/JobDescriptionPage';
+import JobApplicationCandidateDetails from './admin/components/JobApplicationCandidateDetails';
+import CompanyInbox from './admin/components/CompanyInbox';
+import ShortlistedCandidateDetails from './admin/components/ShortlistedCandidateDetails';
 
 function App() {
     return (
@@ -84,7 +93,15 @@ function App() {
       <Route path="/company-panel/manage-jobs" exact={true} component={ ManageJobs } />   
       <Route path="/company-panel/shortlisted-resume" exact={true} component={ ShortlistedResumes } />   
       <Route path="/company-panel/change-password" component={ ChangePassword } />   
-
+      <Route path="/company-panel/job-applications" component={ JobApplications } />
+      <Route path="/company-panel/job-interviews" component={ JobInteviews } />
+      <Route path="/company-panel/job-seeker" component={ JobSeekerCompany } />
+      <Route path="/company-panel/job-applications-list" component={ JobApplicationList } />
+      <Route path="/company-panel/skills-list" component={ UpdateSkillsComapny } />
+      <Route path="/company-panel/job-description" component={ JobDescriptionPage } />
+      <Route path="/company-panel/job-application/candidate-details" component={ JobApplicationCandidateDetails } />
+      <Route path="/company-panel/comp-inbox" component={ CompanyInbox } />
+      <Route path="/company-panel/shortlisted-resume/candidate-details" component={ ShortlistedCandidateDetails } />
        {/* User Pannel */}
 
       <Route path="/user-panel" exact={true} component={ UserDashboard } />   
@@ -98,7 +115,7 @@ function App() {
       <Route path="/user-panel/apply-jobs/apply-jobs-details" exact={true} component={ ApplyJobsDetails } />  
 
       <Route path="/user-panel/inbox" exact={true} component={ userInbox } />  
-      <Route path="/user-panel/apply-jobs/apply-jobs-details" exact={true} component={ ApplyJobsDetails } />  
+      {/* <Route path="/user-panel/apply-jobs/apply-jobs-details" exact={true} component={ ApplyJobsDetails } />   */}
       </BrowserRouter>
     );
 }

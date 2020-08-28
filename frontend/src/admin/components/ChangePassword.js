@@ -16,7 +16,7 @@ class ChangePassword extends Component {
 
             <Header/>
 
-            <h5>Change Password</h5>
+            <h4>Change Password</h4>
            
            <div className=" mt-4 bckloGry ">
             

@@ -16,7 +16,7 @@ class MyResume extends Component {
 
             <Header/>
 
-            <h5>Profile</h5>
+            <h4>Profile</h4>
    
            <div className=" mt-4 HirD ">
                <form className=" UJUFom">

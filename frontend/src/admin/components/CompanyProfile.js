@@ -97,7 +97,7 @@ class CompanyProfile extends Component {
 
             <Header/>
 
-            <h5>Company Profile</h5>
+            <h4>Company Profile</h4>
    
            <div className=" mt-4 HirD bg-white bordRad_2">
                <div className="d-flex my-4">

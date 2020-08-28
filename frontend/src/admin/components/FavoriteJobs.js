@@ -16,7 +16,7 @@ class FavoriteJobs extends Component {
 
             <Header/>
 
-            <h5>Favorite Jobs</h5>
+            <h4>Favorite Jobs</h4>
            
            <div className=" mt-4">
                <div className="table-responsive p-2">

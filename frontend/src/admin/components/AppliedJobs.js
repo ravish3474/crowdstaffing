@@ -16,7 +16,7 @@ class AppliedJobs extends Component {
 
             <Header/>
 
-            <h5>Applied Jobs</h5>
+            <h4>Applied Jobs</h4>
            
            <div className=" mt-4 bckloGry p-4">
                <div className="row border p-3 ASd3ee">

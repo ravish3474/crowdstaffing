@@ -15,9 +15,9 @@ class Splash extends Component {
                                 <h1 className="OUJPP">A modern hiring platform to manage your <strong className="colBlu"> contingent workforce</strong></h1>
 
                                 <div className="py-4">
-                                    <Link to="home" className="font20 btn_tras btn ">I am Looking to Hire</Link>
+                                    <Link to="home" className="mt-2 font20 btn_tras btn ">I am Looking to Hire</Link>
 
-                                    <Link to="company-login" className=" font20 btn_tras btn ml-3">I am ready to Recruit</Link>
+                                    <Link to="company-login" className="mt-2 font20 btn_tras btn ml-3">I am ready to Recruit</Link>
                                 </div>
                                 <div className="mt-3">
                                     <button className="btn btnbckBlu w-100">LETS STARTED</button>
