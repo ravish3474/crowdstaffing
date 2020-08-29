@@ -5,7 +5,7 @@
     background: url('../assets/images/Starting-Full-Image.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-
+    background-position: center;
 }
 .margtp{
     margin-top: 200px;
@@ -282,4 +282,14 @@
   .OJUPP{
     display: block;
     text-align: left;
+  }
+
+  @media only screen and (max-width: 600px){
+    .backImg{
+        background: url('../assets/images/Starting-Full-Image.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    
+    }
   }

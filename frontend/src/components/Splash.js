@@ -29,11 +29,11 @@ class Splash extends Component {
             </div>
             <div className="bg_blue py-4">
                     <div className="container">
-                        <div className="dsp_P">
-                            <div className="W20">
+                        <div className="row">
+                            <div className="col-md-2 ">
                                 <img src={require("../assets/images/Xhirez-Logo-White.png")} className="img-fluid w-75"/>
                             </div>
-                            <div className="">
+                            <div className="col-md-10">
                                 <ul className="list-unstyled List_p">
                                     <li>
                                         <a to="">For Business</a>
