@@ -11,14 +11,14 @@ class Header extends Component {
                 <i className="fas fa-align-justify"></i>
             </button> */}
 
-            <div className="text-right d-flex" id="">
+            {/* <div className="text-right d-flex" id="">
                 <ul className="list-unstyled m-0 p-0 ml-auto d-flex" >
-                    {/* <li className="nav-item active">
+                   <li className="nav-item active">
                         <a className="nav-link" href="#">Page</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="#">Page</a>
-                    </li>*/}
+                    </li> 
                     <li className="nav-item">
                         <a className="nav-link" href="#"><i className="far fa-bell"></i>
                         <small className="text-danger bLicn"><i className="fas fa-circle"></i></small>
@@ -35,7 +35,7 @@ class Header extends Component {
                         </div>
                     </li>
                 </ul>
-            </div>
+            </div> */}
         </div>
     </nav>
     }

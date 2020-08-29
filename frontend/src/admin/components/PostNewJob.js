@@ -165,22 +165,22 @@ class PostNewJob extends Component {
     // onChangeJobType()
     onSubmit(e){
         e.preventDefault();
-        console.log('Job Title: '+this.state.job_title);
-        console.log('Job Desc: '+this.state.job_desc);
-        console.log('Last Date: '+this.state.job_last_date);
-        console.log('Job Type: '+this.state.jobTypee);
-        console.log('Gender: '+this.state.gender);
-        console.log('Min Sal: '+this.state.minSal);
-        console.log('Max Sal : '+this.state.maxSal);
-        console.log('Min Exp: '+this.state.minExp);
-        console.log('Max Exp : '+this.state.maxExp);
-        console.log('Job Category: '+this.state.job_category);
-        console.log('Qualification : '+this.state.qualification);
-        console.log('country : '+this.state.country);
-        console.log('city : '+this.state.city);
-        console.log('fulladdress : '+this.state.fulladdress);
-        console.log('Latitude : '+this.state.lat);
-        console.log('Longitude : '+this.state.long);
+        // console.log('Job Title: '+this.state.job_title);
+        // console.log('Job Desc: '+this.state.job_desc);
+        // console.log('Last Date: '+this.state.job_last_date);
+        // console.log('Job Type: '+this.state.jobTypee);
+        // console.log('Gender: '+this.state.gender);
+        // console.log('Min Sal: '+this.state.minSal);
+        // console.log('Max Sal : '+this.state.maxSal);
+        // console.log('Min Exp: '+this.state.minExp);
+        // console.log('Max Exp : '+this.state.maxExp);
+        // console.log('Job Category: '+this.state.job_category);
+        // console.log('Qualification : '+this.state.qualification);
+        // console.log('country : '+this.state.country);
+        // console.log('city : '+this.state.city);
+        // console.log('fulladdress : '+this.state.fulladdress);
+        // console.log('Latitude : '+this.state.lat);
+        // console.log('Longitude : '+this.state.long);
         const jobDetails = {
             "jobTitle":this.state.job_title,
             "jobDesc": this.state.job_desc,
@@ -204,7 +204,7 @@ class PostNewJob extends Component {
           
         }
         console.log(jobDetails);
-        axios.post('http://localhost:5000/jobs/postNewJob',jobDetails)
+        axios.post('/jobs/postNewJob',jobDetails)
             .then((res) => {
                     if(res.data.code === 1){
                         // console.log(res.data.msg);

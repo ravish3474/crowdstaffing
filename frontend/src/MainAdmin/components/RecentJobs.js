@@ -16,7 +16,7 @@ class RecentJobs extends Component {
 
     }
     componentDidMount(){
-        axios.get('http://localhost:5000/jobs/getLatestJobs')
+        axios.get('/jobs/getLatestJobs')
         .then(response =>{
             if(response.data.jobs.length >0){
                 this.setState({

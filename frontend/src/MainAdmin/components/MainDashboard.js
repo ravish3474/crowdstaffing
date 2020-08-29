@@ -16,7 +16,7 @@ class MainDashboard extends Component {
         
     }
     componentDidMount(){
-        axios.get('http://localhost:5000/jobSeeker/')
+        axios.get('/jobSeeker/')
                     .then(response =>{
                         if(response.data.jobseeker.length >0){
                             // console.log("Array Count: "+response.data.jobseeker.length);

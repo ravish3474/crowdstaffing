@@ -48,7 +48,7 @@ class ComapnyRegistration extends Component {
             password: this.state.password
         }
         console.log(company);
-        axios.post('http://localhost:5000/company/registerCompany',company)
+        axios.post('/company/registerCompany',company)
             .then((res) => {
                     if(res.data.code === 1){
                         // console.log(res.data.msg);

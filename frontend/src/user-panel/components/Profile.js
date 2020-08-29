@@ -3,14 +3,21 @@ import ReactDom from 'react-dom';
 import axios from 'axios';
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
-
+import jwt_decode from 'jwt-decode';
+import Axios from 'axios';
 
 class Profile extends Component {
     constructor(props){
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
+        const logged_user_data=jwt_decode(localStorage.getItem('user_token'));
+        // console.log(logged_user_data);
+        // Axios.get('/jobseeker/getMyDetails/'+logged_user_data._id).then(response={
+        //     console.log(response);
+        // })
+       
         this.state={
-            user_id:'5eeda190b066a72564ac1bd7',
+            user_id:logged_user_data._id,
             full_name:'',
             job_title:'',
             phone_:'',
@@ -36,6 +43,28 @@ class Profile extends Component {
             long:70.022
             
         }
+        axios.get('/jobSeeker/getMyDetails/'+logged_user_data._id)
+                    .then(response =>{
+                        // console.log(response.data.data);
+                        // console.log("code:  "+response.data.code);
+                        if(response.data.code==1){
+                            const fName=response.data.data.full_name;
+                            
+                            console.log("Full Name: "+fName);
+                            this.setState({
+                                full_name:fName
+                            })
+                            // alert(this.state.full_name);
+                        }
+                        // if(response.data.jobseeker.length >0){
+                        //     console.log("Array Count: "+response.data.jobseeker.length);
+                        //     this.setState({
+                        //         jobseeker:response.data.jobseeker.map(jobseek => jobseek)
+                        //     })
+                        // }
+                    })
+                    .catch(err => console.log("Error found: "+err));
+        
         this.onChangeFullName = this.onChangeFullName.bind(this); 
         this.onChangeJobTitle = this.onChangeJobTitle.bind(this);
         this.onChangePhone = this.onChangePhone.bind(this);
@@ -204,7 +233,7 @@ class Profile extends Component {
             long:this.state.long
         }
         console.log(userData);
-        axios.post('http://localhost:5000/jobSeeker/updateData/'+this.state.user_id, userData)
+        axios.post('/jobSeeker/updateData/'+this.state.user_id, userData)
         .then((res) => {
                 if(res.data.code === 1){
                     // console.log(res.data.msg);

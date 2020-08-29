@@ -59,7 +59,7 @@ class Sidebar extends Component {
                         <li>
                             <Link to='/user-panel/resume'>
                                 <i class="fas fa-image"></i>
-                                Resume
+                                Upload Resume
                             </Link>
                         </li>
                         <li>
@@ -113,12 +113,12 @@ class Sidebar extends Component {
                                 Logout
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to=''>
                             <i class="far fa-trash-alt"></i>
                                 Delete Profile
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
 
                     

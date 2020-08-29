@@ -102,4 +102,10 @@ router.route('/deleteJobSeeker/:id').delete((req,res)=>{
         .then(()=>res.json('Job Seeker Deleted Successfully'))
         .catch(err => res.json('Error : '+err));
 });
+router.route('/getMyDetails/:id').get((req,res)=>{
+
+    jobSeeker.findOne({_id : req.params.id}).then((resp)=>res.json({"code":1,"data":resp}))
+    .catch(err => res.json({'code':0,'msg':err}))
+
+});
 module.exports = router;

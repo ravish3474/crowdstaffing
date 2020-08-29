@@ -58,14 +58,17 @@ class CompanyLogin extends Component{
             email: this.state.email,
             password: this.state.password
         }
-        Axios.post('http://localhost:5000/company/companyLoginValidate',login_data)
+        Axios.post('/company/companyLoginValidate',login_data)
                 .then(response =>{
                     // if(response.data.length>0){
                         console.log(response);
                         if(response.status==200){
-                            const tokenData= jwt_decode(response.data.token);
+                            // const tokenData= jwt_decode(response.data.token);
+                            const tokenData=response.data.token;
+                            console.log(response.data.token);
                             // console.log(tokenData);
-                            localStorage.setItem('company_token',JSON.stringify(tokenData));
+                            localStorage.setItem('company_token',tokenData);
+                            // localStorage.setItem('company_token',JSON.stringify(tokenData));
                             this.setState({
                                     loggIn:true
                                 })
