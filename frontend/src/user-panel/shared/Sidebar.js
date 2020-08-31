@@ -74,31 +74,31 @@ class Sidebar extends Component {
                                 Applied Jobs
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to='/user-panel/cv-manager'>
                                 <i class="fas fa-paper-plane"></i>
                                 CV Manager
                             </Link>
-                        </li>
-                        <li>
+                        </li> */}
+                        {/* <li>
                             <Link to='/user-panel/favorite-jobs'>
                             <i class="far fa-star"></i>
                                 Favorite Jobs
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link  to='/user-panel/inbox'>
                                 <i class="far fa-envelope"></i>
                                 Messages
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to=''>
                                 <i class="far fa-list-alt"></i>
                                 
                                 Reviews
                             </Link>
-                        </li>
+                        </li> */}
                         
                         
                         <li>

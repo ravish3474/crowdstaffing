@@ -97,7 +97,7 @@ class Sidebar extends Component {
                         <li>
                             <Link to='/company-panel/skills-list'>
                                 <i class="fas fa-paper-plane"></i>
-                                Skills List
+                                Skills 
                             </Link>
                         </li>
                         <li>
@@ -112,12 +112,12 @@ class Sidebar extends Component {
                                 Logout
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to=''>
                             <i class="far fa-trash-alt"></i>
                                 Delete Profile
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
 
                     

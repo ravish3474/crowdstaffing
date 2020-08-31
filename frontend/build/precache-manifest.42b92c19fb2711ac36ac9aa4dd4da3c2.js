@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7ebd5c127967bb66a4f7d2f99fa76cb7",
+    "revision": "7ffdf2d9a4c89c21a8d59e507a7f287b",
     "url": "/index.html"
   },
   {
-    "revision": "3d551f0b2d0bb39bd5a4",
+    "revision": "081eddf7eedb220e1d1c",
     "url": "/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "719e1cd09b5a4fbf1bcf",
-    "url": "/static/css/main.716c7e77.chunk.css"
+    "revision": "2e9ca76900333019078f",
+    "url": "/static/css/main.7198ca1e.chunk.css"
   },
   {
-    "revision": "3d551f0b2d0bb39bd5a4",
-    "url": "/static/js/2.c9bace65.chunk.js"
+    "revision": "081eddf7eedb220e1d1c",
+    "url": "/static/js/2.934f4703.chunk.js"
   },
   {
-    "revision": "ed3e5d865f8ab5a7e03ede9e7ea976cd",
-    "url": "/static/js/2.c9bace65.chunk.js.LICENSE.txt"
+    "revision": "ffa35a34964860fdc97ed79ca9abd27c",
+    "url": "/static/js/2.934f4703.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "719e1cd09b5a4fbf1bcf",
-    "url": "/static/js/main.421c774f.chunk.js"
+    "revision": "2e9ca76900333019078f",
+    "url": "/static/js/main.e79b71d3.chunk.js"
   },
   {
     "revision": "2a69dd1610e4d3d0fde7",
@@ -38,6 +38,22 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "4e567c6cdf6e648ab613da6a2b676f28",
     "url": "/static/media/2020-06-24T12-42-12.738Zresulme.4e567c6c.PNG"
+  },
+  {
+    "revision": "d28811caf134b90b25a43cec783c202c",
+    "url": "/static/media/2020-08-13T05-41-20.352Zsplash.d28811ca.png"
+  },
+  {
+    "revision": "7c8f980dba2eade3508d16db1ebde212",
+    "url": "/static/media/2020-08-14T03-51-15.948Zscreen-4.7c8f980d.jpg"
+  },
+  {
+    "revision": "241c1bb2c02612f9b15f7d19091512dd",
+    "url": "/static/media/2020-08-28T04-10-38.829Zdecided_work (1).241c1bb2.png"
+  },
+  {
+    "revision": "241c1bb2c02612f9b15f7d19091512dd",
+    "url": "/static/media/2020-08-28T04-11-42.978Zdecided_work (1).241c1bb2.png"
   },
   {
     "revision": "968ff024c37048abc2f901268d165060",

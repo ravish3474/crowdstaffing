@@ -1,11 +1,53 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-
+import axios from 'axios';
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
 
-
 class ApplyJobsDetails extends Component {
+
+    constructor(props){
+        super(props);
+        this.state={
+            jobDesc:'',
+            jobTitle:'',
+            jobType:'',
+            jobSkill:'',
+            fullAddress:'',
+            minExp:'',
+            maxExp:'',
+            gender:'',
+            minSal:'',
+            maxSal:'',
+            quali:'',
+            lastDate:''
+        }
+    }
+    componentDidMount(){
+        const jobPost_id=this.props.match.params.id;
+        axios.get('/jobs/getJobDetails/'+jobPost_id)
+                    .then(response =>{
+                        // console.log(response)
+                        if(response.data.code==1){
+                            this.setState({
+                                jobDesc:response.data.job_details.job_desc,
+                                jobTitle:response.data.job_details.job_title,
+                                jobType:response.data.job_details.job_type,
+                                jobSkill:response.data.job_details.specialism,
+                                fullAddress:response.data.job_details.full_address,
+                                minExp:response.data.job_details.min_exp,
+                                maxExp:response.data.job_details.max_exp,
+                                gender:response.data.job_details.gender,
+                                minSal:response.data.job_details.min_sal,
+                                maxSal:response.data.job_details.max_sal,
+                                quali:response.data.job_details.qualification,
+                                lastDate:response.data.job_details.last_date
+                            })
+                        }
+                        
+                    })
+                    .catch();
+    }
     render() {
         return <section>
                 <div class="wrapper">
@@ -22,35 +64,33 @@ class ApplyJobsDetails extends Component {
                 <div className="row mx-0">
                     <div className="col-md-9">
                         <div className="">
-                            <h5 className="mb-3">Job Description</h5>
+                            <h5 className="mb-3">{this.state.jobTitle}</h5>
                            
-                            <small className="colGry">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                 and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</small>
+                            <small className="colGry">{this.state.jobDesc}</small>
 
 
                             <h5 className="mb-3 mt-4">Required Knowledge, Skills, and Abilities</h5>
                             <ul>
                                 <li>
                                     <small className="colGry">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                    <label>Skill Needed: </label> {this.state.jobSkill} 
                                     </small>
                                 </li>
                                 <li>
                                     <small className="colGry">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                    <label>Industry: </label> {this.state.jobType} 
                                     </small>
                                 </li>
                                 <li>
                                     <small className="colGry">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                    <label>Type: </label> {this.state.jobType}  
                                     </small>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <small className="colGry">
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                     </small>
-                                </li>
+                                </li> */}
                             </ul>
 
                             <h5 className="mb-3">Education Qualification</h5>
@@ -93,8 +133,21 @@ class ApplyJobsDetails extends Component {
                                     </div>
                                     <div className="col-md-10">
                                         <div className="">
+                                            <h6 className="mb-0">Last Date</h6>
+                                            <small className="colGry">{this.state.lastDate}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="row mx-0 ">
+                                    <div className="col-md-2">
+                                        <div className="colBlu">
+                                            <h4><i class="fas fa-dollar-sign"></i></h4>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-10">
+                                        <div className="">
                                             <h6 className="mb-0">Offered Salary</h6>
-                                            <small className="colGry">$10K-$150K</small>
+                                            <small className="colGry">${this.state.minSal}K-${this.state.maxSal}K</small>
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +160,7 @@ class ApplyJobsDetails extends Component {
                                     <div className="col-md-10">
                                         <div className="">
                                             <h6 className="mb-0">Gender</h6>
-                                            <small className="colGry">Male</small>
+                                            <small className="colGry">{this.state.gender}</small>
                                         </div>
                                     </div>
                                 </div>
@@ -120,7 +173,8 @@ class ApplyJobsDetails extends Component {
                                     <div className="col-md-10">
                                         <div className="">
                                             <h6 className="mb-0">Experience</h6>
-                                            <small className="colGry">2 Years</small>
+                                            <small className="colGry">{this.state.minExp} - {this.state.maxExp} Years</small>
+                                        
                                         </div>
                                     </div>
                                 </div>
@@ -133,7 +187,7 @@ class ApplyJobsDetails extends Component {
                                     <div className="col-md-10">
                                         <div className="">
                                             <h6 className="mb-0">Qualification</h6>
-                                            <small className="colGry">MBA</small>
+                                            <small className="colGry">{this.state.quali}</small>
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +198,7 @@ class ApplyJobsDetails extends Component {
 
                                 <div className="d-flex mb-2">
                                     <small className="colBlu"><i class="fas fa-map-marker-alt"></i></small>
-                                    <small className="colGry ml-3">address</small>
+                                    <small className="colGry ml-3">{this.state.fullAddress} </small>
                                 </div>
 
                                 <div className="d-flex mb-2">

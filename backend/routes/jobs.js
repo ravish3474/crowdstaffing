@@ -80,4 +80,9 @@ router.route('/getLatestJobs').get((req,res)=>{
         .then(jobs => res.json({'code':1,'jobs':jobs}))
         .catch(err => res.json({'code':0,'err':err}));
 })
+router.route('/getJobDetails/:id').get((req,res)=>{
+    Jobs.findById(req.params.id)
+                .then(response=>res.json({"code":1,"job_details":response}))
+                .catch(err=>res.json({"code":0,"msg":"No Data Found", "error":err}));
+});
 module.exports= router;

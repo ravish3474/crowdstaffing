@@ -25,7 +25,7 @@ router.route('/companyLoginValidate').post((req,res)=>{
     }).then(resp =>{
             if(resp!=null){
                 
-                    res.send({
+                    res.send({'code':1,
                         _id:resp._id,
                         name:resp.comp_name,
                         email:resp.comp_email,

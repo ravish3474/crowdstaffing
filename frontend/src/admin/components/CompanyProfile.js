@@ -259,7 +259,7 @@ class CompanyProfile extends Component {
                         <textarea className="form-control" name="" rows="5" placeholder="Address"></textarea>
                    </div>
 
-                    <div className="row mx-0">
+                    {/* <div className="row mx-0">
                        <div className="col-md-4 pl-0">
                             <div className="form-group">
                                 <label>Latitude</label>
@@ -277,10 +277,10 @@ class CompanyProfile extends Component {
                             </div>
                        </div>
                        
-                    </div>
+                    </div> */}
                     <div className="text-center">
                         <button className="btn bnlurrt py-2 px-4 bordRAD0">SAVE CHANGES</button>
-                        <button className="btn ml-3 edlert py-2 px-4 bordRAD0">DELETE PROFILE</button>
+                        {/* <button className="btn ml-3 edlert py-2 px-4 bordRAD0">DELETE PROFILE</button> */}
                     </div>
                 
                </form>

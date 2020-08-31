@@ -19,6 +19,8 @@ class Profile extends Component {
         this.state={
             user_id:logged_user_data._id,
             full_name:'',
+            imgSrc:'',
+            image_file:'',
             job_title:'',
             phone_:'',
             email_:'',
@@ -43,6 +45,7 @@ class Profile extends Component {
             long:70.022
             
         }
+        
         axios.get('/jobSeeker/getMyDetails/'+logged_user_data._id)
                     .then(response =>{
                         // console.log(response.data.data);
@@ -52,7 +55,27 @@ class Profile extends Component {
                             
                             console.log("Full Name: "+fName);
                             this.setState({
-                                full_name:fName
+                                full_name:fName,
+                              
+                                phone_:response.data.data.phone_,
+                                email_:response.data.data.email,
+                                website_:response.data.data.website,
+                                current_sal:response.data.data.current_sal,
+                                exp_sal:response.data.data.expected_sal,
+                                exp_year:response.data.data.year,
+                                exp_month:response.data.data.month,
+                                gender:response.data.data.gender,
+                                education_level:'',
+                                dob:response.data.data.dob,
+                                description:response.data.data.basic_introduction,
+                                facebook_id:response.data.data.facebook_id,
+                                twitter:response.data.data.twitter_id,
+                                linkedin:response.data.data.linked_in_id,
+                                google_plus:response.data.data.google_plus_id,
+                                country:response.data.data.country_,
+                                state_:response.data.data.state_,
+                                city_:response.data.data.city_,
+                                full_address:response.data.data.full_address,
                             })
                             // alert(this.state.full_name);
                         }
@@ -88,6 +111,41 @@ class Profile extends Component {
         this.onChangeLatitude = this.onChangeLatitude.bind(this);
         this.onChangeLongitude = this.onChangeLongitude.bind(this);
         this.onChangeState  = this.onChangeState.bind(this);
+        this.onChangeImage = this.onChangeImage.bind(this);
+    }
+    onChangeImage(e){
+        console.log("hello");
+        var file = this.refs.file.files[0];
+        var reader = new FileReader();
+        var url = reader.readAsDataURL(file);
+        this.setState({
+            imgSrc:reader.result,
+            image_file:e.target.files[0]
+        });
+        
+        console.log(url) // Would see a path?
+        let formdata = new FormData();
+        console.log(this.state.image_file);
+        // formdata.append('user_id',this.state.user_id);
+        formdata.append('profilePhoto',this.state.image_file);
+        console.log(formdata);
+        // axios({
+        //     url:'/jobSeeker/updateProfilePic/'+this.state.user_id,
+        //     method:"post",
+        //     enctype:"multipart/form-data",
+        //     data:formdata
+
+        // }).then(response =>{
+        //     console.log(response);
+        //     if(response.data.code==1){
+        //         alert("Image Added");
+        //         // location.reload();
+        //         // this.setState({
+
+        //         // })
+        //     }
+        // })
+        // .catch(error => console.log("Error Found While Fetching All Jobs: "+error));
     }
     onChangeFullName(e){
         this.setState({
@@ -268,24 +326,25 @@ class Profile extends Component {
                    <div className="text-right px-2">
                        <div className="">
                        <label for="upldimg" className="btn-info btn"><small>Upload Image</small></label>
-                       <input type ="file" name="" className="d-none" id="upldimg"/>
-                            <img src={require("../../assets/images/user-dummy.png")} className="img-fluid W12PX border ml-2" />
+                       <input type ="file" name="image_file" className="d-none" onChange={this.onChangeImage} id="upldimg"/>
+                            {/* <img src={require("../../assets/images/user-dummy.png")} className="img-fluid W12PX border ml-2" /> */}
+                            <img src={this.state.imgSrc} className="img-fluid W12PX border ml-2" />
                             
                        </div>
                    </div>
                     <div className="row mx-0">
-                       <div className="col-md-6 pl-0">
+                       <div className="col-md-12 pl-0">
                             <div className="form-group">
                                 <label>Full Name</label>
                                 <input type="text" className="form-control" name="" value={this.state.full_name} onChange={this.onChangeFullName} placeholder="Enter Full Name"/>
                             </div>
                        </div>
-                       <div className="col-md-6 pl-0">
+                       {/* <div className="col-md-6 pl-0">
                             <div className="form-group">
                                 <label>Job Title</label>
                                 <input type="text" className="form-control" name="" value={this.job_title} onChange={this.onChangeJobTitle} placeholder="UI/UX Designer"/>
                             </div>
-                       </div>
+                       </div> */}
                     </div>
                     <div className="row mx-0">
                        <div className="col-md-6 pl-0">
@@ -297,7 +356,7 @@ class Profile extends Component {
                        <div className="col-md-6 pl-0">
                             <div className="form-group">
                                 <label>Email</label>
-                                <input type="email" className="form-control" value={this.state.email_} onChange={this.onChangeEmail} name="" placeholder="Enter Email"/>
+                                <input type="email" className="form-control" value={this.state.email_} onChange={this.onChangeEmail} name="" placeholder="Enter Email" readOnly/>
                             </div>
                        </div>
                     </div>
@@ -382,7 +441,7 @@ class Profile extends Component {
                             <div className="form-group">
                                 <label>Gender</label>
                                 <select className="form-control" name="" value={this.state.gender} onChange={this.onChangeGender}>
-                                    <option selected disabled>Select</option>
+                                    <option selected >Select</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                     <option value="Other">Other</option>
@@ -500,7 +559,7 @@ class Profile extends Component {
                        <label> Full Address</label>
                         <textarea className="form-control" name="" rows="5" value={this.state.full_address} onChange={this.onChangeFullAddress}placeholder="Address"></textarea>
                    </div>
-
+{/* 
                     <div className="row mx-0">
                        <div className="col-md-4 pl-0">
                             <div className="form-group">
@@ -515,7 +574,7 @@ class Profile extends Component {
                             </div>
                        </div>
                        
-                    </div>
+                    </div> */}
                     <div className="text-center">
                     <button className="btn bnlurrt py-2 px-4 bordRAD0">SAVE CHANGES</button>
                     </div>

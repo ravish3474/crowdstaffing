@@ -57,7 +57,7 @@ class Header extends Component {
                              <img src={require("../../assets/images/client1.png")} className="img-fluid PPInk" />
                         </a>
                         <div className="dropdown-menu Driop_mn" aria-labelledby="navbarDropdown">
-                            <a className="dropdown-item" href="#">Logout</a>
+                            <a className="dropdown-item" href="javascript:void(0)" onClick={this.onClickLogout}>Logout</a>
                             
                         </div>
                     </li>

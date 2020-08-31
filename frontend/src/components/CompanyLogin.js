@@ -64,15 +64,23 @@ class CompanyLogin extends Component{
                         console.log(response);
                         if(response.status==200){
                             // const tokenData= jwt_decode(response.data.token);
-                            const tokenData=response.data.token;
-                            console.log(response.data.token);
-                            // console.log(tokenData);
-                            localStorage.setItem('company_token',tokenData);
-                            // localStorage.setItem('company_token',JSON.stringify(tokenData));
-                            this.setState({
-                                    loggIn:true
-                                })
-                            this.props.history.push("/company-panel");
+                            if(response.data.code==1){
+                                const tokenData=response.data.token;
+                                console.log(" Workgin Fine.....");
+                                // console.log(response.data.token);
+                                // console.log(tokenData);
+                                localStorage.setItem('company_token',tokenData);
+                                // localStorage.setItem('company_token',JSON.stringify(tokenData));
+                                this.setState({
+                                        loggIn:true
+                                    })
+                                this.props.history.push("/company-panel");
+                            }else{
+                                this.setState({
+                                            error:'Invalid Email or Password'
+                                        })
+                            }
+                            
                         }
                         // 
                         // localStorage.setItem('company_token',response.data.company_data._id);
@@ -99,9 +107,9 @@ class CompanyLogin extends Component{
         // <Redirect to="/company-panel"/>
     }
     render(){
-        if(this.state.loggIn){
-            return <Redirect to="/company-panel"/>
-        }
+        // if(this.state.loggIn){
+        //     return <Redirect to="/company-login"/>
+        // }
         return <div className="bg_lightBlu">
             
                     <div className="container pt-3 ">

@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import axios from 'axios';
-import {Link} from 'react-router-dom'; 
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom'; 
+// import { Router } from 'express';
+
 class JobComponent extends Component{
     render(){
         return <div className="col-md-6 mt-3">
@@ -28,10 +30,14 @@ class JobComponent extends Component{
                             </div>
                     </div>
                     <div className="col-md-3">
+                       
                             <div className="text-center mt-3">
-                                <Link to="/user-panel/apply-jobs/apply-jobs-details" className="w-100 Pnk py-1 px-2 rounded btn"  >Apply</Link><br/>
+                                <Link to={'/user-panel/apply-jobs/apply-jobs-details/'+ this.props.jobss._id} className="w-100 Pnk py-1 px-2 rounded btn"  >Apply</Link><br/>
                                 <Link  to="/user-panel/apply-jobs/apply-jobs-details" className="w-100 PBJ mt-2 py-1 px-2 rounded btn" >{this.props.jobss.job_type}</Link>
+                                {/* <Route path='/user-panel/apply-jobs/apply-jobs-details/:id' component={child}/>   */}
                             </div>
+                       
+                            
                     </div>
                 </div>
                 

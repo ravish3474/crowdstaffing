@@ -112,7 +112,7 @@ function App() {
       <Route path="/user-panel/change-password" exact={true} component={ UserChangePassword } />  
 
       <Route path="/user-panel/apply-jobs" exact={true} component={ ApplyJobs } />   
-      <Route path="/user-panel/apply-jobs/apply-jobs-details" exact={true} component={ ApplyJobsDetails } />  
+      <Route path="/user-panel/apply-jobs/apply-jobs-details/:id" exact={true} component={ ApplyJobsDetails } />  
 
       <Route path="/user-panel/inbox" exact={true} component={ userInbox } />  
       {/* <Route path="/user-panel/apply-jobs/apply-jobs-details" exact={true} component={ ApplyJobsDetails } />   */}

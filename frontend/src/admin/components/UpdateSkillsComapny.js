@@ -16,35 +16,59 @@ class UpdateSkillsComapny extends Component {
 
                         <Header/>
 
-                        <h4>Shortlisted Resumes</h4>
+                        {/* <h4>/</h4> */}
                         <div className="HirD bckloGry ">
           
-                        <div className="p-4 bg-white">
-                            <div className="mt-3 p-5 colBlk b">
-                                
-                                <div className="text-right">
-                                    <button className="btn py-1 btn-success rounded">Update Skills</button>
-                                    <button className="btn py-1 btn-default border rounded ml-3">Delete Skills</button>
+                            <div className="p-4 bg-white">
+                                <div className="mt-1 p-1 colBlk b">
+                                    
+                                    <div className="text-right">
+                                        <button className="btn py-1 btn-success rounded">Update Skills</button>
+                                        <button className="btn py-1 btn-default border rounded ml-3">Delete Skills</button>
+                                    </div>
+                                    <form className="mt-4">
+                                        <div className=" form-group">
+                                            <label>Skill Name</label>
+                                            <div className="d-flex">
+                                                <input type="text" name="" className="form-control" placeholder="Bootstrap" />
+                                                {/* <button className="btn btn-danger">Add Skill</button>     */}
+                                            </div>
+                                        </div>    
+                                    
+
+                                        <div className="">
+                                            <button className="btn btn-info">Add & Submit</button>    
+                                            {/* <button className="ml-3 border btn btn-default" type="button">Cancel</button> */}
+                                        </div>  
+                                    </form>
                                 </div>
-                                <form className="mt-4">
-                                    <div className=" form-group">
-                                        <label>Update Skills</label>
-                                        <div className="d-flex">
-                                            <input type="text" name="" className="form-control" placeholder="Bootstrap" />
-                                            <button className="btn btn-danger">Add Skill <i class="fas fa-plus ml-1"></i></button>    
-                                        </div>
-                                    </div>    
-                                   
 
-                                    <div className="">
-                                        <button className="btn btn-info">Add & Submit</button>    
-                                        <button className="ml-3 border btn btn-default" type="button">Cancel</button>
-                                    </div>  
-                                </form>
                             </div>
-
                         </div>
-                    </div>
+                        <div className="HirD bckloGry ">
+          
+                            <div className="p-4 bg-white">
+                                <div className="mt-1 p-1 colBlk b">
+                                    
+                                    <table className="table">
+                                        <thead>
+                                            <th>S.No</th>
+                                            <th>Name</th>
+                                            <th>Action</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>PHP</td>
+                                                <td><a href="" className="btn btn-danger"><i className="fa fa-trash"></i></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    
+                                </div>
+
+                            </div>
+                        </div>
         
             
                     </div>

@@ -20,12 +20,14 @@ const jobSeekerSchema = new Schema({
     basic_introduction:{type:String},
     profile_pic:{type:String},
     // Social
+    website:{type:String},
     facebook_id:{type:String},
     twitter_id:{type:String},
     linked_in_id:{type:String},
     google_plus_id:{type:String},
     // Address
     country_:{type:String},
+    state_:{type:String},
     city_:{type:String},
     full_address:{type:String},
     lat_:{type:String},

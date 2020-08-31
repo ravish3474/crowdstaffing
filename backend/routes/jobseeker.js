@@ -54,7 +54,7 @@ router.route('/updateData/:id').post((req, res)=>{
     // console.log('Edited File Name: '+req.file.filename);
     jobSeeker.findById(req.params.id)
         .then(dataToUpdate => {
-            console.log(dataToUpdate);
+            // console.log(dataToUpdate);
             dataToUpdate.full_name = req.body.full_name;
             dataToUpdate.phone_ = req.body.phone;
             dataToUpdate.job_title = req.body.job_title;
@@ -74,6 +74,7 @@ router.route('/updateData/:id').post((req, res)=>{
             dataToUpdate.google_plus_id= req.body.google_plus;
             // addresss
             dataToUpdate.country_=req.body.country;
+            dataToUpdate.state_=req.body.state_;
             dataToUpdate.city_=req.body.city_;
             dataToUpdate.full_address = req.body.full_address;
             dataToUpdate.lat_= req.body.lat;
@@ -87,14 +88,15 @@ router.route('/updateData/:id').post((req, res)=>{
 });
 router.route('/updateProfilePic/:id').post(upload.single('profilePhoto'),(req, res)=>{
     // console.log('Edited File Name: '+req.file.filename);
-    jobSeeker.findById(req.params.id)
-        .then(dataToUpdate => {
-            dataToUpdate.profile_pic = req.file.filename;
-            dataToUpdate.save()
-                .then(()=>res.json('Image Uploaded Successfully.'))
-                .catch(err =>res.json('Error: '+err));
-        })
-        .catch(err => res.json('Error : '+err));
+    console.log(req.body);
+    // jobSeeker.findById(req.params.id)
+    //     .then(dataToUpdate => {
+    //         dataToUpdate.profile_pic = req.file.filename;
+    //         dataToUpdate.save()
+    //             .then(()=>res.json('Image Uploaded Successfully.'))
+    //             .catch(err =>res.json('Error: '+err));
+    //     })
+    //     .catch(err => res.json('Error : '+err));
 }) ;
 
 router.route('/deleteJobSeeker/:id').delete((req,res)=>{
