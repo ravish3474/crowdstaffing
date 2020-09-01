@@ -86,12 +86,12 @@ class Sidebar extends Component {
                                 Favorite Jobs
                             </Link>
                         </li> */}
-                        <li>
+                        {/* <li>
                             <Link  to='/user-panel/inbox'>
                                 <i class="far fa-envelope"></i>
                                 Messages
                             </Link>
-                        </li>
+                        </li> */}
                         {/* <li>
                             <Link to=''>
                                 <i class="far fa-list-alt"></i>
