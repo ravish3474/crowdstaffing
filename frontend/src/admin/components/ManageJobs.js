@@ -1,11 +1,40 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
+// import { response } from 'express';
 
 
 class ManageJobs extends Component {
+    constructor (props){
+        super(props);
+        const logged_user_data=jwt_decode(localStorage.getItem('company_token'));
+        this.state={
+            job_posted:0,
+            job_application:0,
+            active_jobs:0,
+            jobs:[]
+        }
+        const com={
+            "comapany_id":logged_user_data._id
+        };
+        console.log(com);
+        axios.post('/jobs/getMyPostedJobs/',com)
+            .then(response=>{
+                if(response.data.code==1){
+                    console.log(response.data.data);
+                    this.setState({
+                        job_posted:response.data.data.length,
+                        active_jobs:response.data.data.length,
+                        jobs:response.data.data.map(jobs => jobs)
+                    })
+                }
+            })
+            .catch();
+    }
+    
     render() {
         return <section>
                 <div class="wrapper">
@@ -30,7 +59,7 @@ class ManageJobs extends Component {
                                 </div>
                                 <div className="col-md-8">
                                     <div className="mt-3">
-                                        <span>2 Jobs Posted</span>
+                                        <span>{this.state.job_posted} Jobs Posted</span>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +88,7 @@ class ManageJobs extends Component {
                                 </div>
                                 <div className="col-md-8">
                                     <div className=" mt-3">
-                                        <span>1 Active Jobs</span>
+                                        <span>{this.state.active_jobs} Active Jobs</span>
                                     </div>
                                 </div>
                             </div>
@@ -82,29 +111,34 @@ class ManageJobs extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <div className="OOuN">
-                                        <h6 className="mb-0">General Ledger Accountant</h6>
-                                        <small className="colGry"><i class="fas fa-map-marker-alt"></i> Address</small><br/>
-                                        <small className="colGry">
-                                            <span>Created : Date</span>
-                                            <span className="ml-1">Expiry : Date</span>
-                                        </small>
-                                    </div>
-                                </td>
-                                <td>
-                                    <small><span className="fnt500">17</span> Applications</small>
-                                </td>
-                                <td>
-                                    <small className="text-success">Inactive</small>
-                                </td>
-                                <td>
-                                    <span className="p-1 Ble  rounded" title="View"><small><i class="far fa-eye"></i></small></span>
-                                    <span className="Pnk p-1 ml-2 rounded" title="Edit"><small><i class="fas fa-pencil-alt"></i></small></span>
-                                    <span className="PBJ p-1 ml-2 rounded" title="Delete"><small><i class="far fa-trash-alt"></i></small></span>
-                                </td>
-                            </tr>
+                        {
+                            this.state.jobs.map(function(job){
+                            return <tr>
+                                        <td>
+                                            <div className="OOuN">
+                                                <h6 className="mb-0">{job.job_title}</h6>
+                                                <small className="colGry"><i class="fas fa-map-marker-alt"></i> {job.full_address}</small><br/>
+                                                <small className="colGry">
+                                                    <span>Created : Date</span>
+                                                    <span className="ml-1">Expiry : {job.last_date}</span>
+                                                </small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <small><span className="fnt500">17</span> Applications</small>
+                                        </td>
+                                        <td>
+                                            <small className="text-success">Active</small>
+                                        </td>
+                                        <td>
+                                            <span className="p-1 Ble  rounded" title="View"><small><i class="far fa-eye"></i></small></span>
+                                            <span className="Pnk p-1 ml-2 rounded" title="Edit"><small><i class="fas fa-pencil-alt"></i></small></span>
+                                            <span className="PBJ p-1 ml-2 rounded" title="Delete"><small><i class="far fa-trash-alt"></i></small></span>
+                                        </td>
+                                    </tr>
+                            })
+                        }
+                            
                         </tbody>
                     </table>
                </div>

@@ -54,7 +54,7 @@ class PostNewJob extends Component {
     }
     componentDidMount(){
         //To get Job Category
-          axios.get('http://localhost:5000/category')
+          axios.get('/category')
           .then(response =>{
                 // console.log("Res Length: "+response.data.length);
                 // this.setState({
@@ -71,7 +71,7 @@ class PostNewJob extends Component {
               }
           }).catch(err => console.log(err))
           //To get Job Type
-          axios.get('http://localhost:5000/jobType')
+          axios.get('/jobType')
           .then(response =>{
                 // console.log("Res Length: "+response.data.length);
                 // this.setState({
@@ -274,59 +274,10 @@ class PostNewJob extends Component {
 
             <h4>Post New Job</h4>
            
-           <div className="mt-3">
-               <div className="">
-                   <div className="row">
-                        <div className="col-md-4">
-                            <div className="row m-0">
-                                <div className="col-md-3">
-                                    <div className="rounded-circle PBJ text_Al">
-                                        <span><i class="fas fa-briefcase"></i></span>
-                                    </div>
-                                </div>
-                                <div className="col-md-8">
-                                    <div className="mt-3">
-                                        <span>2 Jobs Posted</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="row m-0">
-                                <div className="col-md-3">
-                                    <div className="rounded-circle Pnk text_Al">
-                                        <span><i class="far fa-copy"></i></span>
-                                    </div>
-                                </div>
-                                <div className="col-md-8">
-                                    <div className=" mt-3">
-                                        <span>3 Applications</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div className="col-md-4">
-                            <div className="row m-0">
-                                <div className="col-md-3">
-                                    <div className="rounded-circle Ble text_Al">
-                                        <span><i class="fas fa-briefcase"></i></span>
-                                    </div>
-                                </div>
-                                <div className="col-md-8">
-                                    <div className=" mt-3">
-                                        <span>1 Active Jobs</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    
-                   </div>
-               </div>
-           </div>
+           
 
            
-           <div className=" mt-4 HirD ">
+           <div className=" mt-1 HirD ">
                <form className=" UJUFom" onSubmit={this.onSubmit}>
                    <div className="form-group">
                        <label>Job Title</label>
@@ -402,18 +353,18 @@ class PostNewJob extends Component {
                                     <option value="6" >6 Lac</option>
                                     <option value="7" >7 Lac</option>
                                     <option value="8" >8 Lac</option>
-                                    <option value="9" >9</option>
-                                    <option value="10" >10</option>
-                                    <option value="11" >11</option>
-                                    <option value="12" >12</option>
-                                    <option value="13" >13</option>
-                                    <option value="14" >14</option>
-                                    <option value="15" >15</option>
-                                    <option value="16" >16</option>
-                                    <option value="17" >17</option>
-                                    <option value="18" >18</option>
-                                    <option value="19" >19</option>
-                                    <option value="20" >20</option>
+                                    <option value="9" >9 Lac</option>
+                                    <option value="10" >10 Lac</option>
+                                    <option value="11" >11 Lac</option>
+                                    <option value="12" >12 Lac</option>
+                                    <option value="13" >13 Lac</option>
+                                    <option value="14" >14 Lac</option>
+                                    <option value="15" >15 Lac</option>
+                                    <option value="16" >16 Lac</option>
+                                    <option value="17" >17 Lac</option>
+                                    <option value="18" >18 Lac</option>
+                                    <option value="19" >19 Lac</option>
+                                    <option value="20" >20 Lac</option>
                                 </select>
                             </div>
                        </div>
@@ -428,19 +379,19 @@ class PostNewJob extends Component {
                                     <option value="5" >5 Lac</option>
                                     <option value="6" >6 Lac</option>
                                     <option value="7" >7 Lac</option>
-                                    <option value="8" >8</option>
-                                    <option value="9" >9</option>
-                                    <option value="10" >10</option>
-                                    <option value="11" >11</option>
-                                    <option value="12" >12</option>
-                                    <option value="13" >13</option>
-                                    <option value="14" >14</option>
-                                    <option value="15" >15</option>
-                                    <option value="16" >16</option>
-                                    <option value="17" >17</option>
-                                    <option value="18" >18</option>
-                                    <option value="19" >19</option>
-                                    <option value="20" >20</option>
+                                    <option value="8" >8 Lac</option>
+                                    <option value="9" >9 Lac</option>
+                                    <option value="10" >10 Lac</option>
+                                    <option value="11" >11 Lac</option>
+                                    <option value="12" >12 Lac</option>
+                                    <option value="13" >13 Lac</option>
+                                    <option value="14" >14 Lac</option>
+                                    <option value="15" >15 Lac</option>
+                                    <option value="16" >16 Lac</option>
+                                    <option value="17" >17 Lac</option>
+                                    <option value="18" >18 Lac</option>
+                                    <option value="19" >19 Lac</option>
+                                    <option value="20" >20 Lac</option>
                                 </select>
                             </div>
                        </div>
@@ -555,8 +506,36 @@ class PostNewJob extends Component {
                        </div>
                     </div>
                     <h5 className="my-3">Address / Location</h5>
-
                     <div className="row mx-0">
+                       <div className="col-md-4 pl-0">
+                       
+                        
+                            <div className="form-group">
+                                <label>Country</label>
+                                <select className="form-control countries" value={this.state.country} onChange={this.onChangeCountry} name="country"  id="countryId">
+                                    {/* <option selected >Basic</option> */}
+                                    <option value="">Select Country</option>
+                                </select>
+                            </div>
+                       </div>
+                       <div className="col-md-4 pl-0">
+                            <div className="form-group">
+                                <label>State</label>
+                                <select className="form-control states" name="state"  id="stateId" value={this.state.state_} onChange={this.onChangeState} >
+                                    <option value="">Select State</option>
+                                </select>
+                            </div>
+                       </div>
+                       <div className="col-md-4 pl-0">
+                            <div className="form-group">
+                                <label>City</label>
+                                <select className="form-control cities" name="city" value={this.state.city} onChange={this.onChangeCity} id="cityId">
+                                    <option value="">Select City</option>
+                                </select>
+                            </div>
+                       </div>
+                    </div>
+                    {/* <div className="row mx-0">
                        <div className="col-md-6 pl-0">
                             <div className="form-group">
                                 <label>Country</label>
@@ -578,32 +557,14 @@ class PostNewJob extends Component {
                                 </select>
                             </div>
                        </div>
-                    </div>
+                    </div> */}
                     <div className="form-group">
                        <label>Full Address</label>
                         <textarea className="form-control" name="" rows="5" placeholder="Address" value={this.state.fulladdress} onChange={this.onChangeJobFullAddress}></textarea>
                    </div>
 
 
-                    <div className="row mx-0">
-                       <div className="col-md-4 pl-0">
-                            <div className="form-group">
-                                <label>Latitude</label>
-                                {/* <select className="form-control" name="" >
-                                    <option selected >Basic</option>
-                                </select> */}
-                            </div>
-                       </div>
-                       <div className="col-md-4 pl-0">
-                            <div className="form-group">
-                                <label>Longitude</label>
-                                {/* <select className="form-control" name="" >
-                                    <option selected disabled>Select</option>
-                                </select> */}
-                            </div>
-                       </div>
-                       
-                    </div>
+                    
                     <dic className="text-center">
                     <button className="btn bnlurrt py-2 px-4 bordRAD0">Submit</button>
                     </dic>

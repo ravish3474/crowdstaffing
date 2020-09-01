@@ -3,17 +3,66 @@ import ReactDom from 'react-dom';
 
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
-
+import jwt_decode from 'jwt-decode';
 
 class CompanyProfile extends Component {
     constructor(props){
         super(props);
+        const logged_user_data=jwt_decode(localStorage.getItem('company_token'));
+        // console.log("===============");
+        // console.log(logged_user_data);
+        // console.log("---------------");
+        // console.log("comap : "+)
         this.state={
-            comp_name:'',
+            comp_name:logged_user_data.company_name,
+            comp_email:logged_user_data.comp_email,
+            comp_phone:logged_user_data.comp_phone,
+            comp_id:logged_user_data._id,
             country:'',
             state_:'',
             city_:''
         }
+        // axios.get('/jobSeeker/getMyDetails/'+logged_user_data._id)
+        //             .then(response =>{
+        //                 // console.log(response.data.data);
+        //                 // console.log("code:  "+response.data.code);
+        //                 if(response.data.code==1){
+        //                     const fName=response.data.data.full_name;
+                            
+        //                     console.log("Full Name: "+fName);
+        //                     this.setState({
+        //                         full_name:fName,
+                              
+        //                         phone_:response.data.data.phone_,
+        //                         email_:response.data.data.email,
+        //                         website_:response.data.data.website,
+        //                         current_sal:response.data.data.current_sal,
+        //                         exp_sal:response.data.data.expected_sal,
+        //                         exp_year:response.data.data.year,
+        //                         exp_month:response.data.data.month,
+        //                         gender:response.data.data.gender,
+        //                         education_level:'',
+        //                         dob:response.data.data.dob,
+        //                         description:response.data.data.basic_introduction,
+        //                         facebook_id:response.data.data.facebook_id,
+        //                         twitter:response.data.data.twitter_id,
+        //                         linkedin:response.data.data.linked_in_id,
+        //                         google_plus:response.data.data.google_plus_id,
+        //                         country:response.data.data.country_,
+        //                         state_:response.data.data.state_,
+        //                         city_:response.data.data.city_,
+        //                         full_address:response.data.data.full_address,
+        //                     })
+        //                     // alert(this.state.full_name);
+        //                 }
+        //                 // if(response.data.jobseeker.length >0){
+        //                 //     console.log("Array Count: "+response.data.jobseeker.length);
+        //                 //     this.setState({
+        //                 //         jobseeker:response.data.jobseeker.map(jobseek => jobseek)
+        //                 //     })
+        //                 // }
+        //             })
+        //             .catch(err => console.log("Error found: "+err));
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeFacebook = this.onChangeFacebook.bind(this);
         this.onChangeLinkedIn = this.onChangeLinkedIn.bind(this);
@@ -123,7 +172,7 @@ class CompanyProfile extends Component {
                        <div className="col-md-6 pl-0">
                             <div className="form-group">
                                 <label>Email</label>
-                                <input type="email" className="form-control" name="" placeholder="Email"/>
+                                <input type="email" className="form-control" name="" value={this.state.comp_email} placeholder="Email" readonly />
                             </div>
                        </div>
                     </div>
@@ -131,7 +180,7 @@ class CompanyProfile extends Component {
                        <div className="col-md-6 pl-0">
                             <div className="form-group">
                                 <label>Phone</label>
-                                <input type="number" className="form-control" name="" placeholder="Enter Phone Number"/>
+                                <input type="number" className="form-control" name="" value={this.state.comp_phone} placeholder="Enter Phone Number"/>
                             </div>
                        </div>
                        <div className="col-md-6 pl-0">
