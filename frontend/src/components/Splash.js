@@ -36,31 +36,31 @@ class Splash extends Component {
                             <div className="col-md-10">
                                 <ul className="list-unstyled List_p">
                                     <li>
-                                        <a to="">For Business</a>
+                                        <Link to="/for-business">For Business</Link>
                                     </li>
                                     <li>
-                                        <a to="">For Staffing Agencies</a>
+                                        <Link to="/for-staffing-agencies">For Staffing Agencies</Link>
                                     </li>
                                     <li>
-                                        <a to="">Job Seeker</a>
+                                        <Link to="/login">Job Seeker</Link>
                                     </li>
                                     <li>
-                                        <a to="">Blog</a>
+                                        <Link to="">Blog</Link>
                                     </li>
                                     <li>
-                                        <a to="">About Us</a>
+                                        <Link to="/about-us">About Us</Link>
                                     </li>
                                     <li>
-                                        <a to="">Resources</a>
+                                        <Link to="">Resources</Link>
                                     </li>
                                     <li>
-                                        <a to="">Privacy Policy</a>
+                                        <Link to="">Privacy Policy</Link>
                                     </li>
                                     <li>
-                                        <a to="">Terms & Condistions</a>
+                                        <Link to="">Terms & Condistions</Link>
                                     </li>
                                     <li>
-                                        <a to="">Contact Us</a>
+                                        <Link to="/contact-us">Contact Us</Link>
                                     </li>
                                 </ul>
                             </div>

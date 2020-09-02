@@ -54,6 +54,8 @@ import JobApplicationCandidateDetails from './admin/components/JobApplicationCan
 import CompanyInbox from './admin/components/CompanyInbox';
 import ShortlistedCandidateDetails from './admin/components/ShortlistedCandidateDetails';
 import LoginMainAdmin from './MainAdmin/components/LoginMainAdmin';
+import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
 
 function App() {
     return (
@@ -71,6 +73,8 @@ function App() {
       <Route path="/otp-verify" component={OtpVerify} />
       <Route path="/for-business" component={BusinessPage} />
       <Route path="/for-staffing-agencies" component={Agencies} />
+      <Route path="/about-us" component={ AboutUs } />
+      <Route path="/contact-us" component={ ContactUs } />
 
       {/* Main Admin */}
       <Route path="/admin-panel-login" exact={true} component={ LoginMainAdmin } />   
