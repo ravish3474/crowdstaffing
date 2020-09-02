@@ -29,7 +29,7 @@ class LoginMainAdmin extends Component {
                            
 
                         </div>
-                        </div>
+                    </div>
             
             </section>  
     } 
