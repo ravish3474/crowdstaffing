@@ -2,6 +2,8 @@ const router = require('express').Router();
 const jobSeeker = require('../models/jobseekers.model');
 const multer = require('multer');
 import { getToken } from '../util';
+var jwtt = require('jsonwebtoken');
+// var token = jwtt.sign({ foo: 'bar' }, 'shhhhh');
 
 const storage = multer.diskStorage({
     destination : function(req, file, cb){
@@ -18,22 +20,51 @@ router.route('/').get((req, res)=>{
         .catch(err => res.json('Error: '+ err));
 });
 
-router.post('/signin', async (req, res) =>{
-    const signinUser = await jobSeeker.findOne({
-        email : req.body.email,
-        pass_code: req.body.pass_code
-    });
-    if(signinUser){
-        res.send({
-            _id:signinUser.id,
-            name:signinUser.full_name,
-            email:signinUser.email,
-            token:getToken(signinUser)
-        })
-    }
-    else{
-        res.status(401).send({msg:'Invalid Email or Password'});
-    }
+// router.post('/signin', async (req, res) =>{
+//     const signinUser = await jobSeeker.findOne({
+//         email : req.body.email,
+//         pass_code: req.body.pass_code
+//     });
+//     if(signinUser){
+//         res.send({
+//             _id:signinUser.id,
+//             name:signinUser.full_name,
+//             email:signinUser.email,
+//             token:getToken(signinUser)
+//         })
+//     }
+//     else{
+//         res.status(401).send({msg:'Invalid Email or Password'});
+//     }
+// })
+router.route('/signin').post((req,res)=>{
+    
+    jobSeeker.findOne({
+                email : req.body.email,
+                pass_code: req.body.pass_code
+            }).then(resp =>{
+            if(resp!=null){
+                
+                    res.send({'code':1,
+                        _id:resp._id,
+                        name:resp.full_name,
+                        email:resp.email,
+                        token:getToken(resp)
+                    })
+               
+               
+                // console.log(resp);
+                // const accessToken =jwt.sign(resp, config.JWT_SECRET, {
+                //     expiresIn: '48h'
+                //   });
+                // res.send({'code':1,'company_data':accessToken});
+            }else{
+                res.json({'code':0,'company_data':'Invalid Email or Password'})
+            }
+                
+            
+            
+        }).catch(err => res.json({'code':0,'company_data':err}))
 })
 
 router.route('/register').post((req, res)=>{
@@ -110,4 +141,27 @@ router.route('/getMyDetails/:id').get((req,res)=>{
     .catch(err => res.json({'code':0,'msg':err}))
 
 });
+router.route('/getMyEncyDetails/:id').get((req,res)=>{
+
+    jobSeeker.findOne({_id : req.params.id}).then((resp)=>{
+        // jwtt.sign(json.stringify(resp) , 'shhhhh');
+        // console.log();
+        res.json({"code":1,"data":jwtt.sign({data:resp},'shhhhh')})
+        }
+        )
+    .catch(err => res.json({'code':0,'msg':err}))
+
+});
+router.route('/updatePassword/:id').post((req, res)=>{
+    // console.log('Edited File Name: '+req.file.filename);
+    // console.log(req.body);
+    jobSeeker.findById(req.params.id)
+        .then(dataToUpdate => {
+            dataToUpdate.pass_code = req.body.pass_code;
+            dataToUpdate.save()
+                .then(()=>res.json({'code':1,'msg':'Password Updated Successfully.'}))
+                .catch(err =>res.json({'code':0,'msg':err}));
+        })
+    //     .catch(err => res.json('Error : '+err));
+}) ;
 module.exports = router;

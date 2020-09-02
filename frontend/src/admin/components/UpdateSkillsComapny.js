@@ -137,10 +137,11 @@ class UpdateSkillsComapny extends Component {
                                                             <td>{skill.skill_name}</td>
                                                             <td><button className="btn btn-danger" onClick={()=>{
                                                                 console.log("Deleteing...."+ skill._id);
-                                                                Axios.get('/skill/deleteSkill/'+skill._id)
+                                                                Axios.delete('/skill/deleteSkill/'+skill._id)
                                                                         .then(resp=>{
                                                                             if(resp.data.code==1){
                                                                                alert("Deleted Successfully..");
+                                                                               window.location.reload(true);
                                                                             }else{
                                                                                 alert("Failed to Delete");
                                                                             }

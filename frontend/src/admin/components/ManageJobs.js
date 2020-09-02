@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import { Link, } from 'react-router-dom'; 
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import Sidebar from '../shared/Sidebar';
@@ -131,9 +132,27 @@ class ManageJobs extends Component {
                                             <small className="text-success">Active</small>
                                         </td>
                                         <td>
-                                            <span className="p-1 Ble  rounded" title="View"><small><i class="far fa-eye"></i></small></span>
-                                            <span className="Pnk p-1 ml-2 rounded" title="Edit"><small><i class="fas fa-pencil-alt"></i></small></span>
-                                            <span className="PBJ p-1 ml-2 rounded" title="Delete"><small><i class="far fa-trash-alt"></i></small></span>
+                                        <Link to={'/user-panel/apply-jobs/apply-jobs-details/'+ job._id} className="btn btn-success"  ><i class="far fa-eye"></i></Link>
+                                        <Link to={'/user-panel/apply-jobs/apply-jobs-details/'+ job._id} className="btn btn-info mx-1"  ><i class="fas fa-pencil-alt"></i></Link>
+                                        {/* <Link to={'/user-panel/apply-jobs/apply-jobs-details/'+ job._id} className="btn btn-danger"  ><i class="far fa-trash-alt"></i></Link> */}
+                                            {/* <span className="p-1 Ble  rounded" title="View"><small></small></span> */}
+                                            {/* <span className="Pnk p-1 ml-2 rounded" title="Edit"><small></small></span>
+                                            <span className="PBJ p-1 ml-2 rounded" title="Delete"><small></small></span> */}
+                                            <button className="btn btn-danger" onClick={()=>{
+                                                                console.log("Deleteing...."+ job._id);
+                                                                axios.delete('/jobs/deleteJob/'+job._id)
+                                                                        .then(resp=>{
+                                                                            if(resp.data.code==1){
+                                                                               alert("Deleted Successfully..");
+                                                                               window.location.reload(true);
+                                                                            }else{
+                                                                                alert("Failed to Delete");
+                                                                            }
+                                                                        })
+                                                                        .catch(err=>{
+                                                                            console.log(err)
+                                                                        })
+                                                                }}><i className="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                             })

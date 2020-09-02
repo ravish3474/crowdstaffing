@@ -32,8 +32,9 @@ class JobComponent extends Component{
                     <div className="col-md-3">
                        
                             <div className="text-center mt-3">
-                                <Link to={'/user-panel/apply-jobs/apply-jobs-details/'+ this.props.jobss._id} className="w-100 Pnk py-1 px-2 rounded btn"  >Apply</Link><br/>
-                                <Link  to="/user-panel/apply-jobs/apply-jobs-details" className="w-100 PBJ mt-2 py-1 px-2 rounded btn" >{this.props.jobss.job_type}</Link>
+                                <Link to={'/user-panel/apply-jobs/apply-jobs-details/'+ this.props.jobss._id} className="w-100 Pnk py-1 px-2 rounded btn"  >View</Link><br/>
+                                <span className="ml-1 w-100 PBJ mt-2 py-1 px-2 rounded btn">{this.props.jobss.job_type}</span>
+                                {/* <Link  to="/user-panel/apply-jobs/apply-jobs-details" className="w-100 PBJ mt-2 py-1 px-2 rounded btn" ></Link> */}
                                 {/* <Route path='/user-panel/apply-jobs/apply-jobs-details/:id' component={child}/>   */}
                             </div>
                        
