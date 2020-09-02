@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
-
-=======
   /* STRUCTURE */
->>>>>>> 2216d63bad6055f00254af7ad63bbcc2f2676f11
   
   .wrapper1 {
     display: flex;
@@ -38,24 +34,11 @@
     border-radius: 0 0 10px 10px;
   }
   
-<<<<<<< HEAD
-  
-  
-  /* TABS */
-  
-
-  
-  
-  /* FORM TYPOGRAPHY*/
-  
-  .Chaks  {
-=======
 
   
   /* FORM TYPOGRAPHY*/
   
   .btnRsd  {
->>>>>>> 2216d63bad6055f00254af7ad63bbcc2f2676f11
     background-color: #56baed;
     border: none;
     color: white;
@@ -77,19 +60,11 @@
     transition: all 0.3s ease-in-out;
   }
   
-<<<<<<< HEAD
-  .Chaks:hover  {
-    background-color: #39ace7;
-  }
-  
-  .Chaks:active  {
-=======
   .btnRsd:hover  {
     background-color: #39ace7;
   }
   
   .btnRsd:active  {
->>>>>>> 2216d63bad6055f00254af7ad63bbcc2f2676f11
     -moz-transform: scale(0.95);
     -webkit-transform: scale(0.95);
     -o-transform: scale(0.95);
@@ -97,11 +72,7 @@
     transform: scale(0.95);
   }
   
-<<<<<<< HEAD
-  .Chaks {
-=======
   .intxt {
->>>>>>> 2216d63bad6055f00254af7ad63bbcc2f2676f11
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;
@@ -122,20 +93,12 @@
     border-radius: 5px 5px 5px 5px;
   }
   
-<<<<<<< HEAD
-  .Chaks:focus {
-=======
   .intxt:focus {
->>>>>>> 2216d63bad6055f00254af7ad63bbcc2f2676f11
     background-color: #fff;
     border-bottom: 2px solid #5fbae9;
   }
   
-<<<<<<< HEAD
-  .Chaks:placeholder {
-=======
   .intxt:placeholder {
->>>>>>> 2216d63bad6055f00254af7ad63bbcc2f2676f11
     color: #cccccc;
   }
   
