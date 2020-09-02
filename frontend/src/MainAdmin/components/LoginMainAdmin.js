@@ -12,7 +12,7 @@ class LoginMainAdmin extends Component {
     render() {
         
         return <section>
-                    <div className="wrapper fadeInDown">
+                    <div className="wrapper1 fadeInDown">
                         <div id="formContent">
                            
                             <div className="fadeIn first">
@@ -21,9 +21,9 @@ class LoginMainAdmin extends Component {
                             </div>
 
                             <form>
-                                <input type="text" id="login" className="fadeIn second" name="login" placeholder="username"/>
-                                <input type="text" id="password" className="fadeIn third" name="login" placeholder="password"/>
-                                <input type="submit" className="fadeIn fourth" value="Log In"/>
+                                <input type="text" id="login" className="Chaks fadeIn second" name="login" placeholder="username"/>
+                                <input type="text" id="password" className="Chaks fadeIn third" name="login" placeholder="password"/>
+                                <input type="submit" className="fadeIn Chaks  fourth" value="Log In"/>
                             </form>
 
                            
