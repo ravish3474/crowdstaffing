@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ReactDom from 'react-dom';
-
+import jwt_decode from 'jwt-decode';    
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
 import { timers } from 'jquery';
@@ -10,7 +10,7 @@ import { timers } from 'jquery';
 class PostNewJob extends Component {
     constructor(props){
         super(props);
-
+        const logged_user_data=jwt_decode(localStorage.getItem('company_token'));
         this.onChangeJobTitle = this.onChangeJobTitle.bind(this);
         this.onChangeJobDesc = this.onChangeJobDesc.bind(this);
         this.onChangeJobLastDate = this.onChangeJobLastDate.bind(this);
@@ -35,6 +35,7 @@ class PostNewJob extends Component {
             job_Type:[],
             cate_goires:[],
             job_title : '',
+            comapanyId:logged_user_data._id,
             job_desc:'',
             job_last_date: 'NA',
             jobTypee:'Full Time',
@@ -60,10 +61,10 @@ class PostNewJob extends Component {
                 // this.setState({
                 //     cate_goires: response.data.map(category =>category)
                 // })
-              if(response.data.length > 0){
+              if(response.data.code == 1){
                 // console.log(response.data);
                   this.setState({
-                      cate_goires: response.data.map(category =>category)
+                      cate_goires: response.data.data.map(category =>category)
                   })
               
               }else{
@@ -185,7 +186,7 @@ class PostNewJob extends Component {
             "jobTitle":this.state.job_title,
             "jobDesc": this.state.job_desc,
             "lastDate":this.state.job_last_date,
-            "comapanyId":"12465232",
+            "comapanyId":this.state.comapanyId,
             "jobTypeId":this.state.jobTypee,
             "specialism":"PHP, NOde",
             "minSal":this.state.minSal,

@@ -133,8 +133,8 @@ class LoginFormat extends Component{
         Axios.post('/jobSeeker/signin',login_data)
                 .then(response =>{
                     // if(response.data.length>0){
-                        console.log(response);
-                        if(response.status==200){
+                        // console.log(response.status);
+                        if(response.data.code==1){
                             // const tokenData= jwt_decode(response.data.token);
                             const tokenData=response.data.token;
                             // console.log(response.data.token);
@@ -144,6 +144,11 @@ class LoginFormat extends Component{
                                     loggIn:true
                                 })
                             this.props.history.push("/user-panel");
+                        }else{
+                            this.setState({
+                                loggIn:false,
+                                error:'Invalid Email or Password'
+                            })
                         }
                         
                 })

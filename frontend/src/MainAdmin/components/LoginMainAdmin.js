@@ -21,9 +21,11 @@ class LoginMainAdmin extends Component {
                             </div>
 
                             <form>
+
                                 <input type="text" id="login" className="intxt fadeIn second" name="login" placeholder="username"/>
                                 <input type="text" id="password" className="intxt fadeIn third" name="login" placeholder="password"/>
                                 <input type="submit" className="btnRsd fadeIn fourth" value="Log In"/>
+
                             </form>
 
                            

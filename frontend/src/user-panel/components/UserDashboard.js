@@ -3,8 +3,29 @@ import ReactDom from 'react-dom';
 import {Link} from 'react-router-dom';
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
-
+import jwt_decode from 'jwt-decode';
+    import Axios from 'axios';
 class UserDashboard extends Component {
+
+        // constructor(props){
+        //     super(props);
+        //     this.onSubmit = this.onSubmit.bind(this);
+        //     const logged_user_data=jwt_decode(localStorage.getItem('user_token'));
+        //     axios.get('/jobSeeker/getMyDetails/'+logged_user_data._id)
+        //             .then(response =>{
+        //                 // console.log(response.data.data);
+        //                 // console.log("code:  "+response.data.code);
+        //                 if(response.data.code==1){
+        //                     const fName=response.data.data.full_name;
+                            
+                            
+        //                     // alert(this.state.full_name);
+        //                 }
+                       
+        //             })
+        //             .catch(err => console.log("Error found: "+err));
+        // }
+
     render() {
         return <section>
                 <div class="wrapper">
