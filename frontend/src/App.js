@@ -53,6 +53,7 @@ import JobDescriptionPage from './admin/components/JobDescriptionPage';
 import JobApplicationCandidateDetails from './admin/components/JobApplicationCandidateDetails';
 import CompanyInbox from './admin/components/CompanyInbox';
 import ShortlistedCandidateDetails from './admin/components/ShortlistedCandidateDetails';
+import LoginMainAdmin from './MainAdmin/components/LoginMainAdmin';
 
 function App() {
     return (
@@ -72,18 +73,18 @@ function App() {
       <Route path="/for-staffing-agencies" component={Agencies} />
 
       {/* Main Admin */}
-
+      <Route path="/admin-panel-login" exact={true} component={ LoginMainAdmin } />   
       <Route path="/admin-panel" exact={true} component={ MainDashboard } />   
       <Route path="/admin-panel/jobseeker" exact={true} component={ JobSeeker } />  
       <Route path="/admin-panel/jobseeker/profile" exact={true} component={ JobSeekerProfile } />  
       <Route path="/admin-panel/recent-jobs" exact={true} component={ RecentJobs } />   
       <Route path="/admin-panel/search" exact={true} component={ Search } />   
 
-      <Route path="/admin-panel/recruiter" component={ RecruiterManage } />   
-      <Route path="/admin-panel/recruiter/profile" component={ RecruiterProfile } />   
-      <Route path="/admin-panel/add-job-category" component={ AddJobCategory } />  {/*Done */}
-      <Route path="/admin-panel/search-category" component={ SearchCategory } /> 
-      <Route path="/admin-panel/send-notifications" component={ SendNotifications } /> 
+      <Route path="/admin-panel/recruiter" exact={true} component={ RecruiterManage } />   
+      <Route path="/admin-panel/recruiter/profile" exact={true} component={ RecruiterProfile } />   
+      <Route path="/admin-panel/add-job-category" exact={true} component={ AddJobCategory } />  {/*Done */}
+      <Route path="/admin-panel/search-category" exact={true} component={ SearchCategory } /> 
+      <Route path="/admin-panel/send-notifications" exact={true} component={ SendNotifications } /> 
 
       {/* Admin Pannel */}
 

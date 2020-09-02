@@ -1,0 +1,39 @@
+import React, { Component } from 'react';
+import ReactDom from 'react-dom';
+import '../css/Login.css';
+
+import Sidebar from '../shared/Sidebar';
+import Header from '../shared/Header';
+
+
+class LoginMainAdmin extends Component {
+    
+   
+    render() {
+        
+        return <section>
+                    <div className="wrapper fadeInDown">
+                        <div id="formContent">
+                           
+                            <div className="fadeIn first">
+                                <img src={require("../../assets/images/Xhirez-Logo.png")} className="img-fluid  w-50"></img>
+                            <h1>Admin Panel</h1>
+                            </div>
+
+                            <form>
+                                <input type="text" id="login" className="fadeIn second" name="login" placeholder="username"/>
+                                <input type="text" id="password" className="fadeIn third" name="login" placeholder="password"/>
+                                <input type="submit" className="fadeIn fourth" value="Log In"/>
+                            </form>
+
+                           
+
+                        </div>
+                        </div>
+            
+            </section>  
+    } 
+   
+}
+
+export default LoginMainAdmin;

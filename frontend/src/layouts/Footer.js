@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-
+import {Link} from 'react-router-dom';
 class Footer extends Component {
     render() {
         return <section>
@@ -12,13 +12,13 @@ class Footer extends Component {
 
                                 <ul className="LONpp list-unstyled m-0 mt-3">
                                 <li>
-                                    <a href="" >Browse Jobs</a>
+                                    <Link  to="/login" >Browse Jobs</Link>
                                 </li>
                                 <li>
-                                    <a href="" >Browse Categories</a>
+                                    <Link  to="/login" >Browse Categories</Link>
                                 </li>
                                 <li>
-                                    <a href="" >Submit Resume</a>
+                                    <Link  to="/login" >Submit Resume</Link>
                                 </li>
                                 </ul>
                             </div>
@@ -29,13 +29,13 @@ class Footer extends Component {
 
                                 <ul className="LONpp list-unstyled m-0 mt-3">
                                 <li>
-                                    <a href="" >Browse Candidates</a>
+                                    <Link  to="/company-login" >Browse Candidates</Link>
                                 </li>
                                 <li>
-                                    <a href="" >Browse Categories</a>
+                                    <Link  to="/company-login" >Browse Categories</Link>
                                 </li>
                                 <li>
-                                    <a href="" >Add Job</a>
+                                    <Link  to="/company-login" >Add Job</Link>
                                 </li>
                                 </ul>
                             </div>
