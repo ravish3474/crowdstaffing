@@ -1,5 +1,6 @@
 const express= require('express');
 const cors= require('cors');
+var history = require('connect-history-api-fallback');
 import path from 'path';
 // const { Mongoose } = require('mongoose');
 const mongoose = require('mongoose');
@@ -22,6 +23,7 @@ mongoose.connect(uri,{
 
 app.use(cors());
 app.use(express.json());
+app.disable('etag');
 
 const jobsRouter = require('./routes/jobs');
 const jobseekerRouter = require('./routes/jobseeker');
@@ -38,6 +40,23 @@ app.use('/jobType',jobTypeRouter);
 app.use('/skill',skillRouter);
 app.use('/company',CompanyRouter);
 app.use('/jobApply', jobApplyRouter);
+
+app.use(history({
+    rewrites:[
+        {from: /^\/category\/.*$/, to: function(context){
+            return context.parsedUrl.pathname;
+        }},
+        {from: /\/.*/, to: '/'}
+    ]
+}))
+
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, '../frontend/build/index.html'), function(err) {
+      if (err) {
+        res.status(500).send(err)
+      }
+    })
+  })
 // app.use('/resume',resumeRouter);
 
 app.listen(port,()=>{
