@@ -6,7 +6,7 @@ class Footer extends Component {
         return <section>
                  <div className="container pt-5">
                     <div className="row fnt14 fnt500 py-4">
-                        <div className="col-md-3">
+                        <div className="col-md-4">
                             <div className="pt-2">
                                 <h6>For Candidates</h6>
 
@@ -23,24 +23,24 @@ class Footer extends Component {
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-md-4">
                             <div className="pt-2">
                                 <h6>For Employers</h6>
 
                                 <ul className="LONpp list-unstyled m-0 mt-3">
                                 <li>
-                                    <Link  to="/company-login" >Browse Candidates</Link>
+                                    <Link  to="/login" >Browse Candidates</Link>
                                 </li>
                                 <li>
-                                    <Link  to="/company-login" >Browse Categories</Link>
+                                    <Link  to="/login" >Browse Categories</Link>
                                 </li>
                                 <li>
-                                    <Link  to="/company-login" >Add Job</Link>
+                                    <Link  to="/login" >Add Job</Link>
                                 </li>
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-md-3">
+                        {/* <div className="col-md-4">
                             <div className="pt-2">
                                 <h6>Partner Sites</h6>
 
@@ -56,8 +56,8 @@ class Footer extends Component {
                                 </li>
                                 </ul>
                             </div>
-                        </div>
-                        <div className="col-md-3">
+                        </div> */}
+                        <div className="col-md-4">
                             <div className="pt-2">
                                 <h6>Contact Us</h6>
 
