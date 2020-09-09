@@ -23,7 +23,7 @@ class Header extends Component {
               <Link to="for-staffing-agencies" className="nav-link" href="#">For Staffing Agencies</Link>
             </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Feature</a>
+                <a className="nav-link" href="/features">Feature</a>
             </li>
       
           </ul>

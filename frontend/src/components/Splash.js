@@ -11,18 +11,18 @@ class Splash extends Component {
                 </div>
                 <div className="container mt-5 text-center p-2 pb-5">
              
-                            <div className="w-50 margtp ml-auto">
-                                <h1 className="OUJPP">A modern hiring platform to manage your <strong className="colBlu"> contingent workforce</strong></h1>
+                    <div className="w-50 margtp ml-auto">
+                        <h1 className="OUJPP">A modern hiring platform to manage your <strong className="colBlu"> contingent workforce</strong></h1>
 
-                                <div className="py-4">
-                                    <Link to="home" className="mt-2 font20 btn_tras btn ">I am Looking to Hire</Link>
+                        <div className="py-4">
+                            <Link to="home" className="mt-2 font20 btn_tras btn ">I am Looking to Hire</Link>
 
-                                    <Link to="company-login" className="mt-2 font20 btn_tras btn ml-3">I am ready to Recruit</Link>
-                                </div>
-                                <div className="mt-3">
-                                    <button className="btn btnbckBlu w-100">LETS STARTED</button>
-                                </div>
-                           </div>
+                            <Link to="company-login" className="mt-2 font20 btn_tras btn ml-3">I am ready to Recruit</Link>
+                        </div>
+                        <div className="mt-3">
+                            <button className="btn btnbckBlu w-100">LETS STARTED</button>
+                        </div>
+                    </div>
                 </div>
 
                
@@ -45,7 +45,7 @@ class Splash extends Component {
                                         <Link to="/login">Job Seeker</Link>
                                     </li>
                                     <li>
-                                        <Link to="">Blog</Link>
+                                        <Link to="/blogs">Blog</Link>
                                     </li>
                                     <li>
                                         <Link to="/about-us">About Us</Link>
