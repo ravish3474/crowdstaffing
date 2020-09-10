@@ -6,7 +6,7 @@ class Footer extends Component {
         return <section>
                  <div className="container pt-5">
                     <div className="row fnt14 fnt500 py-4">
-                        <div className="col-md-4">
+                        <div className="col-md-3">
                             <div className="pt-2">
                                 <h6>For Candidates</h6>
 
@@ -23,7 +23,7 @@ class Footer extends Component {
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-md-4">
+                        <div className="col-md-3">
                             <div className="pt-2">
                                 <h6>For Employers</h6>
 
@@ -40,24 +40,24 @@ class Footer extends Component {
                                 </ul>
                             </div>
                         </div>
-                        {/* <div className="col-md-4">
+                        <div className="col-md-3">
                             <div className="pt-2">
                                 <h6>Partner Sites</h6>
 
                                 <ul className="LONpp list-unstyled m-0 mt-3">
                                 <li>
-                                    <a href="" >Shortcodes</a>
+                                    <a href="/blogs" >Blogs</a>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <a href="" >Job Page</a>
                                 </li>
                                 <li>
                                     <a href="" >Job Page Alternative</a>
-                                </li>
+                                </li> */}
                                 </ul>
                             </div>
-                        </div> */}
-                        <div className="col-md-4">
+                        </div>
+                        <div className="col-md-3">
                             <div className="pt-2">
                                 <h6>Contact Us</h6>
 

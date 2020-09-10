@@ -56,6 +56,9 @@ import ShortlistedCandidateDetails from './admin/components/ShortlistedCandidate
 import LoginMainAdmin from './MainAdmin/components/LoginMainAdmin';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
+import JobsList from './components/JobsList';
+import Features from './components/Features';
+import Blogs from './components/Blogs';
 
 function App() {
     return (
@@ -75,6 +78,10 @@ function App() {
       <Route path="/for-staffing-agencies" component={Agencies} />
       <Route path="/about-us" component={ AboutUs } />
       <Route path="/contact-us" component={ ContactUs } />
+      <Route path="/jobs-list" component={ JobsList } />
+      <Route path="/features" component={ Features } />
+      <Route path="/jobs/job-description" component={ JobDescriptionPage } />
+      <Route path="/blogs" component={ Blogs } />
 
       {/* Main Admin */}
       <Route path="/admin-panel-login" exact={true} component={ LoginMainAdmin } />   

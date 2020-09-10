@@ -283,6 +283,18 @@
     display: block;
     text-align: left;
   }
+  .broswes{
+    padding: 204px 0px 204px 0px;
+  }
+  .broswes h1{
+      margin-bottom: 0px;
+    font-size: 46px;
+    font-weight: 700;
+  }
+.broswes span{
+  font-size: 18px;
+
+}
 
   @media only screen and (max-width: 600px){
     .backImg{
@@ -292,4 +304,43 @@
         background-position: center;
     
     }
+    
+  }
+  @media only screen and (max-width: 1000px){
+  
+    .broswes{
+        padding: 40px 0px 4px 0px;
+      }
+      .broswes h1{
+          margin-bottom: 0px;
+        font-size: 26px;
+        font-weight: 600;
+      }
+  }
+  .jobListicn{
+    width: 46px;
+    height: 46px;
+    padding: 10px;
+    text-align: center;
+  }
+  .btnDAa{
+    background: #11115d;
+    color: white;
+  }
+  .btnDAa:hover{
+    background: #11115d;
+    color: white;
+  }
+
+  .ht400{
+      width: 100%;
+      height: 400px !important;
+  }
+  .SechIco{
+      position: absolute;
+      top: 5px;
+      right: 8px;
+  }
+  .BgcGry{
+    background: #8080801c;
   }
