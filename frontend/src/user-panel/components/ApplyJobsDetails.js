@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 import axios from 'axios';
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
-
+import jwt_decode from 'jwt-decode';
 class ApplyJobsDetails extends Component {
 
     constructor(props){
@@ -22,6 +22,31 @@ class ApplyJobsDetails extends Component {
             quali:'',
             lastDate:''
         }
+        this.sayHello= this.sayHello.bind(this);
+    }
+    sayHello(e){
+        alert("hello");
+        const logged_user_data=jwt_decode(localStorage.getItem('user_token'));
+        const jobPost_id=this.props.match.params.id;
+        const applicationData = {
+            job_post_id: jobPost_id,
+            user_id: logged_user_data._id,
+            // 
+        }
+        axios.post('/jobApply/add/',applicationData)
+            .then((res) => {
+                if(res.data.code === 1){
+                    // console.log(res.data.msg);
+                    alert("Applied Sucessfully")
+                    // swal("Thanks..!", 'Registered Sucessfully', "success");
+                }
+                // if(res.data.code==1){
+                //     swal("Thanks..!", `Registered Sucessfully`, "success");
+                // }else{
+                //     console.log("eeeee");
+                // }
+            
+            });
     }
     componentDidMount(){
         const jobPost_id=this.props.match.params.id;
@@ -93,7 +118,7 @@ class ApplyJobsDetails extends Component {
                                 </li> */}
                             </ul>
 
-                            <h5 className="mb-3">Education Qualification</h5>
+                            {/* <h5 className="mb-3">Education Qualification</h5>
                             <ul>
                                 <li>
                                     <small className="colGry">
@@ -115,10 +140,10 @@ class ApplyJobsDetails extends Component {
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                     </small>
                                 </li>
-                            </ul>
+                            </ul> */}
                         </div>    
 
-                        <button class="btn btn-info w-100">Apply Now</button>
+                        <button class="btn btn-info w-100" onClick={this.sayHello}>Apply Now</button>
                     </div> 
                     <div className="col-md-3">
                         <div className="">

@@ -3,8 +3,71 @@ import {Link} from 'react-router-dom';
 
 import Header from '../layouts/Header';
 
-
+import axios from 'axios';
 class BusinessPage extends Component {
+    constructor(props){
+        super(props);
+
+        this.onChangeCompanyName = this.onChangeCompanyName.bind(this);
+        this.onChangeEmail  = this.onChangeEmail.bind(this);
+        this.onChangePhone = this.onChangePhone.bind(this);
+        this.onChangeCompProfile = this.onChangeCompProfile.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+
+        this.state = {
+            username : '',
+            phone:'',
+            email:'',
+            compProf:'',
+            comp_name:'',
+        }
+    }
+    onChangeCompanyName(e){
+        this.setState({
+            comp_name: e.target.value
+        });
+    }
+    onChangeEmail(e){
+        this.setState({
+            email: e.target.value
+        });
+    }
+    onChangeCompProfile(e){
+        this.setState({
+            compProf: e.target.value
+        })
+    }
+    onChangePhone(e){
+        this.setState({
+            phone:e.target.value
+        });
+    }
+    onSubmit(e){
+        e.preventDefault();
+
+        const company = {
+            comp_name: this.state.comp_name,
+            email: this.state.email,
+            phone:  this.state.phone,
+            compProf: this.state.compProf
+        }
+        console.log(company);
+        axios.post('/requestDemo/add',company)
+            .then((res) => {
+                    if(res.data.code === 1){
+                        // console.log(res.data.msg);
+                        alert("Request Sent, We Will Call You Soon.");
+                        // swal("Thanks..!", 'Registered Sucessfully', "success");
+                    }
+                // if(res.data.code==1){
+                //     swal("Thanks..!", `Registered Sucessfully`, "success");
+                // }else{
+                //     console.log("eeeee");
+                // }
+                   
+            });
+     
+    }
     render() {
     return (
     
@@ -21,7 +84,8 @@ class BusinessPage extends Component {
 
                                 <span>Automated staffing supplier management and AI-enhanced job distribution supported by a built-in network of qualified recruiters ready to help you hire.</span>
                                 <br></br>
-                                <Link to="/company-panel"><button className="btn bnlurrt py-2 px-3 bordRAD0">Request Demo</button></Link>
+                                <a href="#requestDemo" className="btn bnlurrt py-2 px-3 bordRAD0">Request Demo</a>
+                                {/* <Link to="/company-panel"><button className="btn bnlurrt py-2 px-3 bordRAD0">Request Demo</button></Link> */}
                             </div>
                         </div>
                         <div className="col-md-6">
@@ -169,30 +233,31 @@ class BusinessPage extends Component {
                 </div>
             </section>
             
-            <section className="container py-5 ">
+            <section className="container py-5" id="requestDemo">
                 <div className="row">
                     <div className="col-md-5 ">
                         <div className="card shadow">
                             <div className="p-4">
-                                <h2 className="text-center mb-4 mt-3">Request Access</h2>
+                                <h2 className="text-center mb-4 mt-3">Request Demo</h2>
 
-                                <form className="pt-2">
+                                <form className="pt-2" onSubmit={this.onSubmit}>
+                                    {/* <div className="form-group">
+                                        <input type="text" placeholder="Full Name" name="" value={this.state.full_name} onChangeFull className="form-control" />
+                                    </div> */}
                                     <div className="form-group">
-                                        <input type="text" placeholder="Full Name" name="" className="form-control" />
+                                        <input type="text" placeholder="Company Name" name="" value={this.state.comp_name} onChange={this.onChangeCompanyName} className="form-control" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="email" placeholder="Your Business Email" name="" className="form-control" />
+                                        <input type="email" placeholder="Your Business Email" name="" value={this.state.email} onChange={this.onChangeEmail} className="form-control" />
                                     </div>
                                     <div className="form-group">
-                                        <input type="number" placeholder="Phone Number" name="" className="form-control" />
+                                        <input type="number" placeholder="Phone Number" name="" value={this.state.phone} onChange={this.onChangePhone} className="form-control" />
                                     </div>
+                                    
                                     <div className="form-group">
-                                        <input type="text" placeholder="Company Name" name="" className="form-control" />
+                                        <input type="text" placeholder="Tell us what you do" name="" value={this.state.compProf} onChange={this.onChangeCompProfile} className="form-control" />
                                     </div>
-                                    <div className="form-group">
-                                        <input type="text" placeholder="Tell us what you do" name="" className="form-control" />
-                                    </div>
-                                    <div className="">
+                                    {/* <div className="">
                                         <span className=""><strong>For which region are you looking to hire?</strong></span>
                                         <ul className="list-unstyled">
                                             <li>
@@ -202,7 +267,7 @@ class BusinessPage extends Component {
                                                 <input type="checkbox" /> <span>Canada</span>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> */}
                                     <button className="w-100 btn bnlurrt py-2 px-3 btn_tras"><h4 className="mb-0">Request Demo</h4></button>
                                 </form>
                             </div>

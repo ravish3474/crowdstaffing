@@ -44,21 +44,21 @@ class Splash extends Component {
                                     <li>
                                         <Link to="/login">Job Seeker</Link>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <Link to="">Blog</Link>
-                                    </li>
+                                    </li> */}
                                     <li>
                                         <Link to="/about-us">About Us</Link>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <Link to="">Resources</Link>
                                     </li>
                                     <li>
                                         <Link to="">Privacy Policy</Link>
-                                    </li>
-                                    <li>
+                                    </li> */}
+                                    {/* <li>
                                         <Link to="">Terms & Condistions</Link>
-                                    </li>
+                                    </li> */}
                                     <li>
                                         <Link to="/contact-us">Contact Us</Link>
                                     </li>

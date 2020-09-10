@@ -32,6 +32,8 @@ const jobTypeRouter = require('./routes/jobtype');
 const skillRouter = require('./routes/skills');
 const CompanyRouter = require('./routes/company');
 const jobApplyRouter = require('./routes/jobApply');
+const requestDemo = require('./routes/requestDemo');
+// RequesDemo
 //const resumeRouter = require('./routes/resume');
 app.use('/jobs',jobsRouter);
 app.use('/jobSeeker',jobseekerRouter);
@@ -40,7 +42,7 @@ app.use('/jobType',jobTypeRouter);
 app.use('/skill',skillRouter);
 app.use('/company',CompanyRouter);
 app.use('/jobApply', jobApplyRouter);
-
+app.use('/requestDemo', requestDemo);
 app.use(history({
     rewrites:[
         {from: /^\/category\/.*$/, to: function(context){
