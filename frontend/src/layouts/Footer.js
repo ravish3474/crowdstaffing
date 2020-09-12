@@ -42,21 +42,21 @@ class Footer extends Component {
                         </div>
                         <div className="col-md-3">
                             <div className="pt-2">
-                                <h6>Partner Sites</h6>
+                                {/* <h6>Partner Sites</h6>
 
                                 <ul className="LONpp list-unstyled m-0 mt-3">
                                 <li>
                                     <a href="/blogs" >Blogs</a>
                                 </li>
-                                {/* <li>
+                                <li>
                                     <a href="" >Job Page</a>
                                 </li>
                                 <li>
                                     <a href="" >Job Page Alternative</a>
-                                </li> */}
-                                </ul>
+                                </li>
+                                </ul> */}
                             </div>
-                        </div>
+                        </div>  
                         <div className="col-md-3">
                             <div className="pt-2">
                                 <h6>Contact Us</h6>

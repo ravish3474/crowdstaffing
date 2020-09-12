@@ -20,7 +20,8 @@ class Splash extends Component {
                             <Link to="company-login" className="mt-2 font20 btn_tras btn ml-3">I am ready to Recruit</Link>
                         </div>
                         <div className="mt-3">
-                            <button className="btn btnbckBlu w-100">LETS STARTED</button>
+                            <Link to="home" className="btn btnbckBlu w-100">LETS STARTED</Link>
+                          
                         </div>
                     </div>
                 </div>
@@ -44,15 +45,10 @@ class Splash extends Component {
                                     <li>
                                         <Link to="/login">Job Seeker</Link>
                                     </li>
-<<<<<<< HEAD
+{/* <<<<<<< HEAD */}
                                     {/* <li>
                                         <Link to="">Blog</Link>
                                     </li> */}
-=======
-                                    <li>
-                                        <Link to="/blogs">Blog</Link>
-                                    </li>
->>>>>>> 5efcd5eb15a13166ecea31fa6433f82fa2b024ba
                                     <li>
                                         <Link to="/about-us">About Us</Link>
                                     </li>

@@ -15,6 +15,11 @@ class Home extends Component {
           latestjobs:[],
           total_jobs:0
         };
+        this.getJobs= this.getJobs.bind(this);
+    }
+    getJobs(e){
+      e.preventDefault();
+      console.log("Working Fine...");
     }
     componentDidMount(){
       // this.setState({
@@ -76,15 +81,15 @@ class Home extends Component {
                                 </h1>
                                 <span className="fnt500">Find Jobs, Employment & Career Opportunities</span>
                             </div>
-                            <form className="mt-2">
+                            <form className="mt-2" onSubmit={this.getJobs}>
                                 <div className="form-group POsrt">
-                                    <input type="text" placeholder="Jobs title, skill or company" name="" className="form-control "/>
+                                    <input type="text" placeholder="Jobs title, skill or company" name="skill_name" className="form-control "/>
                                     <span className="">
                                     <img src={require("../assets/images/Search.png")} className="img-fluid"/>
                                     </span>
                                 </div>
                             <div className="form-group POsrt">
-                                <input type="text" placeholder="Town city or postcode" name="" className="form-control"/>
+                                <input type="text" placeholder="Town city or postcode" name="city" className="form-control"/>
                                 <span className="">
                                 <img src={require("../assets/images/Town-city-nav.png")} className="img-fluid"/>
                                 </span>

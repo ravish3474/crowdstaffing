@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 class Job_Latest extends Component{
     render(){
         return <div className="col-md-6">
+            <Link to={'/jobs/job-description/'+this.props.latestJob._id}>
                 <div className="row m-0">
                     <div className="col-md-3">
                     <div className="">
@@ -34,6 +36,7 @@ class Job_Latest extends Component{
                     </div>
                     </div>
                 </div>
+                </Link>
             </div>
     }
 }

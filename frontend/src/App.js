@@ -49,7 +49,7 @@ import JobInteviews from './admin/components/JobInteviews';
 import JobSeekerCompany from './admin/components/JobSeekerCompany';
 import JobApplicationList from './admin/components/JobApplicationList';
 import UpdateSkillsComapny from './admin/components/UpdateSkillsComapny';
-import JobDescriptionPage from './admin/components/JobDescriptionPage';
+import JobDescriptionPage from './components/JobDescriptionPage';
 import JobApplicationCandidateDetails from './admin/components/JobApplicationCandidateDetails';
 import CompanyInbox from './admin/components/CompanyInbox';
 import ShortlistedCandidateDetails from './admin/components/ShortlistedCandidateDetails';
@@ -79,12 +79,13 @@ function App() {
       <Route path="/about-us" component={ AboutUs } />
       <Route path="/contact-us" component={ ContactUs } />
       <Route path="/jobs-list" component={ JobsList } />
+      <Route path="/jobs-list/:id" component={ JobsList } />
       <Route path="/features" component={ Features } />
-      <Route path="/jobs/job-description" component={ JobDescriptionPage } />
+      <Route path="/jobs/job-description/:id" component={ JobDescriptionPage } />
       <Route path="/blogs" component={ Blogs } />
 
       {/* Main Admin */}
-      <Route path="/admin-panel-login" exact={true} component={ LoginMainAdmin } />   
+      <Route path="/admin" exact={true} component={ LoginMainAdmin } />   
       <Route path="/admin-panel" exact={true} component={ MainDashboard } />   
       <Route path="/admin-panel/jobseeker" exact={true} component={ JobSeeker } />  
       <Route path="/admin-panel/jobseeker/profile" exact={true} component={ JobSeekerProfile } />  

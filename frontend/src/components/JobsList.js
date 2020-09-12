@@ -8,7 +8,41 @@ import Categories from '../components/JobCategories';
 import LatestJobs from './Job_Latest';
 
 class JobsList extends Component {
-   
+   constructor(props){
+       super(props);
+        this.state={
+            jobs:[],
+            totalJobs:0
+        }
+        this.getLatesJobs= this.getLatesJobs.bind(this);
+       if(this.props.match.params.id){
+            console.log("GOt The ID:.");
+       }else{
+            console.log("No Parameter Passed.");
+            this.getLatesJobs();
+       }
+   }
+//    getJobsById(id){
+    
+//    }
+   getLatesJobs(){
+       axios.get('/jobs/getLatestJobs_')
+                .then(response =>{
+                    console.log(response)
+                    if(response.data.code == 1){
+                        // console.log(response.data);
+                          this.setState({
+                            jobs: response.data.jobs.map(jobs =>jobs),
+                            totalJobs:response.data.jobs.length
+                          })
+                      
+                      }else{
+          
+                      }
+                })
+   }
+
+
    
     render() {
         return <section className="mainDiv">
@@ -18,7 +52,7 @@ class JobsList extends Component {
                     <div className="row">
                     <div className="col-md-6">
                         <div className="padT">
-                            <div className="">
+                            {/* <div className="">
                                 <h1>
                                     <strong>Drop 
                                         <span className="colBlu">Resume </span>& get your 
@@ -26,8 +60,8 @@ class JobsList extends Component {
                                     </strong>
                                 </h1>
                                 <span className="fnt500">Find Jobs, Employment & Career Opportunities</span>
-                            </div>
-                            <form className="mt-2">
+                            </div> */}
+                            {/* <form className="mt-2">
                                 <div className="form-group POsrt">
                                     <input type="text" placeholder="Jobs title, skill or company" name="" className="form-control "/>
                                     <span className="">
@@ -43,7 +77,7 @@ class JobsList extends Component {
 
                             <button className="btn bnlurrt py-2 px-3 bordRAD0"> 
                             <img src={require("../assets/images/Find-white.png")} className="img-fluid"/> Find Jobs</button>
-                            </form>
+                            </form> */}
                         </div>
                     </div>
                     <div className="col-md-6">
@@ -328,7 +362,7 @@ class JobsList extends Component {
                         
                         <div className="">
                             <div className="">
-                                <h6>Showing 1-5 of <span className="text-primary">28 Jobs</span></h6>
+                                <h6>Showing 1-5 of <span className="text-primary">{this.state.totalJobs} Jobs</span></h6>
                             </div>
                         </div>
 
@@ -348,7 +382,48 @@ class JobsList extends Component {
                             </div>
                         </div>
                         <div className="">
-                            <div className="row mt-2 py-3 border-bottom">
+                            {
+                                this.state.jobs.map(function(jobs){
+                                    return <div>
+                                        <Link to={'/jobs/job-description/'+jobs._id}>
+                                            <div className="row mt-2 py-3 border-bottom">
+                                        
+                                                <div className="col-md-2">
+                                                    <div className="">
+                                                        <img src={require("../assets/images/client1.png")} className="img-fluid"/>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-8">
+                                                    <div className="">
+                                                        <h5 className="mb-0">{jobs.job_title}</h5>
+                                                        <small className="colGry">via <span className="colBlu">Fast Systems Consultans</span></small>
+                                                        <small className="colGry"  className="ml-1"><span><i class="fas fa-map-marker-alt"></i></span><span className="ml-1">{jobs.add_state+', '+jobs.add_city+', '+jobs.add_country}</span></small>
+                                                        <br/>
+                                                        <small className="colGry">{jobs.job_category}</small><small className="ml-2 colBlu"><span><i class="fas fa-briefcase"></i></span><span  className="ml-1">{jobs.job_type}</span></small>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-2">
+                                                    <div className="">
+                                                        <div className="border rounded-circle jobListicn">
+                                                            <img src={require("../assets/images/Heart.png")} className="img-fluid"/>
+                                                        </div>
+                                                        
+                                                        <div className="mt-2">
+                                                            <small className="colGry">
+                                                            <span><img src={require("../assets/images/time-icon.png")} className="img-fluid"/></span> 
+                                                            1H ago
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            
+                                            </div>
+                                            </Link>
+                                        </div>
+                                    
+                                    })
+                            }
+                            {/* <div className="row mt-2 py-3 border-bottom">
                                 <div className="col-md-2">
                                     <div className="">
                                          <img src={require("../assets/images/client1.png")} className="img-fluid"/>
@@ -407,7 +482,7 @@ class JobsList extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
