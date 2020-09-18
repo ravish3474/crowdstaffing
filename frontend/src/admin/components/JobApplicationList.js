@@ -59,7 +59,7 @@ class JobApplicationList extends Component {
                                                 <td>{jobs.job_post_details.job_title}</td>
                                                 <td>{jobs.job_seeker_details.full_name}</td>
                                                 <td>
-                                                    <Link to="/company-panel/job-applications" className="btn btn-default py-2 px-3">View Application</Link>
+                                                    {/* <Link to="/company-panel/job-applications" className="btn btn-default py-2 px-3">View Application</Link> */}
                                                 </td>
                                             </tr>
                                 })

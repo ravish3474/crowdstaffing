@@ -24,10 +24,26 @@ class Dashboard extends Component {
                 .then(respo=>{
                     console.log(respo);
                     this.setState({
-                        applications:respo.data.job_details.map(jobs=>jobs)
+                        applications:respo.data.job_details.map(jobs=>jobs),
+                        applications_:respo.data.job_details.length
                     })
                     
                 })
+                const dd={
+                    comapany_Id:this.state.comapany_id
+                }
+        axios.post('/jobs/getMyPostedJobs/',dd )
+        .then(response=>{
+            console.log(response);
+            if(response.data.code==1){
+                 this.setState({
+                    // applications:respo.data.job_details.map(jobs=>jobs),
+                    job_posted:response.data.data.length
+                })
+            }
+           
+            
+        })
     }
     render() {
         if(localStorage.getItem('company_data')==null){
@@ -114,7 +130,7 @@ class Dashboard extends Component {
                                             
                                                 <div className="col-md-2">
                                                     <div className="">
-                                                        <button className="btn bnlurrt w-100 py-2 px-3 bordRAD0">Hire</button>
+                                                        {/* <button className="btn bnlurrt w-100 py-2 px-3 bordRAD0">Hire</button> */}
                                                     </div>
                                                 </div>
                                             </div>

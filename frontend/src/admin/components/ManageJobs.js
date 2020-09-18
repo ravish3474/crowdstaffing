@@ -133,7 +133,7 @@ class ManageJobs extends Component {
                                         </td>
                                         <td>
                                         <Link to={'/company-panel/job-description/'+ job._id} className="btn btn-success"  ><i class="far fa-eye"></i></Link>
-                                        <Link to={'/user-panel/apply-jobs/apply-jobs-details/'+ job._id} className="btn btn-info mx-1"  ><i class="fas fa-pencil-alt"></i></Link>
+                                        {/* <Link to={'/user-panel/apply-jobs/apply-jobs-details/'+ job._id} className="btn btn-info mx-1"  ><i class="fas fa-pencil-alt"></i></Link> */}
                                         {/* <Link to={'/user-panel/apply-jobs/apply-jobs-details/'+ job._id} className="btn btn-danger"  ><i class="far fa-trash-alt"></i></Link> */}
                                             {/* <span className="p-1 Ble  rounded" title="View"><small></small></span> */}
                                             {/* <span className="Pnk p-1 ml-2 rounded" title="Edit"><small></small></span>
