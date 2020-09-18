@@ -42,6 +42,7 @@ import ApplyJobs from './user-panel/components/ApplyJobs';
 import ApplyJobsDetails from './user-panel/components/ApplyJobsDetails';
 import userInbox from './user-panel/components/userInbox';
 import AddJobCategory from './MainAdmin/components/AddJobCategory';
+import JobType from './MainAdmin/components/JobTypeAdd';
 import SearchCategory from './MainAdmin/components/SearchCategory';
 import SendNotifications from './MainAdmin/components/SendNotifications';
 import JobApplications from './admin/components/JobApplications';
@@ -97,6 +98,7 @@ function App() {
       <Route path="/admin-panel/recruiter" exact={true} component={ RecruiterManage } />   
       <Route path="/admin-panel/recruiter/profile" exact={true} component={ RecruiterProfile } />   
       <Route path="/admin-panel/add-job-category" exact={true} component={ AddJobCategory } />  {/*Done */}
+      <Route path="/admin-panel/add-job-type" exact={true} component={ JobType } /> 
       <Route path="/admin-panel/search-category" exact={true} component={ SearchCategory } /> 
       <Route path="/admin-panel/send-notifications" exact={true} component={ SendNotifications } /> 
 

@@ -81,6 +81,12 @@ class Sidebar extends Component {
                             </Link>
                         </li>
                         <li>
+                            <Link to="/admin-panel/add-job-type">
+                                <i className="fas fa-unlock"></i>
+                               Job Type
+                            </Link>
+                        </li>
+                        <li>
                             <Link to="/admin-panel/search">
                                 <i className="fas fa-sign-out-alt"></i>
                                 Search
