@@ -117,7 +117,7 @@ class ManageJobs extends Component {
                         <thead>
                             <tr>
                                 <th>Job Title</th>
-                                <th>Applications</th>
+                                {/* <th>Applications</th> */}
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -136,9 +136,9 @@ class ManageJobs extends Component {
                                                 </small>
                                             </div>
                                         </td>
-                                        <td>
+                                        {/* <td>
                                             <small><span className="fnt500">17</span> Applications</small>
-                                        </td>
+                                        </td> */}
                                         <td>
                                             <small className="text-success">Active</small>
                                         </td>
