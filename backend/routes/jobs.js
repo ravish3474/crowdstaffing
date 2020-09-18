@@ -1,13 +1,15 @@
 const router = require('express').Router();
 const Jobs= require('../models/jobs.model');
-
+const Company = require('../models/company.model');
+const JobType = require('../models/jobType.model');
+const category = require('../models/category.model');
 router.route('/getAllJobs').get((req,res)=>{
     Jobs.find()
                 .then(jobs =>res.json({'code':1,'data':jobs,'error':'No error found.'}))
                 .then(err => res.json({'code':0,'data':'Something went wrong','error':err}));
 });
 router.route('/getMyPostedJobs/').post((req,res)=>{
-    Jobs.find({comapany_id:req.body.comapany_id})
+    Jobs.find({comapany_Id:req.body.comapany_id})
                                 .then(jobs => res.json({'code':1,'data':jobs, 'error':'No error found'}))
                                 .catch(err => res.json({'code':0,'data':'Something went wrong', 'error':err}))
 })
@@ -16,15 +18,15 @@ router.route('/postNewJob').post((req,res)=>{
     const job_title = req.body.jobTitle;
     const job_desc= req.body.jobDesc;
     const last_date= req.body.lastDate;
-    const comapany_id= req.body.comapanyId;
-    const job_type=req.body.jobTypeId;
+    const comapany_Id= req.body.comapanyId;
+    const job_type_id=req.body.jobTypeId;
     const specialism=req.body.specialism;
     const min_sal=req.body.minSal;
     const max_sal= req.body.maxSal;
     const min_exp= req.body.minExp;
     const max_exp= req.body.maxExp;
     const gender= req.body.gender;
-    const job_category= req.body.job_category;
+    const job_category_Id= req.body.job_category;
     const qualification = req.body.qualification;
     const add_country= req.body.add_country;
     const add_state= req.body.add_state;
@@ -32,15 +34,38 @@ router.route('/postNewJob').post((req,res)=>{
     const full_address= req.body.full_address;
     const lat=req.body.latitude;
     const long= req.body.longitude;
-    const newJob  = new Jobs ({job_title, job_desc, last_date, 
-        comapany_id, job_type, specialism, min_sal, 
-                            max_sal, min_exp, max_exp, gender, job_category, 
-                            qualification, add_country, add_state, add_city, full_address, 
-                            lat, long });
-    // console.log(newJob);
-    newJob.save()
-                .then(()=>res.json({'code':1,'msg':'Job Posted Successfully.','error':'No error Found.'}))
-                .catch(err=>res.json({'code':0,'msg':'Something Went Wrong.','error':err}))
+    Company.findById(comapany_Id)
+                .then(comapany_details =>{
+                    category.findById(job_category_Id)
+                            .then(job_category =>{
+                                JobType.findById(job_type_id)
+                                        .then(job_type =>{
+                                            const newJob  = new Jobs ({job_title, job_desc, last_date, 
+                                            comapany_details,comapany_Id, job_type, specialism, min_sal, 
+                                                                    max_sal, min_exp, max_exp, gender, job_category,job_category_Id, 
+                                                                    qualification, add_country, add_state, add_city, full_address, 
+                                                                    lat, long });
+                                            // console.log(newJob);
+                                            newJob.save()
+                                                        .then(()=>res.json({'code':1,'msg':'Job Posted Successfully.','error':'No error Found.'}))
+                                                        .catch(err=>res.json({'code':0,'msg':'Something Went Wrong.','error':err}))
+                                        })
+                                
+                            })
+
+
+
+
+                                    
+                }
+                                    //  res.json({'code':1,'data':response, 'error':'No error found'})
+                                     
+                                     )
+                                .catch(err => res.json({'code':0,'data':'Something went wrong', 'error':err}))
+
+
+
+    // 
 });
 router.route('/updateJob/:id').post((req, res)=>{
     // console.log('Edited File Name: '+req.file.filename);
@@ -92,7 +117,7 @@ router.route('/getJobDetails/:id').get((req,res)=>{
                 .catch(err=>res.json({"code":0,"msg":"No Data Found", "error":err}));
 });
 router.route('/getJobByCategory/:id').get((req,res)=>{
-    Jobs.findById(req.params.id)
+    Jobs.find({"job_category._id":ObjectId(req.params.id)})
                 .then(response=>res.json({"code":1,"job_details":response}))
                 .catch(err=>res.json({"code":0,"msg":"No Data Found", "error":err}));
 });

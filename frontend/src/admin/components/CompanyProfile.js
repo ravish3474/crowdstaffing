@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-
+import axios from 'axios';  
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
 import jwt_decode from 'jwt-decode';
@@ -14,66 +14,34 @@ class CompanyProfile extends Component {
         // console.log("---------------");
         // console.log("comap : "+)
         this.state={
+            // compId:
             comp_name:logged_user_data.company_name,
             comp_email:logged_user_data.comp_email,
             comp_phone:logged_user_data.comp_phone,
             comp_id:logged_user_data._id,
+            website:'',
+            estbYear:'',
             country:'',
+
             state_:'',
             city_:''
         }
-        // axios.get('/jobSeeker/getMyDetails/'+logged_user_data._id)
-        //             .then(response =>{
-        //                 // console.log(response.data.data);
-        //                 // console.log("code:  "+response.data.code);
-        //                 if(response.data.code==1){
-        //                     const fName=response.data.data.full_name;
-                            
-        //                     console.log("Full Name: "+fName);
-        //                     this.setState({
-        //                         full_name:fName,
-                              
-        //                         phone_:response.data.data.phone_,
-        //                         email_:response.data.data.email,
-        //                         website_:response.data.data.website,
-        //                         current_sal:response.data.data.current_sal,
-        //                         exp_sal:response.data.data.expected_sal,
-        //                         exp_year:response.data.data.year,
-        //                         exp_month:response.data.data.month,
-        //                         gender:response.data.data.gender,
-        //                         education_level:'',
-        //                         dob:response.data.data.dob,
-        //                         description:response.data.data.basic_introduction,
-        //                         facebook_id:response.data.data.facebook_id,
-        //                         twitter:response.data.data.twitter_id,
-        //                         linkedin:response.data.data.linked_in_id,
-        //                         google_plus:response.data.data.google_plus_id,
-        //                         country:response.data.data.country_,
-        //                         state_:response.data.data.state_,
-        //                         city_:response.data.data.city_,
-        //                         full_address:response.data.data.full_address,
-        //                     })
-        //                     // alert(this.state.full_name);
-        //                 }
-        //                 // if(response.data.jobseeker.length >0){
-        //                 //     console.log("Array Count: "+response.data.jobseeker.length);
-        //                 //     this.setState({
-        //                 //         jobseeker:response.data.jobseeker.map(jobseek => jobseek)
-        //                 //     })
-        //                 // }
-        //             })
-        //             .catch(err => console.log("Error found: "+err));
+      
+
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeFacebook = this.onChangeFacebook.bind(this);
         this.onChangeLinkedIn = this.onChangeLinkedIn.bind(this);
         this.onChangeTwitter = this.onChangeTwitter.bind(this);
         this.onChangeGooglePlus = this.onChangeGooglePlus.bind(this);
+        this.onChangeWebsite=this.onChangeWebsite.bind(this);
+        this.onChangeEstb= this.onChangeEstb.bind(this);
         this.onChangeCountry = this.onChangeCountry.bind(this);
         this.onChangeCity = this.onChangeCity.bind(this);
         this.onChangeFullAddress = this.onChangeFullAddress.bind(this);
         this.onChangeLatitude = this.onChangeLatitude.bind(this);
         this.onChangeLongitude = this.onChangeLongitude.bind(this);
         this.onChangeState  = this.onChangeState.bind(this);
+        this.onSubmit= this.onSubmit.bind(this);
     }
     onChangeCompanyName(e){
         this.setState({
@@ -135,7 +103,56 @@ class CompanyProfile extends Component {
             long:e.target.value
         })
     }
-
+    onChangeWebsite(e){
+        this.setState({
+            website:e.target.value
+        })
+    }
+    onChangeEstb(e){
+        this.setState({
+            estbYear:e.target.value
+        })
+    }
+    onSubmit(e){
+        e.preventDefault();
+        const userData={
+            
+            
+            company_name:this.state.comp_name,
+            comp_description:this.state.description,
+            comp_phone:this.state.comp_phone,
+            comp_establishment_year:this.state.estbYear,
+            comp_website:this.state.website,
+            
+            
+            
+            facebook_id:this.state.facebook_id,
+            twitter_id:this.state.twitter,
+            linked_in_id:this.state.linkedin,
+            google_plus_id:this.state.google_plus,
+            country_:this.state.country,
+            state_:this.state.state_,
+            city_:this.state.city_,
+            full_address:this.state.full_address,
+            // lat:this.state.lat,
+            // long:this.state.long
+        }
+        console.log(userData);
+        axios.post('/company/updateData/'+this.state.comp_id, userData)
+        .then((res) => {
+                if(res.data.code === 1){
+                    // console.log(res.data.msg);
+                    alert("Data updated Sucessfully")
+                    // swal("Thanks..!", 'Registered Sucessfully', "success");
+                }
+            // if(res.data.code==1){
+            //     swal("Thanks..!", `Registered Sucessfully`, "success");
+            // }else{
+            //     console.log("eeeee");
+            // }
+               
+        });
+    }
     render() {
         return <section>
                 <div className="wrapper">
@@ -161,12 +178,12 @@ class CompanyProfile extends Component {
                        <small className="colGry"><i className="fas fa-map-marker-alt"></i> <span>England</span></small>  */}
                    </div> 
                </div>
-               <form className=" UJUFom">
+               <form className=" UJUFom" onSubmit={this.onSubmit}>
                     <div className="row mx-0">
                        <div className="col-md-6 pl-0">
                             <div className="form-group">
                                 <label>Company Name</label>
-                                <input type="text" className="form-control" name="" value={this.state.comp_name} placeholder="Enter Company Name"/>
+                                <input type="text" className="form-control" name="" value={this.state.comp_name} onChange={this.onChangeCompanyName} placeholder="Enter Company Name"/>
                             </div>
                        </div>
                        <div className="col-md-6 pl-0">
@@ -180,13 +197,13 @@ class CompanyProfile extends Component {
                        <div className="col-md-6 pl-0">
                             <div className="form-group">
                                 <label>Phone</label>
-                                <input type="number" className="form-control" name="" value={this.state.comp_phone} placeholder="Enter Phone Number"/>
+                                <input type="number" className="form-control" name="" value={this.state.comp_phone} onChange={this.onChangeMobile} placeholder="Enter Phone Number"/>
                             </div>
                        </div>
                        <div className="col-md-6 pl-0">
                             <div className="form-group">
                                 <label>Website</label>
-                                <input type="text" className="form-control" name="" placeholder="Enter Website"/>
+                                <input type="text" className="form-control" value={this.state.website} onchange={this.onChangeWebsite} placeholder="Enter Website"/>
                             </div>
                        </div>
                     </div>
@@ -194,10 +211,10 @@ class CompanyProfile extends Component {
                        <div className="col-md-6 pl-0">
                             <div className="form-group">
                                 <label>Est. Since</label>
-                                <input type="text" className="form-control" name="" placeholder="Enter Est. Since"/>
+                                <input type="text" className="form-control" name="" value={this.state.estbYear} onChange={this.onChangeEstb} placeholder="Enter Est. Since"/>
                             </div>
                        </div>
-                       <div className="col-md-6 pl-0">
+                       {/* <div className="col-md-6 pl-0">
                            
                                
                                
@@ -209,7 +226,7 @@ class CompanyProfile extends Component {
                             </div>
                                
                             
-                       </div>
+                       </div> */}
                     </div>
 
                     {/* <div className="row mx-0">
@@ -234,7 +251,7 @@ class CompanyProfile extends Component {
 
                     <div className="form-group">
                         <label> About Company</label>
-                        <textarea className="form-control" name="" rows="5" placeholder="About Company"></textarea>
+                        <textarea className="form-control" name="" value={this.state.description} onChange={this.onChangeDescription} rows="5" placeholder="About Company"></textarea>
                    </div>
 
                     <h5 className="my-3"> Social Network </h5>
@@ -244,13 +261,13 @@ class CompanyProfile extends Component {
                        <div className="col-md-6 pl-0">
                             <div className="form-group">
                                 <label>Facebook</label>
-                                <input type="text" className="form-control" name="" placeholder="Enter Facebook"/>
+                                <input type="text" className="form-control" name="" value={this.state.facebook_id} onChange={this.onChangeFacebook} placeholder="Enter Facebook"/>
                             </div>
                        </div>
                        <div className="col-md-6 pl-0">
                             <div className="form-group">
                                 <label>Twitter</label>
-                                <input type="text" className="form-control" name="" placeholder="Enter Twitter"/>
+                                <input type="text" className="form-control" name="" value={this.state.twitter} onChange={this.onChangeTwitter} placeholder="Enter Twitter"/>
                             </div>
                        </div>
                     </div>
@@ -258,13 +275,13 @@ class CompanyProfile extends Component {
                        <div className="col-md-6 pl-0">
                             <div className="form-group">
                                 <label>Linkedin</label>
-                                <input type="text" className="form-control" name="" placeholder="Enter Linkedin"/>
+                                <input type="text" className="form-control" name="" value={this.state.linkedin} onChange={this.onChangeLinkedIn} placeholder="Enter Linkedin"/>
                             </div>
                        </div>
                        <div className="col-md-6 pl-0">
                             <div className="form-group">
                                 <label>Google+</label>
-                                <input type="text" className="form-control" name="" placeholder="Enter Google+"/>
+                                <input type="text" className="form-control" name="" value={this.state.google_plus} onChange={this.onChangeGooglePlus} placeholder="Enter Google+"/>
                             </div>
                        </div>
                     </div>
@@ -305,7 +322,7 @@ class CompanyProfile extends Component {
                     </div>
                     <div className="form-group">
                        <label> Full Address</label>
-                        <textarea className="form-control" name="" rows="5" placeholder="Address"></textarea>
+                        <textarea className="form-control" name="" value={this.state.full_address} onChange={this.onChangeFullAddress} rows="5" placeholder="Address"></textarea>
                    </div>
 
                     {/* <div className="row mx-0">

@@ -25,7 +25,7 @@ class ApplyJobsDetails extends Component {
         this.sayHello= this.sayHello.bind(this);
     }
     sayHello(e){
-        alert("hello");
+        // alert("hello");
         const logged_user_data=jwt_decode(localStorage.getItem('user_token'));
         const jobPost_id=this.props.match.params.id;
         const applicationData = {
@@ -57,7 +57,7 @@ class ApplyJobsDetails extends Component {
                             this.setState({
                                 jobDesc:response.data.job_details.job_desc,
                                 jobTitle:response.data.job_details.job_title,
-                                jobType:response.data.job_details.job_type,
+                                jobType:response.data.job_details.job_type.type_name,
                                 jobSkill:response.data.job_details.specialism,
                                 fullAddress:response.data.job_details.full_address,
                                 minExp:response.data.job_details.min_exp,

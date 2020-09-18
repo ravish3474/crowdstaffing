@@ -3,11 +3,29 @@ import ReactDom from 'react-dom';
 import { Link } from 'react-router-dom';
 import Sidebar from '../shared/Sidebar';
 import Header from '../shared/Header';
-
+// import { Link } from 'react-router-dom'; 
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 class JobApplicationList extends Component {
-    // constructor(props){
+   constructor(props){
+       super(props);
 
-    // }
+       this.state={
+           applications:[]
+       }
+   }
+    componentDidMount(){
+        const logged_user_data=jwt_decode(localStorage.getItem('company_token'));
+        const comapanyId=logged_user_data._id;
+        axios.get('/jobApply/getJobApplications/'+comapanyId)
+                .then(respo=>{
+                    console.log(respo);
+                    this.setState({
+                        applications:respo.data.job_details.map(jobs=>jobs)
+                    })
+                    
+                })
+    }
     render() {
      
         return <section>
@@ -29,19 +47,24 @@ class JobApplicationList extends Component {
                         <thead>
                             <tr>
                                 <th>Job Title.</th>
-                                <th>Applications</th>
+                                <th>Applicant Name</th>
                                 <th></th>
                                 
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>UI Designers</td>
-                                <td>15 Applications</td>
-                                <td>
-                                    <Link to="/company-panel/job-applications" className="btn btn-default py-2 px-3">View Application</Link>
-                                </td>
-                            </tr>
+                            {
+                                this.state.applications.map(function(jobs){
+                                    return <tr>
+                                                <td>{jobs.job_post_details.job_title}</td>
+                                                <td>{jobs.job_seeker_details.full_name}</td>
+                                                <td>
+                                                    <Link to="/company-panel/job-applications" className="btn btn-default py-2 px-3">View Application</Link>
+                                                </td>
+                                            </tr>
+                                })
+                            }
+                            
                         </tbody>
                     </table>
                 </div>

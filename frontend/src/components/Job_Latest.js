@@ -17,7 +17,7 @@ class Job_Latest extends Component{
                         <small className="colGry">via <span className="colBlu">{this.props.latestJob.comapany_id}</span></small>
                         <small className="colGry">{'  '+this.props.latestJob.add_city+', '+this.props.latestJob.add_country}</small>
                         <br/>
-                        <small className="colGry">{this.props.latestJob.job_category}</small><small className="ml-2 colBlu">{this.props.latestJob.job_type}</small>
+                        {/* <small className="colGry">{this.props.latestJob.job_category}</small><small className="ml-2 colBlu">{this.props.latestJob.job_type}</small> */}
                     </div>
                     </div>
                     <div className="col-md-2">

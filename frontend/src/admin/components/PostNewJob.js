@@ -313,7 +313,7 @@ class PostNewJob extends Component {
                                 <select className="form-control" name="" onChange={this.onChangeJobType}>
                                 {
                                     this.state.job_Type.map(function(jobType){
-                                    return   <option value={jobType.type_name}>{jobType.type_name}</option>
+                                    return   <option value={jobType._id}>{jobType.type_name}</option>
                                     
                                     })
                                 }
@@ -490,7 +490,7 @@ class PostNewJob extends Component {
                                 <select className="form-control" name="" value={this.state.job_category} onChange={this.onChangeJobCategory}>
                                 {
                                     this.state.cate_goires.map(function(category){
-                                    return   <option value={category.categoryName}>{category.categoryName}</option>
+                                    return   <option value={category._id}>{category.categoryName}</option>
                                     
                                     })
                                 }

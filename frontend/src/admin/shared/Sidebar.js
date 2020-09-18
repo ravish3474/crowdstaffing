@@ -70,12 +70,12 @@ class Sidebar extends Component {
                                 Manage Jobs
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to='/company-panel/shortlisted-resume'>
                                 <i class="fas fa-paper-plane"></i>
                                 Shortlisted Resumes
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to='/company-panel/job-applications-list'>
                                 <i class="fas fa-paper-plane"></i>

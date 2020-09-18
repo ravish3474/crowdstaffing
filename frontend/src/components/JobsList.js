@@ -4,8 +4,8 @@ import axios from 'axios';
 import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
 import {Link} from 'react-router-dom';
-import Categories from '../components/JobCategories';
-import LatestJobs from './Job_Latest';
+// import Categories from '../components/JobCategories';
+// import LatestJobs from './Job_Latest';
 
 class JobsList extends Component {
    constructor(props){
@@ -14,33 +14,25 @@ class JobsList extends Component {
             jobs:[],
             totalJobs:0
         }
-        this.getLatesJobs= this.getLatesJobs.bind(this);
-       if(this.props.match.params.id){
-            console.log("GOt The ID:.");
-       }else{
-            console.log("No Parameter Passed.");
-            this.getLatesJobs();
-       }
+ 
    }
-//    getJobsById(id){
-    
-//    }
-   getLatesJobs(){
-       axios.get('/jobs/getLatestJobs_')
-                .then(response =>{
-                    console.log(response)
-                    if(response.data.code == 1){
-                        // console.log(response.data);
-                          this.setState({
-                            jobs: response.data.jobs.map(jobs =>jobs),
-                            totalJobs:response.data.jobs.length
-                          })
-                      
-                      }else{
-          
-                      }
-                })
+   componentDidMount(){
+        axios.get('/jobs/getLatestJobs_')
+            .then(response =>{
+                console.log(response)
+                if(response.data.code == 1){
+                    // console.log(response.data);
+                    this.setState({
+                        jobs: response.data.jobs.map(jobs =>jobs),
+                        totalJobs:response.data.jobs.length
+                    })
+                
+                }else{
+
+                }
+            })
    }
+
 
 
    

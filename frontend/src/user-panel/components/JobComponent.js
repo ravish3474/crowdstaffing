@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import axios from 'axios';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'; 
+import { JsonWebTokenError } from 'jsonwebtoken';
 // import { Router } from 'express';
 
 class JobComponent extends Component{
@@ -15,7 +16,7 @@ class JobComponent extends Component{
                     </div>
                     <div className="col-md-6">
                             <div className="">
-                            
+                                {/* {JSON.stringify(this.props.jobss)} */}
                                 <div className="OOuN mt-2">
                                     <h5 className="mb-0">{this.props.jobss.job_title}</h5>
                                     <small><a href="xyz.com" className="colBlu" target="blank">xyz.com</a></small><br/>
@@ -33,7 +34,7 @@ class JobComponent extends Component{
                        
                             <div className="text-center mt-3">
                                 <Link to={'/user-panel/apply-jobs/apply-jobs-details/'+ this.props.jobss._id} className="w-100 Pnk py-1 px-2 rounded btn"  >View</Link><br/>
-                                <span className="ml-1 w-100 PBJ mt-2 py-1 px-2 rounded btn">{this.props.jobss.job_type}</span>
+                                <span className="ml-1 w-100 PBJ mt-2 py-1 px-2 rounded btn">{this.props.jobss.job_type.type_name}</span>
                                 {/* <Link  to="/user-panel/apply-jobs/apply-jobs-details" className="w-100 PBJ mt-2 py-1 px-2 rounded btn" ></Link> */}
                                 {/* <Route path='/user-panel/apply-jobs/apply-jobs-details/:id' component={child}/>   */}
                             </div>

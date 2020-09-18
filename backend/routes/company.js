@@ -17,6 +17,33 @@ router.route('/registerCompany').post((req,res)=>{
                 .then(()=>res.json({'code':1,'msg':'Registered Successfully.'}))
                 .catch(err=>res.json({'code':0,'msg':err}))
 })
+router.route('/updateData/:id').post((req, res)=>{
+
+    // console.log('Edited File Name: '+req.file.filename);
+    Company.findById(req.params.id)
+        .then(dataToUpdate => {
+            // console.log(dataToUpdate);
+            dataToUpdate.company_name = req.body.company_name;
+            dataToUpdate.comp_phone = req.body.comp_phone;
+            dataToUpdate.comp_description = req.body.comp_description;
+            dataToUpdate.comp_establishment_year = req.body.comp_establishment_year;
+            dataToUpdate.comp_website = req.body.comp_website;
+            // social
+            dataToUpdate.facebook_id = req.body.facebook_id;
+            dataToUpdate.twitter_id = req.body.twitter_id;
+            dataToUpdate.linked_in_id= req.body.linked_in_id;
+            dataToUpdate.google_plus_id= req.body.google_plus_id;
+            // addresss
+            dataToUpdate.country_=req.body.country_;
+            dataToUpdate.state_=req.body.state_;
+            dataToUpdate.city_=req.body.city_;
+            dataToUpdate.full_address = req.body.full_address;
+            dataToUpdate.save()
+                    .then(()=>res.json({'code':1,'msg':"Updated Successfully"}))
+                    .catch(err => res.json({'code':0,'msg':err}))
+        })
+        .catch(err =>  res.json('Error : '+err));
+});
 router.route('/companyLoginValidate').post((req,res)=>{
     
     Company.findOne({

@@ -3,7 +3,7 @@ import {Link ,Router} from "react-router-dom";
 class JobCategories extends Component{
     render(){
         return <div className="col-md-3 mt-3">
-                <Link to={'/jobs-list/'+this.props.category._id}>
+                <Link to={'/jobsList/'+this.props.category._id}>
                     <div className="p-3 text-center Fnte">
                         <div className="">
                         <img src={require('../../../backend/categoryPicture/'+this.props.category.categoryImage)} className="img-fluid"/>

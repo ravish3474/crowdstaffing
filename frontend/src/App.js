@@ -57,8 +57,10 @@ import LoginMainAdmin from './MainAdmin/components/LoginMainAdmin';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import JobsList from './components/JobsList';
+import JobsList_ from './components/JobsLists';
 import Features from './components/Features';
 import Blogs from './components/Blogs';
+import CompJobDesc from './admin/components/JobDescriptionPage';
 
 function App() {
     return (
@@ -79,7 +81,7 @@ function App() {
       <Route path="/about-us" component={ AboutUs } />
       <Route path="/contact-us" component={ ContactUs } />
       <Route path="/jobs-list" component={ JobsList } />
-      <Route path="/jobs-list/:id" component={ JobsList } />
+      <Route path="/jobsList/:id" component={ JobsList_ } />
       <Route path="/features" component={ Features } />
       <Route path="/jobs/job-description/:id" component={ JobDescriptionPage } />
       <Route path="/blogs" component={ Blogs } />
@@ -111,7 +113,7 @@ function App() {
       <Route path="/company-panel/job-seeker" component={ JobSeekerCompany } />
       <Route path="/company-panel/job-applications-list" component={ JobApplicationList } />
       <Route path="/company-panel/skills-list" component={ UpdateSkillsComapny } />
-      <Route path="/company-panel/job-description" component={ JobDescriptionPage } />
+      <Route path="/company-panel/job-description/:id" component={ CompJobDesc } />
       <Route path="/company-panel/job-application/candidate-details" component={ JobApplicationCandidateDetails } />
       <Route path="/company-panel/comp-inbox" component={ CompanyInbox } />
       <Route path="/company-panel/shortlisted-resume/candidate-details" component={ ShortlistedCandidateDetails } />
