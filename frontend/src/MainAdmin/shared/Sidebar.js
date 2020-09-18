@@ -36,10 +36,10 @@ class Sidebar extends Component {
                             </Link>
                         </li>
                         <li>
-                            <Link to="#">
+                            {/* <Link to="#">
                                 <i className="fas fa-briefcase"></i>
                                 Send Messages
-                            </Link>
+                            </Link> */}
                             {/* <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">
                                 <i className="fas fa-copy"></i>
                                 Pages
@@ -57,10 +57,10 @@ class Sidebar extends Component {
                             </ul> */}
                         </li>
                         <li>
-                            <Link to="#">
+                            {/* <Link to="#">
                                 <i className="fas fa-image"></i>
                                Role and Authentication
-                            </Link>
+                            </Link> */}
                         </li>
                         <li>
                             <Link to="/admin-panel/send-notifications">
@@ -87,10 +87,10 @@ class Sidebar extends Component {
                             </Link>
                         </li>
                         <li>
-                            <Link to="#">
+                            {/* <Link to="#">
                                 <i className="far fa-trash-alt"></i>
                                Generate Report
-                            </Link>
+                            </Link> */}
                         </li>
                     </ul>
 
