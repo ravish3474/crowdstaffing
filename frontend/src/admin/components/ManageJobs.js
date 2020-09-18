@@ -13,6 +13,7 @@ class ManageJobs extends Component {
         super(props);
         const logged_user_data=jwt_decode(localStorage.getItem('company_token'));
         this.state={
+            compId:logged_user_data._id,
             job_posted:0,
             job_application:0,
             active_jobs:0,
@@ -35,7 +36,17 @@ class ManageJobs extends Component {
             })
             .catch();
     }
-    
+    componentDidMount(){
+        axios.get('/jobApply/getJobApplications/'+this.state.compId)
+        .then(respo=>{
+            // console.log(respo);
+            this.setState({
+                // applications:respo.data.job_details.map(jobs=>jobs),
+                job_application:respo.data.job_details.length
+            })
+            
+        })
+    }
     render() {
         return <section>
                 <div class="wrapper">
@@ -74,7 +85,7 @@ class ManageJobs extends Component {
                                 </div>
                                 <div className="col-md-8">
                                     <div className=" mt-3">
-                                        <span>3 Applications</span>
+                                        <span>{this.state.job_application} Applications</span>
                                     </div>
                                 </div>
                             </div>
