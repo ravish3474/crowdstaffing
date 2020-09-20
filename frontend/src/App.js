@@ -96,7 +96,7 @@ function App() {
       <Route path="/admin-panel/search" exact={true} component={ Search } />   
 
       <Route path="/admin-panel/recruiter" exact={true} component={ RecruiterManage } />   
-      <Route path="/admin-panel/recruiter/profile" exact={true} component={ RecruiterProfile } />   
+      <Route path="/admin-panel/recruiter/profile/:id" exact={true} component={ RecruiterProfile } />   
       <Route path="/admin-panel/add-job-category" exact={true} component={ AddJobCategory } />  {/*Done */}
       <Route path="/admin-panel/add-job-type" exact={true} component={ JobType } /> 
       <Route path="/admin-panel/search-category" exact={true} component={ SearchCategory } /> 

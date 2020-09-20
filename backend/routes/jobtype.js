@@ -28,8 +28,8 @@ router.route('/updateJobType/:id').post((req,res)=>{
 });
 router.route('/deleteJobType/:id').delete((req,res)=>{
     JobType.findByIdAndDelete(req.params.id)
-        .then(()=>res.json('Job Type Delted Successfully.'))
-        .catch(err => res.json('Error : '+err));
+        .then(()=>res.json({'code':1,'msg':'Job Type Delted Successfully.'}))
+        .catch(err => res.json({'code':0,'msg':err}));
 });
 
 module.exports = router;

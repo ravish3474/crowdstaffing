@@ -16,14 +16,15 @@ class RecentJobs extends Component {
 
     }
     componentDidMount(){
-        axios.get('/jobs/getLatestJobs')
+        axios.get('/jobs/getLatestJobs_')
         .then(response =>{
-            if(response.data.jobs.length >0){
+            if(response.data.code==1){
                 this.setState({
                     latestjobs:response.data.jobs.map(latest_jobs => latest_jobs)
                 })
-                console.log(this.state.latestjobs);
+                // console.log(this.state.latestjobs);
             }
+
         }).catch(err => {
             console.log("Error: "+err);
         });

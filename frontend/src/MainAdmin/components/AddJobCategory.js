@@ -135,6 +135,7 @@ class AddJobCategory extends Component {
                                             <th>S.No</th>
                                             <th>Category Name</th>
                                             <th>Category Image</th>
+                                            <th>Action</th>
                                         </thead>
                                         <tbody>
                                             {
@@ -143,6 +144,24 @@ class AddJobCategory extends Component {
                                                                 <td>{index+1}</td>
                                                                 <td>{cat.categoryName}</td>
                                                                 <td><img src={require('../../../../backend/categoryPicture/'+cat.categoryImage)} width="50px" height="50px" /></td>
+                                                                <td>
+                                                                    <button className="btn btn-danger" onClick={()=>{
+                                                                        console.log("Deleteing...."+ cat._id);
+                                                                        axios.delete('/category/deleteCategory/'+cat._id)
+                                                                                .then(resp=>{
+                                                                                    if(resp.data.code==1){
+                                                                                    alert("Deleted Successfully..");
+                                                                                    window.location.reload(true);
+                                                                                    }else{
+                                                                                        alert("Failed to Delete");
+                                                                                    }
+                                                                                })
+                                                                                .catch(err=>{
+                                                                                    console.log(err)
+                                                                                })
+                                                                        }}><i className="fa fa-trash"></i>
+                                                                    </button>
+                                                                </td>
                                                             </tr>
                                                 })
                                             }

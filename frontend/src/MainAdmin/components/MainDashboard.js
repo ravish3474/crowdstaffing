@@ -11,7 +11,9 @@ class MainDashboard extends Component {
         super(props);
         
         this.state={
-            jobseeker:0
+            jobseeker:0,
+            company_d:0,
+            companies:[]
         }
         
     }
@@ -26,6 +28,17 @@ class MainDashboard extends Component {
                         }
                     })
                     .catch(err => console.log("Error found: "+err));
+        axios.get('/company/')
+            .then(response =>{
+                if(response.data.result.length >0){
+                    // console.log("Array Count: "+response.data.jobseeker.length);
+                    this.setState({
+                        company_d:response.data.result.length,
+                        companies:response.data.result.map(comp=>comp)
+                    })
+                }
+            })
+            .catch(err => console.log("Error found: "+err));
     }
     render() {
         return <section>
@@ -49,7 +62,7 @@ class MainDashboard extends Component {
                                                 <h3 className="colBlu">{this.state.jobseeker}</h3>
                                             </div>
                                         </div>
-                                        <div className="col-md-3">
+                                        {/* <div className="col-md-3">
                                             <div className="text-center">
                                             <small>Pending</small>
                                                 <h3 className="colBlu">12</h3>
@@ -60,7 +73,7 @@ class MainDashboard extends Component {
                                                 <small>Rejected</small>
                                                 <h3 className="text-danger">12</h3>
                                             </div>
-                                        </div>
+                                        </div> */}
                                         <div className="col-md-2">
                                             <div className="text-center">
                                                 <Link to="/admin-panel/jobseeker" className="btn btn-default border">Manage</Link>
@@ -75,10 +88,10 @@ class MainDashboard extends Component {
                                         <div className="col-md-4">
                                             <div className="text-center">
                                                 <small>Total Recruiter</small>
-                                                <h3 className="colBlu">12</h3>
+                                                <h3 className="colBlu">{this.state.company_d}</h3>
                                             </div>
                                         </div>
-                                        <div className="col-md-3">
+                                        {/* <div className="col-md-3">
                                             <div className="text-center">
                                                 <small>Pending</small>
                                                 <h3 className="colBlu">12</h3>
@@ -89,7 +102,7 @@ class MainDashboard extends Component {
                                                 <small>Rejected</small>
                                                 <h3 className="text-danger">12</h3>
                                             </div>
-                                        </div>
+                                        </div> */}
                                         <div className="col-md-2">
                                             <div className="text-center">
                                                 <Link to="/admin-panel/recruiter" className="btn btn-default border">Manage</Link>
@@ -100,14 +113,28 @@ class MainDashboard extends Component {
                             </div>
 
                             <div className="row mt-3">
-                                <div className="col-md-5">
+
+
+                                
+                                <div className="col-md-12">
+                                
                                     <div className="bg-white bordRad_2 p-3">
-                                        <div className="dsp_p">
-                                            <span><h5>Top Company</h5></span>
-                                            <small><a className="colBlu">See All</a></small>
-                                        </div>
+                                        <label>Company List</label>
+                                        <hr/>
+                                        {
+                                            this.state.companies.map(function(comapany){
+                                                return <div className="dsp_p">
+                                                            <span>{comapany.company_name}</span>
+                                                            <small>
+                                                                <Link to={'/admin-panel/recruiter/profile/'+comapany._id}>See Detial</Link>
+                                                                
+                                                            </small>
+                                                        </div>
+                                            })
+                                        }
+                                        
                                        
-                                        <div className="dsp_p mt-2">
+                                        {/* <div className="dsp_p mt-2">
                                             <small>Microsoft</small>
                                             <small><a className="">233</a></small>
                                         </div>
@@ -118,10 +145,10 @@ class MainDashboard extends Component {
                                         <div className="dsp_p">
                                             <small>Apple</small>
                                             <small><a className="">23</a></small>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
-                                <div className="col-md-5">
+                                {/* <div className="col-md-5">
                                     <div className="bg-white bordRad_2 p-3">
                                         <div className="dsp_p">
                                             <span><h5>Top Consulting  / <span className="colGry">Recruiter</span></h5></span>
@@ -149,7 +176,7 @@ class MainDashboard extends Component {
                                         <h3 className="colBlu mb-0">18,00</h3>
                                         <small className="colBlu">per day</small>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

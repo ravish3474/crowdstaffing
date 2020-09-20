@@ -43,7 +43,7 @@ router.route('/updateCategory/:id').post(upload.single('categoryPhoto'),(req, re
 
 router.route('/deleteCategory/:id').delete((req,res)=>{
     category.findByIdAndDelete(req.params.id)
-        .then(()=>res.json('Category Delted Successfully.'))
-        .catch(err => res.json('Error : '+err));
+        .then(()=>res.json({'code':1,'msg':'Category Delted Successfully.'}))
+        .catch(err => res.json({'code':0,'msg':err}));
 });
 module.exports = router;

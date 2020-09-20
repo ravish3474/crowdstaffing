@@ -12,9 +12,9 @@ class Recent_Job_Component extends Component{
                 <div className="col-md-6">
                     <div className="">
                         {/* {JSON.stringify(this.props)} */}
-                        <span className="colBlu">{this.props.job.job_type}</span>
-                        <h6 className="mb-0">{this.props.job.job_title}</h6>
-                        <span><span className="colGry">Posted {this.props.job.createdAt} by {this.props.job.comapany_id}</span>&nbsp;
+                        <span className="colBlu">Job Type: {this.props.job.job_type.type_name}</span>
+                        <h6 className="mb-0">Job Title: {this.props.job.job_title}</h6>
+                        <span><span className="colGry">Posted {this.props.job.createdAt} <p className="text-danger font-weight-bold">Company Name: {this.props.job.comapany_details.company_name}</p></span>&nbsp;
                         <span className="colBlu"> </span></span>
                         <div className="row mx-0">
                             <div className="col-md-4">
@@ -26,7 +26,7 @@ class Recent_Job_Component extends Component{
                             <div className="col-md-4">
                                 <div className="">
                                     
-                                    <small className="colGry"> <span>${this.props.job.min_sal}000K Per Month</span></small> 
+                                    <small className="colGry"> <span>${this.props.job.min_sal+'K - '+this.props.job.max_sal}K Per Month</span></small> 
                                 </div>
                             </div>
                             

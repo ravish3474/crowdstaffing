@@ -73,4 +73,9 @@ router.route('/companyLoginValidate').post((req,res)=>{
             
         }).catch(err => res.json({'code':0,'company_data':err}))
 })
+router.route('/deleteCompany/:id').delete((req,res)=>{
+    Company.findByIdAndDelete(req.params.id)
+        .then(()=>res.json({'code':1,'msg':'Company Delted Successfully.'}))
+        .catch(err => res.json({'code':0,'msg':err}));
+});
 module.exports = router;
