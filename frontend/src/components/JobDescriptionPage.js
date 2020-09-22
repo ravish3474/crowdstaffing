@@ -32,7 +32,7 @@ class JobDescriptionPage extends Component {
                             job_title:response.data.job_details.job_title,
                             job_desc:response.data.job_details.job_desc,
                             gender:response.data.job_details.gender,
-                            category:response.data.job_details.job_category,
+                            category:response.data.job_details.job_category.category_name,
                             min_exp:response.data.job_details.min_exp,
                             max_exp:response.data.job_details.max_exp,
                             min_sal:response.data.job_details.min_sal,

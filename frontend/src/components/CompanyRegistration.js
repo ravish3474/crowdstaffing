@@ -92,7 +92,7 @@ class ComapnyRegistration extends Component {
                                             
                                             </div>
                                             <div className="form-group">
-                                                <input type="text" className="form-control" value={this.state.email} onChange={this.onChangeEmail} name="" placeholder="Email Address" required/>
+                                                <input type="email" className="form-control" value={this.state.email} onChange={this.onChangeEmail} name="" placeholder="Email Address" required/>
                                             </div>
                                             <div className="form-group">
                                                 <input type="text" className="form-control" name="" value={this.state.phone} onChange={this.onChangePhone} placeholder="Phone Number" required/>
