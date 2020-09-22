@@ -23,16 +23,16 @@ class JobsLists extends Component {
             axios.get('/jobs/getJobByCategory/'+this.props.match.params.id)
                     .then(response =>{
                         console.log(response)
-                        // if(response.data.code == 1){
-                        //     // console.log(response.data);
-                        //     this.setState({
-                        //         jobs: response.data.job_details.map(jobs =>jobs),
-                        //         totalJobs:response.data.job_details.length
-                        //     })
+                        if(response.data.code == 1){
+                            // console.log(response.data);
+                            this.setState({
+                                jobs: response.data.job_details.map(jobs =>jobs),
+                                totalJobs:response.data.job_details.length
+                            })
                         
-                        // }else{
+                        }else{
 
-                        // }
+                        }
                     })
     }
    }
@@ -92,7 +92,7 @@ class JobsLists extends Component {
             <div className="row">
                 <div className="col-md-3">
                     <div className="border-right">
-                        <div className="">
+                        {/* <div className="">
                             <div className=" pb-2">
                                 <h6>Date Posted</h6>
                             </div>
@@ -129,7 +129,7 @@ class JobsLists extends Component {
                                 </li>
                             </ul>
                         </div>
-                        <hr/>
+                        <hr/> */}
                         <div className="">
                             <div className="pb-2">
                                 <h6>Specialism</h6>
@@ -208,7 +208,7 @@ class JobsLists extends Component {
                             </ul>
                         </div>
                         <hr/>
-                        <div className="">
+                        {/* <div className="">
                             <div className="pb-2">
                                 <h6>Experience</h6>
                             </div>
@@ -245,7 +245,7 @@ class JobsLists extends Component {
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </div> */}
                         <hr/>
                         <div className="">
                             <div className="pb-2">
@@ -316,7 +316,7 @@ class JobsLists extends Component {
                             </ul>
                         </div>
                         <hr/>
-                        <div className="">
+                        {/* <div className="">
                             <div className="pb-2">
                                 <h6>Qualification</h6>
                             </div>
@@ -353,7 +353,7 @@ class JobsLists extends Component {
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="col-md-9">
@@ -366,9 +366,9 @@ class JobsLists extends Component {
                         </div>
 
                         <div className="dsp_P py-4">
-                            <div className="">
+                            {/* <div className="">
                                 <button className="btn py-2 px-3 btnDAa"><i class="fas fa-envelope"></i> <span className="ml-2">Get job alert </span></button>
-                            </div>
+                            </div> */}
                             <div className="d-flex">
                                 <div className="mt-1"><span>Sort by:</span></div>
                                 <div className="">
@@ -395,10 +395,10 @@ class JobsLists extends Component {
                                                 <div className="col-md-8">
                                                     <div className="">
                                                         <h5 className="mb-0">{jobs.job_title}</h5>
-                                                        <small className="colGry">via <span className="colBlu">Fast Systems Consultans</span></small>
+                                                        <small className="colGry">via <span className="colBlu">{jobs.comapany_details.company_name}</span></small>
                                                         <small className="colGry"  className="ml-1"><span><i class="fas fa-map-marker-alt"></i></span><span className="ml-1">{jobs.add_state+', '+jobs.add_city+', '+jobs.add_country}</span></small>
                                                         <br/>
-                                                        <small className="colGry">{jobs.job_category}</small><small className="ml-2 colBlu"><span><i class="fas fa-briefcase"></i></span><span  className="ml-1">{jobs.job_type}</span></small>
+                                                        <small className="colGry">{jobs.job_category.category_name}</small><small className="ml-2 colBlu"><span><i class="fas fa-briefcase"></i></span><span  className="ml-1">{jobs.job_type.type_name}</span></small>
                                                     </div>
                                                 </div>
                                                 <div className="col-md-2">

@@ -3,6 +3,7 @@ const Jobs= require('../models/jobs.model');
 const Company = require('../models/company.model');
 const JobType = require('../models/jobType.model');
 const category = require('../models/category.model');
+var mongoose = require('mongoose'); 
 router.route('/getAllJobs').get((req,res)=>{
     Jobs.find()
                 .then(jobs =>res.json({'code':1,'data':jobs,'error':'No error found.'}))
@@ -117,7 +118,8 @@ router.route('/getJobDetails/:id').get((req,res)=>{
                 .catch(err=>res.json({"code":0,"msg":"No Data Found", "error":err}));
 });
 router.route('/getJobByCategory/:id').get((req,res)=>{
-    Jobs.find({"job_category._id":ObjectId(req.params.id)})
+    var id = mongoose.Types.ObjectId(req.params.id);
+    Jobs.find({"job_category._id":id})
                 .then(response=>res.json({"code":1,"job_details":response}))
                 .catch(err=>res.json({"code":0,"msg":"No Data Found", "error":err}));
 });
