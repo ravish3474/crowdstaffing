@@ -14,8 +14,10 @@ class JobsLists extends Component {
             jobs:[],
             category:[],
             job_type:[],
-            totalJobs:0
+            totalJobs:0,
+            jobMsg:''
         }
+        // this.getMsg = this.getMsg.bind(this);
         // t/his.getLatesJobs= this.getLatesJobs.bind(this);
        
    }
@@ -27,13 +29,23 @@ class JobsLists extends Component {
                         console.log(response)
                         if(response.data.code == 1){
                             // console.log(response.data);
-                            this.setState({
-                                jobs: response.data.job_details.map(jobs =>jobs),
-                                totalJobs:response.data.job_details.length
-                            })
+                            if(response.data.job_details.length==0){
+                                this.setState({
+                                    jobMsg:'No Job Found',
+                                    totalJobs:0
+                                })
+                            }else{
+                                this.setState({
+                                    jobs: response.data.job_details.map(jobs =>jobs),
+                                    totalJobs:response.data.job_details.length
+                                })
+                            }
+                            
                         
                         }else{
-
+                            this.setState({
+                                jobMsg:'No Job Found'
+                            })
                         }
                     })
             axios.get('/jobType/')
@@ -66,9 +78,7 @@ class JobsLists extends Component {
                 })
     }
    }
-//    getJobsById(id){
-    
-//    }
+   
   
 
 
@@ -232,6 +242,11 @@ class JobsLists extends Component {
                             </div>
                         </div>
                         <div className="">
+                            {
+                                
+                               this.state.jobMsg
+                            }
+                           
                             {
                                 this.state.jobs.map(function(jobs){
                                     return <div>
