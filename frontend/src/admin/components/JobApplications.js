@@ -55,7 +55,7 @@ class JobApplications extends Component {
                                                 </div>
                                                 <div className="col-md-7">
                                                     <div className="mt-2 OOuN">
-                                                        <Link to=''><h6 className="mb-0">{details.job_seeker_details.full_name}</h6></Link>
+                                                        <Link to={'/company-panel/view-profile/'+details.job_seeker_details._id}><h6 className="mb-0">{details.job_seeker_details.full_name}</h6></Link>
                                                         <small className=""><span>{details.job_post_details.job_title}</span></small> <br/>
                                                         {/* <small ><span>Salary:</span>  <span className="colGry">$1200</span></small> */}
             

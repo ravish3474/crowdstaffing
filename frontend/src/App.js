@@ -51,6 +51,7 @@ import JobSeekerCompany from './admin/components/JobSeekerCompany';
 import JobApplicationList from './admin/components/JobApplicationList';
 import UpdateSkillsComapny from './admin/components/UpdateSkillsComapny';
 import JobDescriptionPage from './components/JobDescriptionPage';
+import UserProfile from './admin/components/UserProfile';
 import JobApplicationCandidateDetails from './admin/components/JobApplicationCandidateDetails';
 import CompanyInbox from './admin/components/CompanyInbox';
 import ShortlistedCandidateDetails from './admin/components/ShortlistedCandidateDetails';
@@ -108,7 +109,7 @@ function App() {
       <Route path="/company-panel/company-profile" exact={true} component={ CompanyProfile } />   
       <Route path="/company-panel/post-new-job" exact={true} component={ PostNewJob } />   {/*Done */}
       <Route path="/company-panel/manage-jobs" exact={true} component={ ManageJobs } />   
-      <Route path="/company-panel/view-profile/:id" exact={true} component={ ShortlistedResumes } />   
+      <Route path="/company-panel/view-profile/:id" exact={true} component={ UserProfile } />   
       <Route path="/company-panel/change-password" component={ ChangePassword } />   
       <Route path="/company-panel/job-applications/:id" component={ JobApplications } />
       <Route path="/company-panel/job-interviews" component={ JobInteviews } />
