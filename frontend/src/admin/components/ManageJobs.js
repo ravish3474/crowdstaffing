@@ -117,7 +117,7 @@ class ManageJobs extends Component {
                         <thead>
                             <tr>
                                 <th>Job Title</th>
-                                {/* <th>Applications</th> */}
+                                <th>Applications</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -136,9 +136,9 @@ class ManageJobs extends Component {
                                                 </small>
                                             </div>
                                         </td>
-                                        {/* <td>
-                                            <small><span className="fnt500">17</span> Applications</small>
-                                        </td> */}
+                                        <td>
+                                        <Link to={'/company-panel/job-applications/'+job._id} className="btn btn-info py-2 px-3">View Application</Link>
+                                        </td>
                                         <td>
                                             <small className="text-success">Active</small>
                                         </td>

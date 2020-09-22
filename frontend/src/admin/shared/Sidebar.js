@@ -76,12 +76,12 @@ class Sidebar extends Component {
                                 Shortlisted Resumes
                             </Link>
                         </li> */}
-                        <li>
+                        {/* <li>
                             <Link to='/company-panel/job-applications-list'>
                                 <i class="fas fa-paper-plane"></i>
                                Job Applications
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to='/company-panel/job-interviews'>
                                 <i class="fas fa-paper-plane"></i>
@@ -100,12 +100,12 @@ class Sidebar extends Component {
                                 Skills 
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to=''>
                                 <i class="fas fa-unlock"></i>
                                 Change Password
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to=''>
                                 <i class="fas fa-sign-out-alt"></i>

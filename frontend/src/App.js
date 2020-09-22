@@ -108,9 +108,9 @@ function App() {
       <Route path="/company-panel/company-profile" exact={true} component={ CompanyProfile } />   
       <Route path="/company-panel/post-new-job" exact={true} component={ PostNewJob } />   {/*Done */}
       <Route path="/company-panel/manage-jobs" exact={true} component={ ManageJobs } />   
-      <Route path="/company-panel/shortlisted-resume" exact={true} component={ ShortlistedResumes } />   
+      <Route path="/company-panel/view-profile/:id" exact={true} component={ ShortlistedResumes } />   
       <Route path="/company-panel/change-password" component={ ChangePassword } />   
-      <Route path="/company-panel/job-applications" component={ JobApplications } />
+      <Route path="/company-panel/job-applications/:id" component={ JobApplications } />
       <Route path="/company-panel/job-interviews" component={ JobInteviews } />
       <Route path="/company-panel/job-seeker" component={ JobSeekerCompany } />
       <Route path="/company-panel/job-applications-list" component={ JobApplicationList } />

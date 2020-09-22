@@ -17,6 +17,11 @@ class JobDescriptionPage extends Component {
             job_desc:'',
             gender:'',
             category:'',
+            companyName:'',
+            website:'',
+            phone:'',   
+            mail:'',
+            state_:'',
             min_exp:0,
             max_exp:0,
             min_sal:0,
@@ -32,7 +37,11 @@ class JobDescriptionPage extends Component {
                             job_title:response.data.job_details.job_title,
                             job_desc:response.data.job_details.job_desc,
                             gender:response.data.job_details.gender,
-                            category:response.data.job_details.job_category.category_name,
+                            category:response.data.job_details.job_category.categoryName,
+                            companyName:response.data.job_details.comapany_details.company_name,
+                            mail:response.data.job_details.comapany_details.comp_email,
+                            phone:response.data.job_details.comapany_details.comp_phone,
+                            state_:response.data.job_details.add_state,
                             min_exp:response.data.job_details.min_exp,
                             max_exp:response.data.job_details.max_exp,
                             min_sal:response.data.job_details.min_sal,
@@ -68,7 +77,7 @@ class JobDescriptionPage extends Component {
                                                 <div className="col-md-8">
                                                     <div className="mt-2 OOuN">
                                                         <h5 className="mb-0">{this.state.job_title}</h5>
-                                                        <small className=""><span className="colGry">@ Company A</span></small>  <small className="colGry ml-2"><i class="fas fa-map-marker-alt"></i> Address</small><br/>
+                                                        <small className=""><span className="colGry">@ {this.state.companyName}</span></small>  <small className="colGry ml-2"><i class="fas fa-map-marker-alt"></i> {this.state.state_}</small><br/>
                                                     
 
                                                     </div>
@@ -170,26 +179,26 @@ class JobDescriptionPage extends Component {
                                 </div>  
                                 <div className="col-md-3">
                                     <div className="mt-5">
-                                        <div className="">
+                                        {/* <div className="">
                                             <span className="colGry fnt600">
                                                 <span><i class="fas fa-share-alt"></i> <span className="ml-2">Share</span></span>
                                                 <span className="ml-3"><i class="fas fa-print"></i> <span className="ml-2">Print</span></span>    
                                             </span>
-                                        </div>
+                                        </div> */}
                                         <div className="border p-3">
-                                            <div className="">
+                                            {/* <div className="">
                                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27613.165584465805!2d77.27838962398029!3d30.104331816350182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390efa1ad76bd58d%3A0x3113ec5881b4734!2sSector%203%2C%20Raipur%2C%20Haryana%20135001!5e0!3m2!1sen!2sin!4v1597301298133!5m2!1sen!2sin" width="100%" height="300" frameborder="0"  allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                                            </div>
+                                            </div> */}
                                             <div className="">
                                                 <ul className="list-unstyled mb-0 mt-3">
                                                     <li>
-                                                        <small className="colGry fnt600"><i class="fas fa-link"></i> <span className="ml-2">Website</span></small>
+                                                        {/* <small className="colGry fnt600"><i class="fas fa-link"></i> <span className="ml-2">Website</span></small> */}
                                                     </li>
                                                     <li>
-                                                        <small className="colGry fnt600"><i class="fas fa-phone-alt"></i> <span className="ml-2">Phone</span></small>
+                                                        <small className="colGry fnt600"><i class="fas fa-phone-alt"></i> <span className="ml-2">{this.state.phone}</span></small>
                                                     </li>
                                                     <li>
-                                                        <small className="colGry fnt600"><i class="fas fa-envelope"></i> <span className="ml-2">Mail</span></small>
+                                                        <small className="colGry fnt600"><i class="fas fa-envelope"></i> <span className="ml-2">{this.state.mail}</span></small>
                                                     </li>
                                                 </ul>
                                             </div>
