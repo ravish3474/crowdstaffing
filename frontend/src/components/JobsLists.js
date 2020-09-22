@@ -12,6 +12,8 @@ class JobsLists extends Component {
        super(props);
         this.state={
             jobs:[],
+            category:[],
+            job_type:[],
             totalJobs:0
         }
         // t/his.getLatesJobs= this.getLatesJobs.bind(this);
@@ -34,6 +36,34 @@ class JobsLists extends Component {
 
                         }
                     })
+            axios.get('/jobType/')
+                .then(response =>{
+                    // console.log(response)
+                    if(response.data.length >0){
+                        // console.log(response.data);
+                        this.setState({
+                            job_type: response.data.map(jobs =>jobs),
+                            
+                        })
+                    
+                    }else{
+
+                    }
+                })
+            axios.get('/category/')
+                .then(response =>{
+                    // console.log(response)
+                    if(response.data.code ==1){
+                        // console.log(response.data);
+                        this.setState({
+                            category: response.data.data.map(cate =>cate),
+                            
+                        })
+                    
+                    }else{
+
+                    }
+                })
     }
    }
 //    getJobsById(id){
@@ -90,82 +120,31 @@ class JobsLists extends Component {
 
         <section className="container py-5">
             <div className="row">
-                <div className="col-md-3">
+                {/* <div className="col-md-">
                     <div className="border-right">
-                        {/* <div className="">
-                            <div className=" pb-2">
-                                <h6>Date Posted</h6>
-                            </div>
-                            <ul className="list-unstyled fnt14">
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className=" colGry">Last hour</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className="colGry">Last 24 hour</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className=" colGry">Last 7 days</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <hr/> */}
+                       
                         <div className="">
                             <div className="pb-2">
                                 <h6>Specialism</h6>
                             </div>
                           
                             <ul className="list-unstyled fnt14">
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className=" colGry">IT Contractor</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2 ">
-                                            <span className="colGry">Charity & Voluntary</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className="colGry">Digital & Creative</span>
-                                        </div>
-                                    </div>
-                                </li>
+                                {
+                                    this.state.category.map(function(category){
+                                        return <li>
+                                                    <div className="d-flex">
+                                                        <div className="">
+                                                            <input type="checkbox" className="" name="" />
+                                                        </div>
+                                                        <div className="ml-2">
+                                                            <span className=" colGry">{category.categoryName}</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                    })
+                                }
+                                
+                                
                             </ul>
                         </div>
                         <hr/>
@@ -175,117 +154,26 @@ class JobsLists extends Component {
                             </div>
                            
                             <ul className="list-unstyled fnt14">
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className="colGry">Full Time</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className=" colGry">Part Time</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className=" colGry">Freelance</span>
-                                        </div>
-                                    </div>
-                                </li>
+                                {
+                                    this.state.job_type.map(function(type){
+                                        return  <li>
+                                                    <div className="d-flex">
+                                                        <div className="">
+                                                            <input type="checkbox" className="" name="" />
+                                                        </div>
+                                                        <div className="ml-2">
+                                                            <span className="colGry">{type.type_name}</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                    })
+                                }
+                                
+                               
                             </ul>
                         </div>
                         <hr/>
-                        {/* <div className="">
-                            <div className="pb-2">
-                                <h6>Experience</h6>
-                            </div>
-                           
-                            <ul className="list-unstyled fnt14">
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className="colGry">Fresher</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className=" colGry">Less than 1 year</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className=" colGry">2 Years</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div> */}
-                        <hr/>
-                        <div className="">
-                            <div className="pb-2">
-                                <h6>Offered Salary</h6>
-                            </div>
-                           
-                            <ul className="list-unstyled fnt14">
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className="colGry">10k-20k</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className=" colGry">20k-30k</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className=" colGry">30k-40k</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <hr/>
+                        
                         <div className="">
                             <div className="pb-2">
                                 <h6>Gender</h6>
@@ -316,47 +204,10 @@ class JobsLists extends Component {
                             </ul>
                         </div>
                         <hr/>
-                        {/* <div className="">
-                            <div className="pb-2">
-                                <h6>Qualification</h6>
-                            </div>
-                           
-                            <ul className="list-unstyled fnt14">
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className="colGry">Matriculation</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className=" colGry">Intermediate</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="d-flex">
-                                        <div className="">
-                                            <input type="checkbox" className="" name="" />
-                                        </div>
-                                        <div className="ml-2">
-                                            <span className=" colGry">Graduate</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div> */}
+                        
                     </div>
-                </div>
-                <div className="col-md-9">
+                </div> */}
+                <div className="col-md-12">
                     <div className="">
                         
                         <div className="">
