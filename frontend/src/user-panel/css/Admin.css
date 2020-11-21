@@ -351,11 +351,7 @@ a.article:hover {
     text-decoration: none;
     background-color: #dededf;
 }
-.nav-link {
-    font-size: 22px !important;
-    font-weight: 500;
-    padding: 0px 8px !important;
-}
+
 .bLicn{
     position: absolute;
     top: 27px;

@@ -12,7 +12,7 @@ class Header extends Component {
                 </button>
       
         <div className="collapse navbar-collapse bg_white" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto pl-3">
+          <ul className="navbar-nav mr-auto pl-3 mAinNav">
             <li className="nav-item ">
               <Link to="/home" className="nav-link active" href="#">Home </Link>
             </li>

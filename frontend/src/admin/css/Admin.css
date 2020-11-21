@@ -168,15 +168,15 @@ a[data-toggle="collapse"] {
     display: block;
     position: absolute;
     top: 50%;
-    right: 20px;
+    right: -5px !important;
     transform: translateY(-50%);
 }
 
-ul ul a {
+/* ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
     background: #6d7fcc;
-}
+} */
 
 ul.CTAs {
     padding: 20px;
@@ -347,11 +347,11 @@ a.article:hover {
     text-decoration: none;
     background-color: #dededf;
 }
-.nav-link {
+/* .nav-link {
     font-size: 22px !important;
     font-weight: 500;
     padding: 0px 8px !important;
-}
+} */
 .bLicn{
     position: absolute;
     top: 27px;

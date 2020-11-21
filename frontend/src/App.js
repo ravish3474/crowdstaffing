@@ -63,6 +63,13 @@ import JobsList_ from './components/JobsLists';
 import Features from './components/Features';
 import Blogs from './components/Blogs';
 import CompJobDesc from './admin/components/JobDescriptionPage';
+import CompanyDashboard from './admin/components/CompanyDashboard';
+import CompanyJobDetails from './admin/components/CompanyJobDetails';
+import CompanyManageEmail from './admin/components/CompanyManageEmail';
+import CompanyManageJobs from './admin/components/CompanyManageJobs';
+import EmailTemplate from './admin/components/EmailTemplate';
+import CompanyPostJobs from './admin/components/CompanyPostJobs';
+import CompanyPostWalkinJobs from './admin/components/CompanyPostWalkinJobs';
 
 function App() {
     return (
@@ -105,10 +112,12 @@ function App() {
 
       {/* Admin Pannel */}
 
-      <Route path="/company-panel" exact={true} component={ Dashboard } />   
+      {/* <Route path="/company-panel" exact={true} component={ Dashboard } />    */}
+      <Route path="/company-panel" exact={true} component={ CompanyDashboard } />
       <Route path="/company-panel/company-profile" exact={true} component={ CompanyProfile } />   
-      <Route path="/company-panel/post-new-job" exact={true} component={ PostNewJob } />   {/*Done */}
-      <Route path="/company-panel/manage-jobs" exact={true} component={ ManageJobs } />   
+      {/* <Route path="/company-panel/post-new-job" exact={true} component={ PostNewJob } />  */}
+        {/*Done */}
+      {/* <Route path="/company-panel/manage-jobs" exact={true} component={ ManageJobs } />    */}
       <Route path="/company-panel/view-profile/:id" exact={true} component={ UserProfile } />   
       <Route path="/company-panel/change-password" component={ ChangePassword } />   
       <Route path="/company-panel/job-applications/:id" component={ JobApplications } />
@@ -116,10 +125,20 @@ function App() {
       <Route path="/company-panel/job-seeker" component={ JobSeekerCompany } />
       <Route path="/company-panel/job-applications-list" component={ JobApplicationList } />
       <Route path="/company-panel/skills-list" component={ UpdateSkillsComapny } />
-      <Route path="/company-panel/job-description/:id" component={ CompJobDesc } />
+      {/* <Route path="/company-panel/job-description/:id" component={ CompJobDesc } /> */}
       <Route path="/company-panel/job-application/candidate-details" component={ JobApplicationCandidateDetails } />
       <Route path="/company-panel/comp-inbox" component={ CompanyInbox } />
       <Route path="/company-panel/shortlisted-resume/candidate-details" component={ ShortlistedCandidateDetails } />
+      <Route path="/company-panel/job-description" component={ CompanyJobDetails } />
+      <Route path="/company-panel/manage-email" component={ CompanyManageEmail } />
+      <Route path="/company-panel/manage-jobs" component={ CompanyManageJobs } />
+      <Route path="/company-panel/email-template" component={ EmailTemplate } />
+      <Route path="/company-panel/post-new-job" component={ CompanyPostJobs } />
+      <Route path="/company-panel/post-walkin-job" component={ CompanyPostWalkinJobs } />
+
+
+
+
        {/* User Pannel */}
 
       <Route path="/user-panel" exact={true} component={ UserDashboard } />   

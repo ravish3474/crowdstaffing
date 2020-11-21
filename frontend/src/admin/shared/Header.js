@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import {Link, Redirect} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom';
 import '../css/Admin.css';
+import '../css/newstyle.css';
 class Header extends Component {
     constructor(props){
         super(props);
